@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupTab" customModule="ShopListKit" customModuleProvider="target">
+            <connections>
+                <outlet property="button1" destination="i1r-70-CDL" id="U5Y-ao-UAl"/>
+                <outlet property="button2" destination="J1x-bM-MCm" id="LYP-uw-CHU"/>
+                <outlet property="button3" destination="dpi-ME-7tM" id="9cc-J2-Ywo"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="L4g-J1-vad"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="862" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-lg-YIz">
+                    <rect key="frame" x="0.0" y="0.0" width="862" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1r-70-CDL">
+                            <rect key="frame" x="0.0" y="0.0" width="280.66666666666669" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button">
+                                <backgroundConfiguration key="background"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1x-bM-MCm">
+                            <rect key="frame" x="290.66666666666663" y="0.0" width="280.66666666666663" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-ME-7tM">
+                            <rect key="frame" x="581.33333333333337" y="0.0" width="280.66666666666663" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="gSF-lg-YIz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3w8-43-yM2"/>
+                <constraint firstItem="gSF-lg-YIz" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="B1D-lb-jub"/>
+                <constraint firstItem="gSF-lg-YIz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sDR-Gq-WQd"/>
+                <constraint firstItem="gSF-lg-YIz" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="u9E-zN-IeC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="390.83969465648852" y="-177.11267605633805"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
