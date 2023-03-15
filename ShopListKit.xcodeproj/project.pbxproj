@@ -10,8 +10,26 @@
 		5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */; };
 		5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */; };
 		5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */; };
-		5D39BDAD29BA4E0200BC4C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D39BDAC29BA4E0200BC4C19 /* Assets.xcassets */; };
+		5D7D25E229C0D7080013D3D5 /* AttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */; };
+		5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F702529BF6BAF00CCD609 /* CountStepper.swift */; };
+		5D7F702829BF6BBA00CCD609 /* CountStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F702729BF6BBA00CCD609 /* CountStepper.xib */; };
+		5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */; };
+		5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */; };
+		5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953D29BD20AF00D2B683 /* BasketItem.swift */; };
+		5D84954029BD20FD00D2B683 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953F29BD20FD00D2B683 /* Item.swift */; };
+		5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */; };
+		5D8F2DA029BE1E030008AC15 /* BasketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F2D9E29BE1E030008AC15 /* BasketCell.xib */; };
+		5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */; };
+		5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */; };
+		5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */; };
+		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
+		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
 		5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19EE29C203730046919F /* Launch Screen.storyboard */; };
+		5D9F19F129C20FC00046919F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F029C20FC00046919F /* Main.storyboard */; };
+		5D9F19F329C210D90046919F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F229C210D90046919F /* Assets.xcassets */; };
+		5DB1E9C729BB7E7A00585348 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C629BB7E7A00585348 /* Color.swift */; };
+		5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTab.swift */; };
+		5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTab.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,9 +37,27 @@
 		5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
-		5D39BDAC29BA4E0200BC4C19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D39BDB129BA4E0200BC4C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStrings.swift; sourceTree = "<group>"; };
+		5D7F702529BF6BAF00CCD609 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
+		5D7F702729BF6BBA00CCD609 /* CountStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountStepper.xib; sourceTree = "<group>"; };
+		5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.Configuration.swift; sourceTree = "<group>"; };
+		5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListViewController.swift; sourceTree = "<group>"; };
+		5D84953D29BD20AF00D2B683 /* BasketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItem.swift; sourceTree = "<group>"; };
+		5D84953F29BD20FD00D2B683 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
+		5D8F2D9E29BE1E030008AC15 /* BasketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketCell.xib; sourceTree = "<group>"; };
+		5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddRect.swift; sourceTree = "<group>"; };
+		5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddRect.xib; sourceTree = "<group>"; };
+		5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddViewController.swift; sourceTree = "<group>"; };
+		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
+		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
 		5D9F19EE29C203730046919F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5D9F19F029C20FC00046919F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D9F19F229C210D90046919F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DB1E9C629BB7E7A00585348 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5DB1E9C829BB8F1E00585348 /* GroupTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTab.swift; sourceTree = "<group>"; };
+		5DB1E9CC29BB91B400585348 /* GroupTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTab.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +74,8 @@
 		5D39BD9729BA4DFF00BC4C19 = {
 			isa = PBXGroup;
 			children = (
-				5D39BDA229BA4DFF00BC4C19 /* ShopListKit */,
 				5D39BDA129BA4DFF00BC4C19 /* Products */,
+				5D39BDA229BA4DFF00BC4C19 /* ShopListKit */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,28 +92,126 @@
 			children = (
 				5D39BDB129BA4E0200BC4C19 /* Info.plist */,
 				5D9F19EE29C203730046919F /* Launch Screen.storyboard */,
+				5D9F19F029C20FC00046919F /* Main.storyboard */,
 				5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */,
 				5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */,
+				5D84953A29BD1D4800D2B683 /* Basket List */,
+				5DB1E9C529BB7E6C00585348 /* Extension */,
+				5D8F2DA129BE56290008AC15 /* Food Add */,
+				5D39BDB729BA534600BC4C19 /* Food List */,
+				5D84953729BD1A0800D2B683 /* Helpers */,
 				5D9F19EB29C1FE040046919F /* Supporting Files */,
-				5D39BDB729BA534600BC4C19 /* ViewControllers */,
 			);
 			path = ShopListKit;
 			sourceTree = "<group>";
 		};
-		5D39BDB729BA534600BC4C19 /* ViewControllers */ = {
+		5D39BDB729BA534600BC4C19 /* Food List */ = {
+			isa = PBXGroup;
+			children = (
+				5D7D25E429C0DC510013D3D5 /* Feature */,
+				5D94445929BB4DA400FBB319 /* Presentation */,
+			);
+			path = "Food List";
+			sourceTree = "<group>";
+		};
+		5D7D25E329C0DBC50013D3D5 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F702529BF6BAF00CCD609 /* CountStepper.swift */,
+				5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */,
+				5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		5D7D25E429C0DC510013D3D5 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
 				5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */,
+				5DB1E9C829BB8F1E00585348 /* GroupTab.swift */,
+				5D84953F29BD20FD00D2B683 /* Item.swift */,
+				5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */,
 			);
-			path = ViewControllers;
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		5D84953729BD1A0800D2B683 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */,
+				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5D84953A29BD1D4800D2B683 /* Basket List */ = {
+			isa = PBXGroup;
+			children = (
+				5D9D543029C0AC7800B4B2BD /* Feature */,
+				5D8F2D9C29BDE0120008AC15 /* Presentation */,
+			);
+			path = "Basket List";
+			sourceTree = "<group>";
+		};
+		5D8F2D9C29BDE0120008AC15 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5D8F2D9E29BE1E030008AC15 /* BasketCell.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5D8F2DA129BE56290008AC15 /* Food Add */ = {
+			isa = PBXGroup;
+			children = (
+				5D7D25E329C0DBC50013D3D5 /* Feature */,
+				5D8F2DA229BE565A0008AC15 /* Presentation */,
+			);
+			path = "Food Add";
+			sourceTree = "<group>";
+		};
+		5D8F2DA229BE565A0008AC15 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F702729BF6BBA00CCD609 /* CountStepper.xib */,
+				5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5D94445929BB4DA400FBB319 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1E9CC29BB91B400585348 /* GroupTab.xib */,
+				5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5D9D543029C0AC7800B4B2BD /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */,
+				5D84953D29BD20AF00D2B683 /* BasketItem.swift */,
+				5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 		5D9F19EB29C1FE040046919F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D39BDAC29BA4E0200BC4C19 /* Assets.xcassets */,
+				5D9F19F229C210D90046919F /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DB1E9C529BB7E6C00585348 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1E9C629BB7E7A00585348 /* Color.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */,
-				5D39BDAD29BA4E0200BC4C19 /* Assets.xcassets in Resources */,
+				5D7F702829BF6BBA00CCD609 /* CountStepper.xib in Resources */,
+				5D8F2DA029BE1E030008AC15 /* BasketCell.xib in Resources */,
+				5D9F19F129C20FC00046919F /* Main.storyboard in Resources */,
+				5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */,
+				5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */,
+				5D9F19F329C210D90046919F /* Assets.xcassets in Resources */,
+				5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,9 +291,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D84954029BD20FD00D2B683 /* Item.swift in Sources */,
+				5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */,
 				5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */,
+				5DB1E9C729BB7E7A00585348 /* Color.swift in Sources */,
+				5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */,
+				5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */,
+				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
+				5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */,
+				5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */,
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
+				5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */,
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
+				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
+				5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */,
+				5D7D25E229C0D7080013D3D5 /* AttributedStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
