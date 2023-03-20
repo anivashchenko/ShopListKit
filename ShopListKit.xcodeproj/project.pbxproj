@@ -22,6 +22,7 @@
 		5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */; };
 		5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */; };
 		5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */; };
+		5D92F45229C8A1A200BC218A /* UIImage+basketBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F45129C8A1A200BC218A /* UIImage+basketBezierPath.swift */; };
 		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
 		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
 		5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19EE29C203730046919F /* Launch Screen.storyboard */; };
@@ -50,6 +51,7 @@
 		5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddRect.swift; sourceTree = "<group>"; };
 		5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodAddRect.xib; sourceTree = "<group>"; };
 		5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAddViewController.swift; sourceTree = "<group>"; };
+		5D92F45129C8A1A200BC218A /* UIImage+basketBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+basketBezierPath.swift"; sourceTree = "<group>"; };
 		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
 		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
 		5D9F19EE29C203730046919F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7D25E329C0DBC50013D3D5 /* Feature */,
+				5D92F45029C8A17A00BC218A /* Helpers */,
 				5D8F2DA229BE565A0008AC15 /* Presentation */,
 			);
 			path = "Food Add";
@@ -177,6 +180,14 @@
 				5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5D92F45029C8A17A00BC218A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D92F45129C8A1A200BC218A /* UIImage+basketBezierPath.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5D94445929BB4DA400FBB319 /* Presentation */ = {
@@ -302,6 +313,7 @@
 				5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */,
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
 				5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */,
+				5D92F45229C8A1A200BC218A /* UIImage+basketBezierPath.swift in Sources */,
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
 				5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */,

@@ -34,7 +34,17 @@ class FoodAddRect: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         titleView.layer.cornerRadius = 10
+        
         addButton.layer.cornerRadius = 10
+        let width = addButton.bounds.width
+        addButton.setImage(
+            .imageFromBezierPath(
+                .basketBezierPath(width: width),
+                size: .init(width: width, height: width),
+                color: UIColor.white.cgColor
+            ), for: .normal
+        )
+        
         layer.cornerRadius = 15
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
     }
