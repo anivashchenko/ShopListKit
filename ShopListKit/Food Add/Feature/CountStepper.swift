@@ -10,8 +10,8 @@ class CountStepper: UIView {
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
 
-    static let reuseIdentifier = "CountStepper"
-    var countInt = 0
+    private static let reuseIdentifier = "CountStepper"
+    private var countInt = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ class CountStepper: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         guard let view = Bundle.main.loadNibNamed(CountStepper.reuseIdentifier, owner: self, options: nil)?.first as? UIView else {
             fatalError("Couldn't load CountStepper")
         }

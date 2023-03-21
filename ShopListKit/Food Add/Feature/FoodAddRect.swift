@@ -12,7 +12,7 @@ class FoodAddRect: UIView {
     @IBOutlet var stepper: UIView!
     @IBOutlet var addButton: UIButton!
 
-    static let reuseIdentifier = "FoodAddRect"
+    private static let reuseIdentifier = "FoodAddRect"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +24,7 @@ class FoodAddRect: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         guard let view = Bundle.main.loadNibNamed(FoodAddRect.reuseIdentifier, owner: self, options: nil)?.first as? UIView else {
             fatalError("Couldn't load FoodAddRect")
         }
