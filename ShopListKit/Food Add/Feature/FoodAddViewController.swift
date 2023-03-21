@@ -21,14 +21,6 @@ class FoodAddViewController: UIViewController {
         }
         
         backgroundImage.image = UIImage(named: item.name)
-        blurBackGroundImage()
-    }
-    
-    private func blurBackGroundImage() {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundImage.addSubview(blurEffectView)
+        blurBackgroundImage(for: backgroundImage)
     }
 }
