@@ -38,7 +38,24 @@ class CountStepper: UIView {
         minusButton.setAttributedTitle(customAttributedTitle("-", size: 35, color: .white), for: .normal)
     }
     
-    @IBAction func didPressMinus(_ sender: UIButton) {}
+    @IBAction func didPressMinus(_ sender: UIButton) {
+        incrementor(number: -1)
+    }
     
-    @IBAction func didPressPlus(_ sender: UIButton) {}
+    @IBAction func didPressPlus(_ sender: UIButton) {
+        incrementor(number: 1)
+    }
+    
+    private func incrementor(number: Int) {
+        if onEnabled() || number > 0 {
+            countInt = Int(count.text!)! + number
+            count.text = "\(countInt)"
+        }
+    }
+    
+    private func onEnabled() -> Bool {
+        let isEnabled = !(countInt == 0)
+        minusButton.isEnabled = isEnabled
+        return isEnabled
+    }
 }
