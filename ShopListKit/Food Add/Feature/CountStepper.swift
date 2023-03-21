@@ -24,13 +24,7 @@ class CountStepper: UIView {
     }
     
     private func commonInit() {
-        guard let view = Bundle.main.loadNibNamed(CountStepper.reuseIdentifier, owner: self, options: nil)?.first as? UIView else {
-            fatalError("Couldn't load CountStepper")
-        }
-        
-        addSubview(view)
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let view = loadNibNamed()
         view.layer.cornerRadius = 15
 
         plusButton.setAttributedTitle(customAttributedTitle("+", size: 35, color: .white), for: .normal)

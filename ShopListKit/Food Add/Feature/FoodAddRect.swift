@@ -25,13 +25,7 @@ class FoodAddRect: UIView {
     }
     
     private func commonInit() {
-        guard let view = Bundle.main.loadNibNamed(FoodAddRect.reuseIdentifier, owner: self, options: nil)?.first as? UIView else {
-            fatalError("Couldn't load FoodAddRect")
-        }
-        
-        addSubview(view)
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let _ = loadNibNamed()
 
         titleView.layer.cornerRadius = 10
         
