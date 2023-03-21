@@ -12,7 +12,7 @@ class FoodAddRect: UIView {
     @IBOutlet var stepper: UIView!
     @IBOutlet var addButton: UIButton!
 
-    private static let reuseIdentifier = "FoodAddRect"
+    private static let reuseIdentifier = String(describing: FoodAddRect.self)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

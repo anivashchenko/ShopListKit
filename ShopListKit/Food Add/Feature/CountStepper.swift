@@ -10,7 +10,7 @@ class CountStepper: UIView {
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
 
-    private static let reuseIdentifier = "CountStepper"
+    private static let reuseIdentifier = String(describing: CountStepper.self)
     private var countInt = 0
     
     override init(frame: CGRect) {
