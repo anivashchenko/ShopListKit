@@ -18,6 +18,9 @@ class FoodAddViewController: UIViewController {
         if let view = foodAddView as? FoodAddRect {
             view.titleLabel.attributedText = customAttributedTitle(item.name, size: 30, color: .darkGreen)
             view.imageView?.image = UIImage(named: item.name)
+            view.onPressAddButton = { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
         
         backgroundImage.image = UIImage(named: item.name)

@@ -15,16 +15,19 @@ class FoodAddRect: UIView {
     private let addedToListLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
         return label
     }()
     
     private let addedToListView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
         return view
     }()
     
     private static let reuseIdentifier = String(describing: FoodAddRect.self)
+    var onPressAddButton: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,5 +75,16 @@ class FoodAddRect: UIView {
         
         layer.cornerRadius = 15
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
+    }
+    
+    @IBAction func didPressAddToBasket(_ sender: UIButton) {
+        stepper.isHidden = true
+        addButton.isHidden = true
+        addedToListView.isHidden = false
+        addedToListLabel.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.onPressAddButton?()
+        }
     }
 }

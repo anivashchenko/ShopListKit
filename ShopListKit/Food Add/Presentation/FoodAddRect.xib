@@ -52,6 +52,9 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="tinted"/>
+                    <connections>
+                        <action selector="didPressAddToBasket:" destination="-1" eventType="touchUpInside" id="nvs-zi-cWf"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ue-u6S" customClass="CountStepper" customModule="ShopListKit" customModuleProvider="target">
                     <rect key="frame" x="20" y="419" width="90" height="36"/>
