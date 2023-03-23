@@ -7,11 +7,11 @@ import UIKit
 class FoodAddRect: UIView {
 
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var titleView: UIView!
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var stepper: UIView!
-    @IBOutlet var addButton: UIButton!
-
+    @IBOutlet private var titleView: UIView!
+    @IBOutlet private var stepper: CountStepper!
+    @IBOutlet private var addButton: UIButton!
+    
     private let addedToListLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
