@@ -75,10 +75,12 @@ class FoodAddRect: UIView {
     }
     
     @IBAction func didPressAddToBasket(_ sender: UIButton) {
-        stepper.isHidden = true
-        addButton.isHidden = true
-        addedToListView.isHidden = false
-        addedToListLabel.isHidden = false
+        self.stepper.isHidden = true
+        self.addButton.isHidden = true
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
+            self.addedToListView.isHidden = false
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.onPressAddButton?()
