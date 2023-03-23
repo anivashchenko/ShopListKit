@@ -11,19 +11,19 @@ class FoodAddRect: UIView {
     @IBOutlet private var titleView: UIView!
     @IBOutlet private var stepper: CountStepper!
     @IBOutlet private var addButton: UIButton!
-    
-    private let addedToListLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isHidden = true
-        return label
-    }()
+    @IBOutlet private weak var stackView: UIStackView!
     
     private let addedToListView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         return view
+    }()
+    
+    private let addedToListLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private static let reuseIdentifier = String(describing: FoodAddRect.self)
@@ -40,7 +40,7 @@ class FoodAddRect: UIView {
     }
     
     private func commonInit() {
-        let view = loadNibNamed()
+        let _ = loadNibNamed()
 
         titleView.layer.cornerRadius = 10
         
@@ -58,19 +58,16 @@ class FoodAddRect: UIView {
         addedToListLabel.textAlignment = .center
         addedToListView.layer.cornerRadius = 10
         addedToListView.backgroundColor = UIColor(.darkGreen)
-        view.addSubview(addedToListView)
-        view.addSubview(addedToListLabel)
+        
+        stackView.addArrangedSubview(addedToListView)
+        addedToListView.addSubview(addedToListLabel)
         
         NSLayoutConstraint.activate([
-            addedToListView.leadingAnchor.constraint(equalTo: stepper.leadingAnchor),
-            addedToListView.trailingAnchor.constraint(equalTo: addButton.trailingAnchor),
-            addedToListView.bottomAnchor.constraint(equalTo: stepper.bottomAnchor),
-            addedToListView.heightAnchor.constraint(equalTo: stepper.heightAnchor),
-            
             addedToListLabel.leadingAnchor.constraint(equalTo: addedToListView.leadingAnchor),
             addedToListLabel.trailingAnchor.constraint(equalTo: addedToListView.trailingAnchor),
             addedToListLabel.bottomAnchor.constraint(equalTo: addedToListView.bottomAnchor),
-            addedToListLabel.heightAnchor.constraint(equalTo: addedToListView.heightAnchor),
+            addedToListLabel.topAnchor.constraint(equalTo: addedToListView.topAnchor),
+            addedToListView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
         ])
         
         layer.cornerRadius = 15

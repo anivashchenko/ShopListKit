@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +13,7 @@
             <connections>
                 <outlet property="addButton" destination="8v6-1H-k4e" id="0rb-Ao-r37"/>
                 <outlet property="imageView" destination="GR2-mu-QvS" id="LbA-ou-HEk"/>
+                <outlet property="stackView" destination="xxQ-Lb-vO1" id="BTr-4Y-g4t"/>
                 <outlet property="stepper" destination="zOk-Ue-u6S" id="fHB-nO-Sza"/>
                 <outlet property="titleLabel" destination="gbq-6u-cbq" id="zjD-i9-WA5"/>
                 <outlet property="titleView" destination="UmA-Kx-P0C" id="aMq-bB-Dv6"/>
@@ -23,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmA-Kx-P0C" userLabel="TitleView">
-                    <rect key="frame" x="20" y="20" width="288" height="36"/>
+                    <rect key="frame" x="20" y="20" width="288" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-6u-cbq">
-                            <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <nil key="textColor"/>
@@ -39,30 +41,36 @@
                         <constraint firstItem="gbq-6u-cbq" firstAttribute="bottom" secondItem="UmA-Kx-P0C" secondAttribute="bottom" id="P9b-Bo-MZ5"/>
                         <constraint firstItem="gbq-6u-cbq" firstAttribute="leading" secondItem="UmA-Kx-P0C" secondAttribute="leading" id="bKv-Vy-CLR"/>
                         <constraint firstItem="gbq-6u-cbq" firstAttribute="trailing" secondItem="UmA-Kx-P0C" secondAttribute="trailing" id="hxu-jg-9Dh"/>
+                        <constraint firstAttribute="height" constant="60" id="yLI-ed-ZZj"/>
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-mu-QvS">
-                    <rect key="frame" x="20" y="64" width="288" height="347"/>
+                    <rect key="frame" x="20" y="88" width="288" height="299"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8v6-1H-k4e">
-                    <rect key="frame" x="263" y="419" width="45" height="36"/>
-                    <color key="backgroundColor" name="DarkGreen"/>
+                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-Lb-vO1">
+                    <rect key="frame" x="20" y="395" width="288" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ue-u6S" customClass="CountStepper" customModule="ShopListKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="5" width="125" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zOk-Ue-u6S" secondAttribute="height" multiplier="2.5" id="kmP-ft-zv2"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8v6-1H-k4e">
+                            <rect key="frame" x="264" y="0.0" width="24" height="60"/>
+                            <color key="backgroundColor" name="DarkGreen"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="tinted"/>
+                            <connections>
+                                <action selector="didPressAddToBasket:" destination="-1" eventType="touchUpInside" id="nvs-zi-cWf"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="8v6-1H-k4e" secondAttribute="height" multiplier="1.25" id="xmY-au-FRr"/>
+                        <constraint firstItem="8v6-1H-k4e" firstAttribute="height" secondItem="xxQ-Lb-vO1" secondAttribute="height" id="jqn-3X-Xin"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="tinted"/>
-                    <connections>
-                        <action selector="didPressAddToBasket:" destination="-1" eventType="touchUpInside" id="nvs-zi-cWf"/>
-                    </connections>
-                </button>
-                <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ue-u6S" customClass="CountStepper" customModule="ShopListKit" customModuleProvider="target">
-                    <rect key="frame" x="20" y="419" width="90" height="36"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="zOk-Ue-u6S" secondAttribute="height" multiplier="2.5" id="kmP-ft-zv2"/>
-                    </constraints>
-                </view>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -70,15 +78,13 @@
                 <constraint firstAttribute="trailing" secondItem="GR2-mu-QvS" secondAttribute="trailing" constant="20" symbolic="YES" id="2bu-gV-Ow1"/>
                 <constraint firstItem="UmA-Kx-P0C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="3Vo-zh-MkF"/>
                 <constraint firstItem="GR2-mu-QvS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="7Zm-bh-pON"/>
-                <constraint firstItem="8v6-1H-k4e" firstAttribute="height" secondItem="UmA-Kx-P0C" secondAttribute="height" id="9gY-y1-lmz"/>
+                <constraint firstAttribute="trailing" secondItem="xxQ-Lb-vO1" secondAttribute="trailing" constant="20" symbolic="YES" id="CjS-qZ-eCr"/>
                 <constraint firstItem="UmA-Kx-P0C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="DxN-jE-FQp"/>
                 <constraint firstAttribute="trailing" secondItem="UmA-Kx-P0C" secondAttribute="trailing" constant="20" symbolic="YES" id="ENo-ou-yTy"/>
-                <constraint firstItem="8v6-1H-k4e" firstAttribute="top" secondItem="GR2-mu-QvS" secondAttribute="bottom" constant="8" symbolic="YES" id="LNy-Eh-wCD"/>
-                <constraint firstItem="zOk-Ue-u6S" firstAttribute="height" secondItem="UmA-Kx-P0C" secondAttribute="height" id="UTH-gm-Ckc"/>
-                <constraint firstAttribute="trailing" secondItem="8v6-1H-k4e" secondAttribute="trailing" constant="20" symbolic="YES" id="m7d-aM-J0r"/>
-                <constraint firstAttribute="bottom" secondItem="8v6-1H-k4e" secondAttribute="bottom" constant="20" symbolic="YES" id="uh1-wI-mA3"/>
-                <constraint firstAttribute="bottom" secondItem="zOk-Ue-u6S" secondAttribute="bottom" constant="20" symbolic="YES" id="wBA-3K-F7J"/>
-                <constraint firstItem="zOk-Ue-u6S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="wD9-4y-Wox"/>
+                <constraint firstAttribute="bottom" secondItem="xxQ-Lb-vO1" secondAttribute="bottom" constant="20" symbolic="YES" id="LkM-OR-yKG"/>
+                <constraint firstItem="xxQ-Lb-vO1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="Nv2-aT-dsu"/>
+                <constraint firstItem="xxQ-Lb-vO1" firstAttribute="height" secondItem="UmA-Kx-P0C" secondAttribute="height" id="a3e-93-vNz"/>
+                <constraint firstItem="xxQ-Lb-vO1" firstAttribute="top" secondItem="GR2-mu-QvS" secondAttribute="bottom" constant="8" symbolic="YES" id="xZj-ip-oBd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-357.25190839694653" y="-112.32394366197184"/>
