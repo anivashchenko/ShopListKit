@@ -45,11 +45,11 @@ class FoodAddRect: UIView {
         titleView.layer.cornerRadius = 10
         
         addButton.layer.cornerRadius = 10
-        let width = addButton.bounds.width
+        let height = addButton.bounds.height * 0.8
         addButton.setImage(
             .imageFromBezierPath(
-                .basketBezierPath(width: width),
-                size: .init(width: width, height: width),
+                .basketBezierPath(height: height),
+                size: .init(width: height, height: height),
                 color: UIColor.white.cgColor
             ), for: .normal
         )

@@ -22,9 +22,9 @@ extension UIImage {
 
 extension UIBezierPath {
     
-    static func basketBezierPath(width: Double) -> UIBezierPath {
+    static func basketBezierPath(height: Double) -> UIBezierPath {
         let path = UIBezierPath()
-        let height = width
+        let width = height
         let spacing = width * 0.075
         let doubleSpacing = spacing * 2
         let padding = width * 0.25
