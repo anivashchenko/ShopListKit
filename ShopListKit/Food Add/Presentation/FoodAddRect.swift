@@ -6,13 +6,17 @@ import UIKit
 
 class FoodAddRect: UIView {
 
-    @IBOutlet var addButton: UIButton!
-    @IBOutlet var stepper: CountStepper!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet private var titleView: UIView!
+    @IBOutlet var stepper: CountStepper!
+    @IBOutlet var addButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private var titleView: UIView!
     
+    var onPressAddButton: (() -> Void)?
+    
+    private static let reuseIdentifier = String(describing: FoodAddRect.self)
+
     private let addedToListView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,9 +29,6 @@ class FoodAddRect: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    private static let reuseIdentifier = String(describing: FoodAddRect.self)
-    var onPressAddButton: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

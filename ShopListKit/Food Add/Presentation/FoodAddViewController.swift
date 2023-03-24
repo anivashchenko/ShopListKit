@@ -7,8 +7,8 @@ import UIKit
 
 class FoodAddViewController: UIViewController {
     
-    @IBOutlet var foodAddView: UIView!
     @IBOutlet var backgroundImage: UIImageView!
+    @IBOutlet var foodAddView: UIView!
     
     var item: Item!
     

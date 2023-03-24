@@ -120,16 +120,6 @@
 			path = "Food List";
 			sourceTree = "<group>";
 		};
-		5D7D25E329C0DBC50013D3D5 /* Feature */ = {
-			isa = PBXGroup;
-			children = (
-				5D7F702529BF6BAF00CCD609 /* CountStepper.swift */,
-				5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */,
-				5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */,
-			);
-			path = Feature;
-			sourceTree = "<group>";
-		};
 		5D7D25E429C0DC510013D3D5 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +160,6 @@
 		5D8F2DA129BE56290008AC15 /* Food Add */ = {
 			isa = PBXGroup;
 			children = (
-				5D7D25E329C0DBC50013D3D5 /* Feature */,
 				5D92F45029C8A17A00BC218A /* Helpers */,
 				5D8F2DA229BE565A0008AC15 /* Presentation */,
 			);
@@ -180,6 +169,9 @@
 		5D8F2DA229BE565A0008AC15 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5D7F702529BF6BAF00CCD609 /* CountStepper.swift */,
+				5D8F2DA329BE56F40008AC15 /* FoodAddRect.swift */,
+				5D8F2DA729BE58E80008AC15 /* FoodAddViewController.swift */,
 				5D7F702729BF6BBA00CCD609 /* CountStepper.xib */,
 				5D8F2DA529BE57050008AC15 /* FoodAddRect.xib */,
 			);
