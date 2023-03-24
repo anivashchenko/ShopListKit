@@ -7,8 +7,8 @@ import UIKit
 class CountStepper: UIView {
 
     @IBOutlet var count: UILabel!
-    @IBOutlet var minusButton: UIButton!
-    @IBOutlet var plusButton: UIButton!
+    @IBOutlet private var minusButton: UIButton!
+    @IBOutlet private var plusButton: UIButton!
 
     private static let reuseIdentifier = String(describing: CountStepper.self)
     private var countInt = 0
