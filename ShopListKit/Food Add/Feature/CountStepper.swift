@@ -41,14 +41,14 @@ class CountStepper: UIView {
     }
     
     private func incrementor(number: Int) {
-        if onEnabled() || number > 0 {
-            countInt = Int(count.text!)! + number
+        countInt = Int(count.text!)! + number
+        if onEnabled() {
             count.text = "\(countInt)"
         }
     }
     
     private func onEnabled() -> Bool {
-        let isEnabled = !(countInt == 0)
+        let isEnabled = !(countInt == -1)
         minusButton.isEnabled = isEnabled
         return isEnabled
     }
