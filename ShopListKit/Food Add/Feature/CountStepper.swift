@@ -4,12 +4,18 @@
 
 import UIKit
 
+protocol CountStepperDelegate: AnyObject {
+    func changeBackgroundColor(_ view: UIView, count: Int)
+}
+
 class CountStepper: UIView {
 
     @IBOutlet var count: UILabel!
     @IBOutlet private var minusButton: UIButton!
     @IBOutlet private var plusButton: UIButton!
 
+    weak var delegate: CountStepperDelegate?
+    
     private static let reuseIdentifier = String(describing: CountStepper.self)
     private var countInt = 0
     
@@ -45,6 +51,8 @@ class CountStepper: UIView {
         if onEnabled() {
             count.text = "\(countInt)"
         }
+        
+        delegate?.changeBackgroundColor(self, count: countInt)
     }
     
     private func onEnabled() -> Bool {

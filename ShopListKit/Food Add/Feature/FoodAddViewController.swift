@@ -18,6 +18,8 @@ class FoodAddViewController: UIViewController {
         if let view = foodAddView as? FoodAddRect {
             view.titleLabel.attributedText = customAttributedTitle(item.name, size: 30, color: .darkGreen)
             view.imageView?.image = UIImage(named: item.name)
+            view.stepper.delegate = self
+            changeBackgroundColor(view, count: 0)
             view.onPressAddButton = { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             }
@@ -25,5 +27,15 @@ class FoodAddViewController: UIViewController {
         
         backgroundImage.image = UIImage(named: item.name)
         blurBackgroundImage(for: backgroundImage)
+    }
+}
+
+// Count Stepper Delegate
+extension FoodAddViewController: CountStepperDelegate {
+    
+    func changeBackgroundColor(_ view: UIView, count: Int) {
+        if let view = foodAddView as? FoodAddRect, let button = view.addButton {
+            button.backgroundColor = count > 0 ? UIColor(.darkGreen) : .lightGray
+        }
     }
 }

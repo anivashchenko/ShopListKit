@@ -6,11 +6,11 @@ import UIKit
 
 class FoodAddRect: UIView {
 
+    @IBOutlet var addButton: UIButton!
+    @IBOutlet var stepper: CountStepper!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet private var titleView: UIView!
-    @IBOutlet private var stepper: CountStepper!
-    @IBOutlet private var addButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     
     private let addedToListView: UIView = {
@@ -57,7 +57,7 @@ class FoodAddRect: UIView {
         addedToListLabel.attributedText = customAttributedTitle("Succesfully added to the basket!", size: 18, color: .white)
         addedToListLabel.textAlignment = .center
         addedToListView.layer.cornerRadius = 10
-        addedToListView.backgroundColor = UIColor(.darkGreen)
+        addedToListView.backgroundColor = UIColor.clear
         
         stackView.addArrangedSubview(addedToListView)
         addedToListView.addSubview(addedToListLabel)
