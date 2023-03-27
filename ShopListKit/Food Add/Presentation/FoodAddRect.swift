@@ -84,7 +84,9 @@ class FoodAddRect: UIView {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let countInt = Int(self.stepper.count.text!)!
+            guard let count = self.stepper.count.text,
+                  let countInt = Int(count)
+            else { return }
             self.onPressAddButton?(countInt)
         }
     }
