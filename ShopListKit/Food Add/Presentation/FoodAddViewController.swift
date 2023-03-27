@@ -29,13 +29,7 @@ class FoodAddViewController: UIViewController {
         view.titleLabel.attributedText = customAttributedTitle(item.name, size: 30, color: .darkGreen)
         view.imageView?.image = UIImage(named: item.name)
         loadCountStepperView(from: view)
-        
-        view.onPressAddButton = { [weak self] count in
-            guard let self = self else { return }
-            
-            self.foodModel.addToBasket(item: self.item!, count: count)
-            self.navigationController?.popViewController(animated: true)
-        }
+        didPressAddButton(from: view)
         
         return view
     }
@@ -47,6 +41,15 @@ class FoodAddViewController: UIViewController {
             let countValue = item.countValue
             view.stepper.count.text = "\(countValue)"
             changeBackgroundColor(view, count: countValue)
+        }
+    }
+    
+    private func didPressAddButton(from view: FoodAddRect) {
+        view.onPressAddButton = { [weak self] count in
+            guard let self = self else { return }
+            
+            self.foodModel.addToBasket(item: self.item!, count: count)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
