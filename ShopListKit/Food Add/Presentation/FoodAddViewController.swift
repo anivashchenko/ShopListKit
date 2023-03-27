@@ -10,6 +10,7 @@ class FoodAddViewController: UIViewController {
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var foodAddView: UIView!
     
+    var foodModel: FoodModel!
     var item: Item!
     
     override func viewDidLoad() {

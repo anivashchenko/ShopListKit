@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0CFC5B29CDE936006F71DE /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFC5A29CDE936006F71DE /* FoodModel.swift */; };
 		5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */; };
 		5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */; };
 		5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0CFC5A29CDE936006F71DE /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopListKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0CFC5929CDE916006F71DE /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				5D0CFC5A29CDE936006F71DE /* FoodModel.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		5D39BD9729BA4DFF00BC4C19 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		5D8F2DA129BE56290008AC15 /* Food Add */ = {
 			isa = PBXGroup;
 			children = (
+				5D0CFC5929CDE916006F71DE /* Features */,
 				5D92F45029C8A17A00BC218A /* Helpers */,
 				5D8F2DA229BE565A0008AC15 /* Presentation */,
 			);
@@ -309,6 +320,7 @@
 				5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */,
 				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
 				5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */,
+				5D0CFC5B29CDE936006F71DE /* FoodModel.swift in Sources */,
 				5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */,
 				5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */,
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
