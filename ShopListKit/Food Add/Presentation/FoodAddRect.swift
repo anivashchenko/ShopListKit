@@ -58,7 +58,7 @@ class FoodAddRect: UIView {
         addedToListLabel.attributedText = customAttributedTitle("Succesfully added to the basket!", size: 18, color: .white)
         addedToListLabel.textAlignment = .center
         addedToListView.layer.cornerRadius = 10
-        addedToListView.backgroundColor = UIColor.clear
+        addedToListView.backgroundColor = UIColor(.darkGreen)
         
         stackView.addArrangedSubview(addedToListView)
         addedToListView.addSubview(addedToListLabel)
