@@ -40,7 +40,9 @@
                             <constraint firstItem="HwH-Wk-XI4" firstAttribute="height" secondItem="3kR-Zb-2cq" secondAttribute="height" multiplier="0.5" id="yBv-Nw-FWJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8fW-gq-C79"/>
+                    <navigationItem key="navigationItem" id="8fW-gq-C79">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Hwc-kZ-hQD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="E0Q-oR-NOM" id="jaz-FF-XNU"/>
                         <outlet property="foodAddView" destination="HwH-Wk-XI4" id="9g2-Xt-c5s"/>
@@ -88,7 +90,9 @@
                             <constraint firstItem="HMw-RK-0Bm" firstAttribute="top" secondItem="q1V-Al-otg" secondAttribute="bottom" constant="20" id="gaW-Td-t26"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DGX-Fc-aAL"/>
+                    <navigationItem key="navigationItem" id="DGX-Fc-aAL">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="gev-EP-n5b"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="HMw-RK-0Bm" id="dAS-Za-oID"/>
                         <outlet property="groupView" destination="q1V-Al-otg" id="3Nv-ev-XEm"/>

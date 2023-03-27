@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,52 +20,45 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUs-56-6bT" userLabel="MinusButton">
-                    <rect key="frame" x="4" y="4" width="73.666666666666671" height="92"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="HUs-56-6bT" secondAttribute="height" multiplier="0.8" id="555-Ad-rBf"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
-                    <connections>
-                        <action selector="didPressMinus:" destination="-1" eventType="touchUpInside" id="BjW-ZA-N6o"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="99" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-e2-QUa">
-                    <rect key="frame" x="73.666666666666657" y="32" width="94.666666666666657" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUD-0N-2z1" userLabel="PlusButton">
-                    <rect key="frame" x="172.33333333333334" y="4" width="73.666666666666657" height="92"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="yUD-0N-2z1" secondAttribute="height" multiplier="0.8" id="k0d-TB-bCj"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
-                    <connections>
-                        <action selector="didPressPlus:" destination="-1" eventType="touchUpInside" id="JoO-T5-m19"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vQf-jd-Xq0">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUs-56-6bT" userLabel="MinusButton">
+                            <rect key="frame" x="0.0" y="43" width="24" height="14"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didPressMinus:" destination="-1" eventType="touchUpInside" id="BjW-ZA-N6o"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="99" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-e2-QUa" userLabel="Label">
+                            <rect key="frame" x="106" y="32" width="38" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUD-0N-2z1" userLabel="PlusButton">
+                            <rect key="frame" x="226" y="43" width="24" height="14"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didPressPlus:" destination="-1" eventType="touchUpInside" id="JoO-T5-m19"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="CustomOrange"/>
             <constraints>
-                <constraint firstItem="yUD-0N-2z1" firstAttribute="leading" secondItem="uZ3-e2-QUa" secondAttribute="trailing" constant="4" id="0o5-Rb-OMb"/>
-                <constraint firstItem="HUs-56-6bT" firstAttribute="trailing" secondItem="uZ3-e2-QUa" secondAttribute="leading" constant="4" id="7SZ-g9-Q2w"/>
-                <constraint firstItem="HUs-56-6bT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="7bH-Ri-2A9"/>
-                <constraint firstItem="yUD-0N-2z1" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-4" id="8Zl-nC-xXK"/>
-                <constraint firstItem="HUs-56-6bT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="Mvz-7m-Nnt"/>
-                <constraint firstItem="uZ3-e2-QUa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SQp-2K-rR7"/>
-                <constraint firstItem="HUs-56-6bT" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-4" id="jKF-FF-oxO"/>
-                <constraint firstItem="yUD-0N-2z1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="yXU-eC-byY"/>
-                <constraint firstItem="yUD-0N-2z1" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-4" id="ygR-Or-t1H"/>
+                <constraint firstItem="vQf-jd-Xq0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="73u-aL-Tdm"/>
+                <constraint firstItem="vQf-jd-Xq0" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="BqA-ml-dkT"/>
+                <constraint firstItem="vQf-jd-Xq0" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="GCw-0w-Yts"/>
+                <constraint firstItem="vQf-jd-Xq0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jfd-i9-YT1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="70.992366412213741" y="-218.3098591549296"/>
+            <point key="canvasLocation" x="70.229007633587784" y="-218.3098591549296"/>
         </view>
     </objects>
     <resources>

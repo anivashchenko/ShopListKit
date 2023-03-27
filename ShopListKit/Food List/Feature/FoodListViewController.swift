@@ -10,6 +10,7 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var groupView: GroupTab!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var foodModel: FoodModel!
     var items: [Item] = []
     
     override func viewDidLoad() {
@@ -63,6 +64,7 @@ class FoodListViewController: UIViewController {
         if segue.identifier == "ShowFoodAdd" {
             let controller = segue.destination as! FoodAddViewController
             controller.item = sender as? Item
+            controller.foodModel = foodModel
         }
     }
     
