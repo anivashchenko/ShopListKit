@@ -9,11 +9,11 @@ protocol CountStepperDelegate: AnyObject {
 }
 
 class CountStepper: UIView {
-
+    
     @IBOutlet var count: UILabel!
     @IBOutlet private var minusButton: UIButton!
     @IBOutlet private var plusButton: UIButton!
-
+    
     weak var delegate: CountStepperDelegate?
     
     private static let reuseIdentifier = String(describing: CountStepper.self)
@@ -32,7 +32,7 @@ class CountStepper: UIView {
     private func commonInit() {
         let view = loadNibNamed()
         view.layer.cornerRadius = 15
-
+        
         plusButton.setAttributedTitle(customAttributedTitle("+", size: 35, color: .white), for: .normal)
         count.attributedText = customAttributedTitle("0", size: 35, color: .white)
         minusButton.setAttributedTitle(customAttributedTitle("-", size: 35, color: .white), for: .normal)

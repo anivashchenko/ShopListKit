@@ -33,7 +33,7 @@ extension UIBezierPath {
         let bottomOfCover = topOfCover + height * 0.15
         let topOfBasket = bottomOfCover + spacing / 1.5
         let bottomOfBasket = height - verticalPadding
-                
+        
         path.append(drawHand(distance: padding, spacing: spacing, top: verticalPadding, bottom: topOfCover))
         path.append(drawHand(distance: width - padding, spacing: -spacing, top: verticalPadding, bottom: topOfCover))
         path.append(drawCover(width: width, spacing: spacing, top: topOfCover, bottom: bottomOfCover))
@@ -42,7 +42,7 @@ extension UIBezierPath {
         path.append(getLinePath(xPoint: width * 0.44, width: width))
         path.append(getLinePath(xPoint: width * 0.56, width: width))
         path.append(getLinePath(xPoint: width * 0.68, width: width))
-                        
+        
         return path
     }
     
@@ -107,7 +107,7 @@ extension UIBezierPath {
         let bottomLeftEndCurveX = spacing * 1.75
         let bottomRightEndCurveX = width - spacing * 1.75
         let bottomEndCurveY = bottom * 0.9
-
+        
         path.move(to: CGPoint(x: bottomLeftX, y: bottomEndCurveY))
         path.addQuadCurve(
             to: CGPoint(x: bottomLeftEndCurveX, y: bottom),

@@ -5,7 +5,7 @@
 import UIKit
 
 class FoodAddRect: UIView {
-
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var stepper: CountStepper!
@@ -16,7 +16,7 @@ class FoodAddRect: UIView {
     var onPressAddButton: ((Int) -> Void)?
     
     private static let reuseIdentifier = String(describing: FoodAddRect.self)
-
+    
     private let addedToListView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ class FoodAddRect: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -42,7 +42,7 @@ class FoodAddRect: UIView {
     
     private func commonInit() {
         let _ = loadNibNamed()
-
+        
         titleView.layer.cornerRadius = 10
         
         addButton.layer.cornerRadius = 10

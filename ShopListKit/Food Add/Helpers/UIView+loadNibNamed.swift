@@ -5,6 +5,7 @@
 import UIKit
 
 extension UIView {
+    
     func loadNibNamed<T: UIView>() -> T {
         let view = Bundle.main.loadNibNamed(String(describing: Self.self), owner: self, options: nil)?.first as! T
         
