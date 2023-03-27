@@ -19,4 +19,13 @@ class FoodModel {
         let item4 = Item(name: "Strawberry", countValue: 0, isSet: false, isBought: false, typeFood: .berries)
         items += [item1, item2, item3, item4]
     }
+    
+    func addToBasket(item: Item, count: Int) {
+        var newItem = item
+        newItem.isSet = true
+        newItem.countValue = count
+        if let index = items.firstIndex(where: { $0.name == newItem.name }) {
+            items[index] = newItem
+        }
+    }
 }

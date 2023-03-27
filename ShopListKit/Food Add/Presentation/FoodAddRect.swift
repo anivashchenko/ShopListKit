@@ -13,7 +13,7 @@ class FoodAddRect: UIView {
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private var titleView: UIView!
     
-    var onPressAddButton: (() -> Void)?
+    var onPressAddButton: ((Int) -> Void)?
     
     private static let reuseIdentifier = String(describing: FoodAddRect.self)
 
@@ -84,7 +84,8 @@ class FoodAddRect: UIView {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.onPressAddButton?()
+            let countInt = Int(self.stepper.count.text!)!
+            self.onPressAddButton?(countInt)
         }
     }
 }
