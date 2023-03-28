@@ -36,6 +36,12 @@ class FoodListViewController: UIViewController {
             button.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
         
+        loadItemCollectionCellView(from: collectionView)
+        
+        fakeData()
+    }
+    
+    private func loadItemCollectionCellView(from collectionView: UICollectionView) {
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -55,9 +61,8 @@ class FoodListViewController: UIViewController {
             
             return section
         })
-        collectionView.collectionViewLayout = layout
         
-        fakeData()
+        collectionView.collectionViewLayout = layout
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
