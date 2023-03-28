@@ -135,10 +135,7 @@
 		5D7D25E429C0DC510013D3D5 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */,
-				5DB1E9C829BB8F1E00585348 /* GroupTab.swift */,
 				5D84953F29BD20FD00D2B683 /* Item.swift */,
-				5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -205,6 +202,9 @@
 		5D94445929BB4DA400FBB319 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */,
+				5DB1E9C829BB8F1E00585348 /* GroupTab.swift */,
+				5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */,
 				5DB1E9CC29BB91B400585348 /* GroupTab.xib */,
 				5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */,
 			);
