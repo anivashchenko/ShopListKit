@@ -29,6 +29,7 @@
 		5D8F389B29D2F092003AA506 /* FruitData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F389829D2F092003AA506 /* FruitData.json */; };
 		5D8F389C29D2F092003AA506 /* VegData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F389929D2F092003AA506 /* VegData.json */; };
 		5D8F389D29D2F092003AA506 /* BerryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F389A29D2F092003AA506 /* BerryData.json */; };
+		5D8F38A029D3111E003AA506 /* JsonDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F389F29D3111E003AA506 /* JsonDataLoader.swift */; };
 		5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */; };
 		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
 		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
@@ -65,6 +66,7 @@
 		5D8F389829D2F092003AA506 /* FruitData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FruitData.json; sourceTree = "<group>"; };
 		5D8F389929D2F092003AA506 /* VegData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VegData.json; sourceTree = "<group>"; };
 		5D8F389A29D2F092003AA506 /* BerryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BerryData.json; sourceTree = "<group>"; };
+		5D8F389F29D3111E003AA506 /* JsonDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataLoader.swift; sourceTree = "<group>"; };
 		5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromBezierPath.swift"; sourceTree = "<group>"; };
 		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
 		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
@@ -87,14 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D0CFC5929CDE916006F71DE /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				5D0CFC5A29CDE936006F71DE /* FoodModel.swift */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		5D39BD9729BA4DFF00BC4C19 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +118,7 @@
 				5D8F2DA129BE56290008AC15 /* Food Add */,
 				5D39BDB729BA534600BC4C19 /* Food List */,
 				5D84953729BD1A0800D2B683 /* Helpers */,
+				5D8F38A129D320D3003AA506 /* Shared */,
 				5D9F19EB29C1FE040046919F /* Supporting Files */,
 			);
 			path = ShopListKit;
@@ -133,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7D25E429C0DC510013D3D5 /* Feature */,
+				5D8F389E29D310C4003AA506 /* Persistence */,
 				5D94445929BB4DA400FBB319 /* Presentation */,
 				5D8F389729D2F06A003AA506 /* Resources */,
 			);
@@ -176,7 +172,6 @@
 		5D8F2DA129BE56290008AC15 /* Food Add */ = {
 			isa = PBXGroup;
 			children = (
-				5D0CFC5929CDE916006F71DE /* Features */,
 				5D92F45029C8A17A00BC218A /* Helpers */,
 				5D8F2DA229BE565A0008AC15 /* Presentation */,
 			);
@@ -203,6 +198,22 @@
 				5D8F389929D2F092003AA506 /* VegData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D8F389E29D310C4003AA506 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				5D8F389F29D3111E003AA506 /* JsonDataLoader.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		5D8F38A129D320D3003AA506 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5D0CFC5A29CDE936006F71DE /* FoodModel.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		5D92F45029C8A17A00BC218A /* Helpers */ = {
@@ -349,6 +360,7 @@
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
 				5D7A455B29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift in Sources */,
 				5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */,
+				5D8F38A029D3111E003AA506 /* JsonDataLoader.swift in Sources */,
 				5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */,
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
