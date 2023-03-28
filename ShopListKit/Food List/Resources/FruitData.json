@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Apple",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Banana",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Cherry",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Feijoa",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Kiwi",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Lemon",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Orange",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Peach",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Persimmon",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Pineapple",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Lime",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    },
+    {
+        "name": "Grape",
+        "countValue": 0,
+        "isSet": false,
+        "isBought": false,
+        "typeFood": "fruits"
+    }
+]
