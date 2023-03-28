@@ -21,5 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = tabBarController!.viewControllers![0] as? UINavigationController
         let controller = navigationController?.viewControllers[0] as? FoodListViewController
         controller?.foodModel = foodModel
+        controller?.dataLoader = JsonDataLoader()
     }
 }

@@ -11,6 +11,7 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var foodModel: FoodModel!
+    var dataLoader: DataLoader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
