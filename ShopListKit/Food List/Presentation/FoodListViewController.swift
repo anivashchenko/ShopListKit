@@ -17,7 +17,12 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "The shop list"
-        
+        loadGroupTabView()
+        loadItemCollectionCellView(from: collectionView)
+        fakeData()
+    }
+    
+    private func loadGroupTabView() {
         let handler: UIButton.ConfigurationUpdateHandler = { button in
             switch button.state {
             case .selected, .highlighted:
@@ -35,10 +40,6 @@ class FoodListViewController: UIViewController {
             button.configurationUpdateHandler = handler
             button.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
-        
-        loadItemCollectionCellView(from: collectionView)
-        
-        fakeData()
     }
     
     private func loadItemCollectionCellView(from collectionView: UICollectionView) {
