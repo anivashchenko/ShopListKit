@@ -11,7 +11,6 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var foodModel: FoodModel!
-    var dataLoader: DataLoader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +21,26 @@ class FoodListViewController: UIViewController {
     }
     
     private func loadGroupTabView() {
+        let titles = foodModel.loadTabTitles()
+        let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
+        
         let handler: UIButton.ConfigurationUpdateHandler = { button in
+            guard titles.count == buttons.count,
+                  let index = buttons.firstIndex(where: { $0 == button })
+            else { return }
+            
+            var attributedString = AttributedString(titles[index])
+            attributedString.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            
             switch button.state {
             case .selected, .highlighted:
                 button.configuration = .customGroupButton
-                button.configuration?.title = "Fruit"
+                button.configuration?.attributedTitle = attributedString
             default:
                 button.configuration = .customGroupSelectedButton
-                button.configuration?.title = "Fruit"
+                button.configuration?.attributedTitle = attributedString
             }
         }
-        
-        let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
         
         for button in buttons {
             button.configurationUpdateHandler = handler

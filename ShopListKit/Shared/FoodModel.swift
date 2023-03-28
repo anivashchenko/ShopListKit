@@ -4,11 +4,14 @@
 
 import UIKit
 
-class FoodModel {
+final class FoodModel {
+    
+    private let dataLoader: DataLoader
     
     var items: [Item] = []
     
-    init() {
+    init(dataLoader: DataLoader) {
+        self.dataLoader = dataLoader
         fakeData()
     }
     
@@ -27,5 +30,10 @@ class FoodModel {
         if let index = items.firstIndex(where: { $0.name == newItem.name }) {
             items[index] = newItem
         }
+    }
+    
+    func loadTabTitles() -> [String] {
+        let nameOfFiles = dataLoader.loadNamesOfItems()
+        return nameOfFiles.map( { String($0.dropLast(9)) } ).sorted()
     }
 }

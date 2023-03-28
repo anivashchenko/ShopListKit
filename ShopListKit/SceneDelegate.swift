@@ -7,7 +7,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    let foodModel = FoodModel()
+    let foodModel = FoodModel(dataLoader: JsonDataLoader())
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -22,6 +22,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = tabBarController!.viewControllers![0] as? UINavigationController
         let controller = navigationController?.viewControllers[0] as? FoodListViewController
         controller?.foodModel = foodModel
-        controller?.dataLoader = JsonDataLoader()
     }
 }
