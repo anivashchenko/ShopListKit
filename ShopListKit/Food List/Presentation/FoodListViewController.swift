@@ -11,7 +11,6 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var foodModel: FoodModel!
-    var items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +18,6 @@ class FoodListViewController: UIViewController {
         navigationItem.title = "The shop list"
         loadGroupTabView()
         loadItemCollectionCellView(from: collectionView)
-        fakeData()
     }
     
     private func loadGroupTabView() {
@@ -74,14 +72,6 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    private func fakeData() {
-        let item1 = Item(name: "Apple", countValue: 3, isSet: false, isBought: false, typeFood: .fruits)
-        let item2 = Item(name: "Cherry", countValue: 1, isSet: false, isBought: false, typeFood: .fruits)
-        let item3 = Item(name: "Cucumber", countValue: 1, isSet: false, isBought: false, typeFood: .vegetables)
-        let item4 = Item(name: "Strawberry", countValue: 2, isSet: false, isBought: false, typeFood: .berries)
-        items += [item1, item2, item3, item4]
-    }
-    
     // MARK: - Actions
     @objc private func didTouchUpInside(sender: UIButton) {
         let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
@@ -93,14 +83,14 @@ class FoodListViewController: UIViewController {
 extension FoodListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        foodModel.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionCell.reuseIdentifier, for: indexPath) as? ItemCollectionCell
         else { fatalError() }
         
-        let item = items[indexPath.row]
+        let item = foodModel.items[indexPath.row]
         cell.imageView.image = UIImage(named: item.name)
         cell.label.text = item.name
         cell.layer.backgroundColor = CGColor.init(gray: 0.5, alpha: 0.2)
@@ -113,7 +103,7 @@ extension FoodListViewController: UICollectionViewDataSource {
 extension FoodListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
+        let item = foodModel.items[indexPath.row]
         performSegue(withIdentifier: "ShowFoodAdd", sender: item)
     }
 }
