@@ -6,13 +6,13 @@ import Foundation
 
 struct Item: Identifiable {
     
-    var id = UUID().uuidString
-    var name: String
+    let id = UUID().uuidString
+    let name: String
     var countValue: Int
     var isSet: Bool
     var isBought: Bool
-    var typeFood: TypeFood
-   
+    let typeFood: TypeFood
+
     enum TypeFood: String {
         case fruits
         case vegetables
