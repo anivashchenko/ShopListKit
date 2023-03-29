@@ -7,8 +7,10 @@ import Foundation
 class JsonDataLoader: DataLoader {
     
     func loadNamesOfItems() -> [String] {
-        let path = Bundle.main.resourcePath!
-        let files = try! FileManager.default.contentsOfDirectory(atPath: path)
+        guard let path = Bundle.main.resourcePath,
+              let files = try? FileManager.default.contentsOfDirectory(atPath: path)
+        else { return [] }
+        
         var itemsName: [String] = []
         
         for file in files {
