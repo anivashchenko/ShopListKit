@@ -34,6 +34,6 @@ final class FoodModel {
     
     func loadTabTitles() -> [String] {
         let nameOfFiles = dataLoader.loadNamesOfItems()
-        return nameOfFiles.map( { String($0.dropLast(9)) } ).sorted()
+        return nameOfFiles.map( { String($0.dropLast(9)) } ).sorted(by: >)
     }
 }
