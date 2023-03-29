@@ -6,21 +6,14 @@ import UIKit
 
 final class FoodModel {
     
-    private let dataLoader: DataLoader
+    private(set) var currentItems: [Item]
+    private var items: [Item]
+    private var titles: [String]
     
-    var items: [Item] = []
-    
-    init(dataLoader: DataLoader) {
-        self.dataLoader = dataLoader
-        fakeData()
-    }
-    
-    private func fakeData() {
-        let item1 = Item(name: "Apple", countValue: 0, isSet: false, isBought: false, typeFood: .fruits)
-        let item2 = Item(name: "Cherry", countValue: 0, isSet: false, isBought: false, typeFood: .fruits)
-        let item3 = Item(name: "Cucumber", countValue: 0, isSet: false, isBought: false, typeFood: .vegetables)
-        let item4 = Item(name: "Strawberry", countValue: 0, isSet: false, isBought: false, typeFood: .berries)
-        items += [item1, item2, item3, item4]
+    init(items: [Item], titles: [String]) {
+        self.items = items
+        self.titles = titles
+        self.currentItems = []
     }
     
     func addToBasket(item: Item, count: Int) {
@@ -33,7 +26,17 @@ final class FoodModel {
     }
     
     func loadTabTitles() -> [String] {
-        let nameOfFiles = dataLoader.loadNamesOfItems()
-        return nameOfFiles.map( { String($0.dropLast(9)) } ).sorted(by: >)
+        titles.sorted(by: >)
+    }
+    
+    func filterCurrentItems(of group: String, completion: () -> Void) {
+        currentItems = items.filter { $0.typeFood.rawValue == group }
+        completion()
+    }
+    
+    func loadItemsWhenAppear(completion: () -> Void) {
+        filterCurrentItems(of: titles[0].lowercased()) {
+            completion()
+        }
     }
 }

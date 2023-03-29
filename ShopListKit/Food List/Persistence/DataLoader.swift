@@ -5,5 +5,7 @@
 import Foundation
 
 protocol DataLoader {
-    func loadNamesOfItems() -> [String]
+    var titles: [String] { get }
+    
+    func loadData() -> [Item]
 }

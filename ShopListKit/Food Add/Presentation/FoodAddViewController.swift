@@ -37,7 +37,7 @@ class FoodAddViewController: UIViewController {
     private func loadCountStepperView(from view: FoodAddRect) {
         view.stepper.delegate = self
         
-        if let item = foodModel.items.first(where: { $0.name == item.name }) {
+        if let item = foodModel.currentItems.first(where: { $0.name == item.name }) {
             let countValue = item.countValue
             view.stepper.count.text = "\(countValue)"
             changeBackgroundColor(view, count: countValue)

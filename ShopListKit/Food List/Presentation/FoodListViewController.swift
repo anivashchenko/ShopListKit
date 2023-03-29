@@ -16,6 +16,9 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "The shop list"
+        foodModel.loadItemsWhenAppear() {
+            collectionView.reloadData()
+        }
         loadGroupTabView()
         loadItemCollectionCellView(from: collectionView)
     }
@@ -84,6 +87,12 @@ class FoodListViewController: UIViewController {
     @objc private func didTouchUpInside(sender: UIButton) {
         let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
         buttons.forEach({ $0.isSelected = ($0 == sender) })
+        
+        guard let title = sender.titleLabel?.text else { return }
+        
+        foodModel.filterCurrentItems(of: title.lowercased()) {
+            collectionView.reloadData()
+        }
     }
 }
 
@@ -91,14 +100,14 @@ class FoodListViewController: UIViewController {
 extension FoodListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        foodModel.items.count
+        foodModel.currentItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionCell.reuseIdentifier, for: indexPath) as? ItemCollectionCell
         else { fatalError() }
         
-        let item = foodModel.items[indexPath.row]
+        let item = foodModel.currentItems[indexPath.row]
         cell.imageView.image = UIImage(named: item.name)
         cell.label.text = item.name
         cell.layer.backgroundColor = CGColor.init(gray: 0.5, alpha: 0.2)
@@ -111,7 +120,7 @@ extension FoodListViewController: UICollectionViewDataSource {
 extension FoodListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = foodModel.items[indexPath.row]
+        let item = foodModel.currentItems[indexPath.row]
         performSegue(withIdentifier: "ShowFoodAdd", sender: item)
     }
 }

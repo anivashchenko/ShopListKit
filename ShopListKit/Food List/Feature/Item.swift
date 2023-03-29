@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Item: Identifiable {
+struct Item: Codable, Identifiable {
     
     let id = UUID().uuidString
     let name: String
@@ -13,9 +13,17 @@ struct Item: Identifiable {
     var isBought: Bool
     let typeFood: TypeFood
 
-    enum TypeFood: String {
+    enum TypeFood: String, Codable {
         case fruits
         case vegetables
         case berries
+    }
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case countValue
+        case isSet
+        case isBought
+        case typeFood
     }
 }
