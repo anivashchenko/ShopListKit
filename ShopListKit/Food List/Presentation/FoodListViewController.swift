@@ -25,6 +25,7 @@ class FoodListViewController: UIViewController {
     
     private func loadGroupTabView() {
         let titles = foodModel.loadTabTitles()
+        groupView.button1.isSelected = true
         let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
         
         let handler: UIButton.ConfigurationUpdateHandler = { button in
