@@ -19,6 +19,19 @@ extension UIViewController {
         
         return attrTitle
     }
+    
+    func customCellTitle(title: String, count: Int) -> NSMutableAttributedString {
+        let attrTitle = customAttributedTitle(title, size: 16, color: .primary)
+        if count != 0 {
+            let attrCount = customAttributedTitle(" x\(count)", size: 16, color: .darkGray)
+            attrTitle.append(attrCount)
+        }
+        attrTitle.addAttribute(.font,
+                               value: UIFont.systemFont(ofSize: 16, weight: .regular),
+                               range: NSRange(location: 0, length: attrTitle.length))
+        
+        return attrTitle
+    }
 }
 
 extension UIView {
