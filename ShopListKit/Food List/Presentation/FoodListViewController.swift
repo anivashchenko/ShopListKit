@@ -28,30 +28,10 @@ class FoodListViewController: UIViewController {
     }
     
     private func loadGroupTabView() {
-        let titles = foodModel.loadTabTitles()
         groupView.button1.isSelected = true
         let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
-        
-        let handler: UIButton.ConfigurationUpdateHandler = { button in
-            guard titles.count == buttons.count,
-                  let index = buttons.firstIndex(where: { $0 == button })
-            else { return }
-            
-            var attributedString = AttributedString(titles[index])
-            attributedString.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-            
-            switch button.state {
-            case .selected, .highlighted:
-                button.configuration = .customGroupButton
-                button.configuration?.attributedTitle = attributedString
-            default:
-                button.configuration = .customGroupSelectedButton
-                button.configuration?.attributedTitle = attributedString
-            }
-        }
-        
         for button in buttons {
-            button.configurationUpdateHandler = handler
+            button.configurationUpdateHandler = getConfigurationHandler(for: buttons)
             button.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
     }
@@ -98,6 +78,25 @@ class FoodListViewController: UIViewController {
         foodModel.filterCurrentItems(of: title.lowercased()) {
             collectionView.reloadData()
         }
+    }
+    
+    // MARK: - Helpers
+    private func getConfigurationHandler(for buttons: [UIButton]) -> UIButton.ConfigurationUpdateHandler {
+        let titles = foodModel.loadTabTitles()
+        let handler: UIButton.ConfigurationUpdateHandler = { button in
+            guard titles.count == buttons.count,
+                  let index = buttons.firstIndex(where: { $0 == button })
+            else { return }
+            
+            switch button.state {
+            case .selected, .highlighted:
+                button.configuration = .customGroupButton(text: titles[index], font: .body)
+            default:
+                button.configuration = .customGroupSelectedButton(text: titles[index], font: .body)
+            }
+        }
+        
+        return handler
     }
 }
 

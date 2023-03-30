@@ -7,18 +7,23 @@ import UIKit
 
 extension UIButton.Configuration {
     
-    static let customGroupButton: UIButton.Configuration = {
+    static func customGroupButton(text: String, font: UIFont.TextStyle) -> UIButton.Configuration {
         var configuration = UIButton.Configuration.filled()
         configuration.background.backgroundColor = UIColor(Color.lightGreen)
         configuration.baseForegroundColor = UIColor(Color.darkGreen)
         configuration.cornerStyle = .large
+        
+        var attributedString = AttributedString(text)
+        attributedString.font = UIFont.preferredFont(forTextStyle: font)
+        configuration.attributedTitle = attributedString
+        
         return configuration
-    }()
+    }
     
-    static let customGroupSelectedButton: UIButton.Configuration = {
-        var configuration = customGroupButton
+    static func customGroupSelectedButton(text: String, font: UIFont.TextStyle) -> UIButton.Configuration {
+        var configuration = customGroupButton(text: text, font: font)
         configuration.background.backgroundColor = UIColor(Color.darkGreen)
         configuration.baseForegroundColor = .white
         return configuration
-    }()
+    }
 }
