@@ -19,7 +19,7 @@ struct Item: Codable, Identifiable {
         case berries
     }
     
-    enum CodingKeys: CodingKey {
+    private enum CodingKeys: CodingKey {
         case name
         case countValue
         case isSet
