@@ -36,9 +36,7 @@ final class FoodModel {
         completion()
     }
     
-    func loadItemsWhenAppear(completion: () -> Void) {
-        filterCurrentItems(of: titles[0].lowercased()) {
-            completion()
-        }
+    func loadItemsWhenAppear() {
+        filterCurrentItems(of: titles[0].lowercased()) {}
     }
 }

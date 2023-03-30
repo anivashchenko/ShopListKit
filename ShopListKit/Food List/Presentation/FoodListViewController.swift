@@ -16,9 +16,7 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "The shop list"
-        foodModel.loadItemsWhenAppear() {
-            collectionView.reloadData()
-        }
+        foodModel.loadItemsWhenAppear()
         loadGroupTabView()
         loadItemCollectionCellView(from: collectionView)
     }
