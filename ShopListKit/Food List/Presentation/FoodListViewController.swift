@@ -43,21 +43,7 @@ class FoodListViewController: UIViewController {
         let nib = UINib(nibName: ItemCollectionCell.reuseIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: ItemCollectionCell.reuseIdentifier)
         
-        let layout = UICollectionViewCompositionalLayout(sectionProvider: { sectionId, environment in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 0)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
-            
-            return section
-        })
-        
-        collectionView.collectionViewLayout = layout
+        collectionView.collectionViewLayout = getCollectionViewCompositionalLayout()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +83,22 @@ class FoodListViewController: UIViewController {
         }
         
         return handler
+    }
+    
+    private func getCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout(sectionProvider: { sectionId, environment in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 0)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
+            
+            return section
+        })
     }
 }
 
