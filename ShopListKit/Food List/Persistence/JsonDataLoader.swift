@@ -24,11 +24,9 @@ class JsonDataLoader: DataLoader {
               let files = try? FileManager.default.contentsOfDirectory(atPath: path)
         else { return }
         
-        for file in files {
-            if file.hasSuffix("json") {
-                let title = String(file.dropLast(9))
-                titles.append(title)
-            }
+        for file in files where file.hasSuffix("json") {
+            let title = String(file.dropLast(9))
+            titles.append(title)
         }
     }
     
