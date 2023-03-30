@@ -29,10 +29,10 @@ class FoodListViewController: UIViewController {
     
     private func loadGroupTabView() {
         groupView.button1.isSelected = true
-        let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
+        let buttons = [groupView.button1, groupView.button2, groupView.button3]
         for button in buttons {
-            button.configurationUpdateHandler = getConfigurationHandler(for: buttons)
-            button.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
+            button?.configurationUpdateHandler = getConfigurationHandler(for: buttons)
+            button?.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
     }
     
@@ -48,7 +48,7 @@ class FoodListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFoodAdd" {
-            let controller = segue.destination as! FoodAddViewController
+            guard let controller = segue.destination as? FoodAddViewController else { return }
             controller.item = sender as? Item
             controller.foodModel = foodModel
         }
@@ -56,8 +56,8 @@ class FoodListViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func didTouchUpInside(sender: UIButton) {
-        let buttons = [groupView.button1!, groupView.button2!, groupView.button3!]
-        buttons.forEach({ $0.isSelected = ($0 == sender) })
+        let buttons = [groupView.button1, groupView.button2, groupView.button3]
+        buttons.forEach({ $0?.isSelected = ($0 == sender) })
         
         guard let title = sender.titleLabel?.text else { return }
         
@@ -67,7 +67,7 @@ class FoodListViewController: UIViewController {
     }
     
     // MARK: - Helpers
-    private func getConfigurationHandler(for buttons: [UIButton]) -> UIButton.ConfigurationUpdateHandler {
+    private func getConfigurationHandler(for buttons: [UIButton?]) -> UIButton.ConfigurationUpdateHandler {
         let titles = foodModel.loadTabTitles()
         let handler: UIButton.ConfigurationUpdateHandler = { button in
             guard titles.count == buttons.count,
