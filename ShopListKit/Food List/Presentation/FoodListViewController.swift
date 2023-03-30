@@ -23,6 +23,12 @@ class FoodListViewController: UIViewController {
         loadItemCollectionCellView(from: collectionView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        collectionView.reloadData()
+    }
+    
     private func loadGroupTabView() {
         let titles = foodModel.loadTabTitles()
         groupView.button1.isSelected = true
@@ -110,10 +116,20 @@ extension FoodListViewController: UICollectionViewDataSource {
         
         let item = foodModel.currentItems[indexPath.row]
         cell.imageView.image = UIImage(named: item.name)
-        cell.label.text = item.name
-        cell.layer.backgroundColor = CGColor.init(gray: 0.5, alpha: 0.2)
+        cell.label.attributedText = customCellTitle(title: item.name, count: item.countValue)
+        configureSystemCell(for: cell, item: item)
+        cell.layer.backgroundColor = UIColor(item.countValue == 0 ? .secondary : .veryLightGreen).cgColor
         cell.layer.cornerRadius = 20
+        
         return cell
+    }
+    
+    private func configureSystemCell(for cell: ItemCollectionCell, item: Item) {
+        let configForAddedItem = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(.darkGreen))
+        let config = item.countValue == 0 ? configForAddedItem : nil
+        let imageSystemName = item.countValue == 0 ? "plus.circle.fill" : "checkmark.circle.fill"
+        cell.systemIcon.image = UIImage(systemName: imageSystemName, withConfiguration: config)
+        cell.systemIcon.tintColor = item.countValue == 0 ? nil : UIColor(.yellow)
     }
 }
 

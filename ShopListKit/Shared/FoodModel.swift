@@ -23,6 +23,8 @@ final class FoodModel {
         if let index = items.firstIndex(where: { $0.name == newItem.name }) {
             items[index] = newItem
         }
+        
+        filterCurrentItems(of: item.typeFood.rawValue) {}
     }
     
     func loadTabTitles() -> [String] {
