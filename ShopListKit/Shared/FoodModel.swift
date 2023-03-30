@@ -17,7 +17,7 @@ final class FoodModel {
     }
     
     func addToBasket(item: Item, count: Int) {
-        var newItem = item.addNewItem(with: count)
+        let newItem = item.addNewItem(with: count)
         if let index = items.firstIndex(where: { $0.name == newItem.name }) {
             items[index] = newItem
             filterCurrentItems(of: item.typeFood.rawValue) {}

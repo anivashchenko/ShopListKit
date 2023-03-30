@@ -14,17 +14,11 @@ struct Item: Codable, Identifiable {
     let typeFood: TypeFood
 
     enum TypeFood: String, Codable {
-        case fruits
-        case vegetables
-        case berries
+        case vegetables, fruits, berries
     }
     
     private enum CodingKeys: CodingKey {
-        case name
-        case countValue
-        case isSet
-        case isBought
-        case typeFood
+        case name, countValue, isSet, isBought, typeFood
     }
     
     func addNewItem(with count: Int) -> Item {

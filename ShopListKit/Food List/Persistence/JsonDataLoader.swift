@@ -12,8 +12,8 @@ class JsonDataLoader: DataLoader {
         loadNamesOfFiles()
         var items: [Item] = []
         titles.forEach {
-            let loadItems: [Item] = load("\($0)Data.json")
-            items.append(contentsOf: loadItems)
+            let loadedItems = load("\($0)Data.json") as [Item]
+            items.append(contentsOf: loadedItems)
         }
         
         return items
@@ -45,10 +45,9 @@ class JsonDataLoader: DataLoader {
         }
         
         do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(T.self, from: data)
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error.localizedDescription)")
         }
     }
 }

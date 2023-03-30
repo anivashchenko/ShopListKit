@@ -23,7 +23,7 @@ class FoodListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         collectionView.reloadData()
     }
     
@@ -87,11 +87,13 @@ class FoodListViewController: UIViewController {
     
     private func getCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(sectionProvider: { sectionId, environment in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                                  heightDimension: .fractionalWidth(0.5))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 0)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                   heightDimension: .fractionalWidth(0.5))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
@@ -110,7 +112,8 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionCell.reuseIdentifier, for: indexPath) as? ItemCollectionCell
+        let reuseId = ItemCollectionCell.reuseIdentifier
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? ItemCollectionCell
         else { fatalError() }
         
         let item = foodModel.currentItems[indexPath.row]
@@ -124,8 +127,8 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     private func configureSystemCell(for cell: ItemCollectionCell, item: Item) {
-        let configForAddedItem = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(.darkGreen))
-        let config = item.countValue == 0 ? configForAddedItem : nil
+        let configPlusIcon = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(.darkGreen))
+        let config = item.countValue == 0 ? configPlusIcon : nil
         let imageSystemName = item.countValue == 0 ? "plus.circle.fill" : "checkmark.circle.fill"
         cell.systemIcon.image = UIImage(systemName: imageSystemName, withConfiguration: config)
         cell.systemIcon.tintColor = item.countValue == 0 ? nil : UIColor(.yellow)
