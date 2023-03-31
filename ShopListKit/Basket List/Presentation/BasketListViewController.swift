@@ -35,8 +35,19 @@ class BasketListViewController: UITableViewController {
         let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
         let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
         cell.itemImageView.image = item.isAddedToList ? imageIsAdded : imageIsBought
-        configureBackgroundColor(for: cell, with: item)
         basketModel.updateItem(item)
+    }
+    
+    private func configureTitle(for cell: BasketCell, with item: BasketItem) {
+        if item.isAddedToList {
+            cell.titleLabel.attributedText = customTitleWithCount(
+                title: item.name, count: item.countValue, size: 18,
+                primaryColor: .white, secondaryColor: .lightGray)
+        } else if item.isBought {
+            cell.titleLabel.attributedText = customTitleWithCount(
+                title: item.name, count: item.countValue, size: 18,
+                primaryColor: .darkGray, secondaryColor: .gray)
+        }
     }
     
     private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
@@ -62,8 +73,7 @@ extension BasketListViewController {
         
         let item = basketModel.items[indexPath.row]
         configureImage(for: cell, with: item)
-        cell.titleLabel.attributedText = customTitleWithCount(
-            title: item.name, count: item.countValue, size: 18, primaryColor: .white, secondaryColor: .lightGray)
+        configureTitle(for: cell, with: item)
         cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         cell.starButton.tintColor = UIColor.systemYellow
         configureBackgroundColor(for: cell, with: item)
@@ -80,6 +90,7 @@ extension BasketListViewController {
         
         let item = basketModel.items[indexPath.row]
         configureImage(for: cell, with: item.updateIsBought())
+        configureTitle(for: cell, with: item)
         configureBackgroundColor(for: cell, with: item.updateIsBought())
         tableView.deselectRow(at: indexPath, animated: true)
     }
