@@ -24,5 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = tabBarController!.viewControllers![0] as? UINavigationController
         let controller = navigationController?.viewControllers[0] as? FoodListViewController
         controller?.foodModel = foodModel
+        
+        let basketNavigationController = tabBarController!.viewControllers![1] as? UINavigationController
+        let basketController = basketNavigationController?.viewControllers[0] as? BasketListViewController
+        basketController?.basketModel = BasketModel()
     }
 }
