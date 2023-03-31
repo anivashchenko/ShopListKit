@@ -11,4 +11,9 @@ class BasketModel {
     init() {
         self.items = []
     }
+    
+    func updateItem(_ item: BasketItem) {
+        guard let index = items.firstIndex(where: { $0.name == item.name }) else { return }
+        items[index] = item
+    }
 }

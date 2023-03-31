@@ -30,7 +30,13 @@ class BasketListViewController: UITableViewController {
     @objc func deleteAllItems() {}
     @objc func selectTopic() {}
     
-    private func configureStar(for cell: UITableViewCell, with item: BasketItem) {}
+    private func configureImage(for cell: BasketCell, with item: BasketItem) {
+        let imageIsAdded = UIImage(named: item.name)
+        let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
+        let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
+        cell.itemImageView.image = item.isAddedToList ? imageIsAdded : imageIsBought
+        basketModel.updateItem(item)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -49,7 +55,7 @@ extension BasketListViewController {
         else { fatalError() }
         
         let item = basketModel.items[indexPath.row]
-        cell.itemImageView.image = UIImage(named: item.name)
+        configureImage(for: cell, with: item)
         cell.titleLabel.attributedText = customTitleWithCount(
             title: item.name, count: item.countValue, size: 18, primaryColor: .white, secondaryColor: .lightGray)
         cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -63,11 +69,10 @@ extension BasketListViewController {
 extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            var item = basketModel.items[indexPath.row]
-            item.isFavorite.toggle()
-            configureStar(for: cell, with: item)
-        }
+        guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
+        
+        let item = basketModel.items[indexPath.row]
+        configureImage(for: cell, with: item.updateIsBought())
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
