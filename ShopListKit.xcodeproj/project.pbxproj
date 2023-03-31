@@ -166,6 +166,8 @@
 		5D8F2D9C29BDE0120008AC15 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */,
+				5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */,
 				5D8F2D9E29BE1E030008AC15 /* BasketCell.xib */,
 			);
 			path = Presentation;
@@ -245,9 +247,7 @@
 		5D9D543029C0AC7800B4B2BD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */,
 				5D84953D29BD20AF00D2B683 /* BasketItem.swift */,
-				5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
