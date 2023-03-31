@@ -35,6 +35,12 @@ class BasketListViewController: UITableViewController {
         let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
         let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
         cell.itemImageView.image = item.isAddedToList ? imageIsAdded : imageIsBought
+        configureBackgroundColor(for: cell, with: item)
+        basketModel.updateItem(item)
+    }
+    
+    private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
+        cell.backgroundColor = item.isAddedToList ? UIColor(.darkGreen) : UIColor(.lightGreen)
         basketModel.updateItem(item)
     }
 }
@@ -60,8 +66,9 @@ extension BasketListViewController {
             title: item.name, count: item.countValue, size: 18, primaryColor: .white, secondaryColor: .lightGray)
         cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         cell.starButton.tintColor = UIColor.systemYellow
+        configureBackgroundColor(for: cell, with: item)
         
-            return cell
+        return cell
     }
 }
 
@@ -73,6 +80,7 @@ extension BasketListViewController {
         
         let item = basketModel.items[indexPath.row]
         configureImage(for: cell, with: item.updateIsBought())
+        configureBackgroundColor(for: cell, with: item.updateIsBought())
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
