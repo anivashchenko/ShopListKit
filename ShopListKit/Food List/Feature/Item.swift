@@ -26,4 +26,8 @@ struct Item: Codable, Identifiable {
         case isBought
         case typeFood
     }
+    
+    func addNewItem(with count: Int) -> Item {
+        Item(name: name, countValue: count, isSet: true, isBought: false, typeFood: typeFood)
+    }
 }
