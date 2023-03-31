@@ -31,6 +31,16 @@ extension UIViewController {
         
         return attrTitle
     }
+    
+    func customHeader(title: String, size: CGFloat, color: Color) -> NSMutableAttributedString {
+        let header = customAttributedTitle(title, size: size, color: color)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.firstLineHeadIndent = size
+        header.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: header.length))
+        
+        return header
+    }
 }
 
 extension UIView {

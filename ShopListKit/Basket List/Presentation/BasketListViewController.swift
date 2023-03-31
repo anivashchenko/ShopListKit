@@ -90,13 +90,7 @@ extension BasketListViewController {
         default: break
         }
         
-        let string = customAttributedTitle(title, size: 20, color: .darkGreen)
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.firstLineHeadIndent = 20
-        string.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: string.length))
-        
-        label.attributedText = string
+        label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
         
         return label
     }
