@@ -10,10 +10,13 @@ final class FoodModel {
     private var items: [Item]
     private var titles: [String]
     
-    init(items: [Item], titles: [String]) {
+    var basketModel: BasketModel
+    
+    init(items: [Item], titles: [String], basketModel: BasketModel) {
         self.items = items
         self.titles = titles
         self.currentItems = []
+        self.basketModel = basketModel
     }
     
     func addToBasket(item: Item, count: Int) {
@@ -21,6 +24,9 @@ final class FoodModel {
         if let index = items.firstIndex(where: { $0.name == newItem.name }) {
             items[index] = newItem
             filterCurrentItems(of: item.typeFood.rawValue) {}
+            
+            let basketItem = BasketItem(name: newItem.name, countValue: newItem.countValue, isAddedToList: true, isBought: false, isFavorite: false, typeFood: newItem.typeFood)
+            basketModel.items.append(basketItem)
         }
     }
     

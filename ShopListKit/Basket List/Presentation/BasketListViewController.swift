@@ -21,6 +21,12 @@ class BasketListViewController: UITableViewController {
         tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     @objc func deleteAllItems() {}
     @objc func selectTopic() {}
     
