@@ -10,7 +10,7 @@ class BasketCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var starButton: UIButton!
     
-    static let reuseIdentifier = "BasketCell"
+    static let reuseIdentifier = String(describing: BasketCell.self)
 
     override func updateConfiguration(using state: UICellConfigurationState) {
         super.updateConfiguration(using: state)
