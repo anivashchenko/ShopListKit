@@ -14,6 +14,10 @@ extension Color {
         .init("LightGreen")
     }
     
+    static var veryLightGreen: Color {
+        Color(uiColor: UIColor(.lightGreen).withAlphaComponent(0.3))
+    }
+    
     static var customOrange: Color {
         .init("CustomOrange")
     }

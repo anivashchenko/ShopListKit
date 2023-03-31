@@ -6,12 +6,12 @@ import UIKit
 
 class GroupTab: UIView {
     
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
-    static let reuseIdentifier = "GroupTab"
+    private static let reuseIdentifier = "GroupTab"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ class GroupTab: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         Bundle.main.loadNibNamed(GroupTab.reuseIdentifier, owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds

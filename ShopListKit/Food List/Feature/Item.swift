@@ -4,18 +4,24 @@
 
 import Foundation
 
-struct Item: Identifiable {
+struct Item: Codable, Identifiable {
     
-    var id = UUID().uuidString
-    var name: String
+    let id = UUID().uuidString
+    let name: String
     var countValue: Int
     var isSet: Bool
     var isBought: Bool
-    var typeFood: TypeFood
-   
-    enum TypeFood: String {
-        case fruits
-        case vegetables
-        case berries
+    let typeFood: TypeFood
+
+    enum TypeFood: String, Codable {
+        case vegetables, fruits, berries
+    }
+    
+    private enum CodingKeys: CodingKey {
+        case name, countValue, isSet, isBought, typeFood
+    }
+    
+    func addNewItem(with count: Int) -> Item {
+        Item(name: name, countValue: count, isSet: true, isBought: false, typeFood: typeFood)
     }
 }

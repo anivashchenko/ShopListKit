@@ -4,9 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,18 +30,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iwi-NO-MhM">
-                        <rect key="frame" x="154" y="155" width="36" height="34.666666666666686"/>
+                        <rect key="frame" x="154" y="154" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="1Rc-ar-UPJ"/>
                             <constraint firstAttribute="width" constant="36" id="hp5-XU-5HJ"/>
                         </constraints>
-                        <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="DarkGreen"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -67,16 +57,4 @@
             <point key="canvasLocation" x="-6.1068702290076331" y="-114.08450704225352"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="DarkGreen">
-            <color red="0.11699999868869781" green="0.33000001311302185" blue="0.11299999803304672" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
