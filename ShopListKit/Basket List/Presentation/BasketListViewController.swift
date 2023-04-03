@@ -71,13 +71,17 @@ extension BasketListViewController {
         
         let array = indexPath.section == 0 ? basketModel.addedItem : basketModel.boughtItem
         let item = array[indexPath.row]
+        configureCell(cell, item: item)
+        
+        return cell
+    }
+    
+    private func configureCell(_ cell: BasketCell, item: BasketItem) {
         configureImage(for: cell, with: item)
         configureTitle(for: cell, with: item)
         cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         cell.starButton.tintColor = UIColor.systemYellow
         configureBackgroundColor(for: cell, with: item)
-        
-        return cell
     }
 }
 
