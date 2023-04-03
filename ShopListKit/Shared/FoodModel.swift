@@ -26,7 +26,7 @@ final class FoodModel {
             filterCurrentItems(of: item.typeFood.rawValue) {}
             
             let basketItem = BasketItem(name: newItem.name, countValue: newItem.countValue, isAddedToList: true, isBought: false, isFavorite: false, typeFood: newItem.typeFood)
-            basketModel.items.append(basketItem)
+            basketModel.addNewItem(basketItem)
         }
     }
     

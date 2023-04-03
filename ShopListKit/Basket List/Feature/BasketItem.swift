@@ -13,6 +13,16 @@ struct BasketItem: Identifiable {
     var isFavorite: Bool
     var typeFood: Item.TypeFood
     
+    func updateCount(with oldCount: Int) -> BasketItem {
+        BasketItem(
+            name: name,
+            countValue: countValue + oldCount,
+            isAddedToList: isAddedToList,
+            isBought: isBought,
+            isFavorite: isFavorite,
+            typeFood: typeFood)
+    }
+    
     func updateIsBought() -> BasketItem {
         BasketItem(
             name: name,

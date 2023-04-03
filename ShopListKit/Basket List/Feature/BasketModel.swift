@@ -21,11 +21,28 @@ class BasketModel {
         self.boughtItem = []
     }
     
-    func updateItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name &&
-                                                    $0.isAddedToList == item.isAddedToList })
-        else { return updateAddedBoughtItem(item) }
+    func addNewItem(_ item: BasketItem) {
+        guard let index = items.firstIndex(where: { $0.name == item.name && $0.isAddedToList })
+        else { return appendNewItem(item) }
+        
         items[index] = item
+    }
+    
+    func updateItem(_ item: BasketItem) {
+        guard
+            let indexForRemoving = items.firstIndex(where: { $0.name == item.name &&
+                                                             $0.isAddedToList == item.isAddedToList }),
+            let indexForChanging = items.firstIndex(where: { $0.name == item.name &&
+                                                             $0.isAddedToList == !item.isAddedToList })
+        else { return updateAddedBoughtItem(item) }
+        
+        let count = items[indexForRemoving].countValue
+        items[indexForChanging] = item.updateCount(with: count)
+        items.remove(at: indexForRemoving)
+    }
+    
+    private func appendNewItem(_ item: BasketItem) {
+        items.append(item)
     }
     
     private func updateAddedItem() {
@@ -37,7 +54,9 @@ class BasketModel {
     }
     
     private func updateAddedBoughtItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name }) else { return }
+        guard let index = items.firstIndex(where: { $0.name == item.name })
+        else { return appendNewItem(item) }
+        
         items.remove(at: index)
         items.append(item)
     }
