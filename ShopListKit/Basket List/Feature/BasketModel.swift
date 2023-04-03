@@ -16,6 +16,8 @@ class BasketModel {
     var addedItem: [BasketItem]
     var boughtItem: [BasketItem]
     
+    var onDeleteAllItems: (() -> Void)?
+    
     init() {
         self.items = []
         self.addedItem = []
@@ -44,6 +46,7 @@ class BasketModel {
     
     func removeAllItems() {
         items.removeAll()
+        onDeleteAllItems?()
     }
     
     private func appendNewItem(_ item: BasketItem) {

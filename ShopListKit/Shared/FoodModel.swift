@@ -17,6 +17,8 @@ final class FoodModel {
         self.titles = titles
         self.currentItems = []
         self.basketModel = basketModel
+        
+        basketModel.onDeleteAllItems = resetAllAddedItems
     }
     
     func addToBasket(item: Item, count: Int) {
@@ -41,5 +43,18 @@ final class FoodModel {
     
     func loadItemsWhenAppear() {
         filterCurrentItems(of: titles[0].lowercased()) {}
+    }
+    
+    private func resetAllAddedItems() {
+        var typesFood: [Item.TypeFood] = []
+        
+        for item in items where item.isSet == true {
+            guard let index = items.firstIndex(where: { $0.name == item.name }) else { return }
+            items[index] = Item.resetToDefaultItem(name: item.name, typeFood: item.typeFood)
+
+            !typesFood.contains(item.typeFood) ? typesFood.append(item.typeFood) : nil
+        }
+        
+        typesFood.forEach { filterCurrentItems(of: $0.rawValue) {} }
     }
 }
