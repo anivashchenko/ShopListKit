@@ -18,10 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
+        let basketModel = BasketModel()
         let basketNavController = tabBarController!.viewControllers![1] as? UINavigationController
         let basketViewController = basketNavController?.viewControllers[0] as? BasketListViewController
-        basketViewController?.basketModel = BasketModel()
-        guard let basketModel = basketViewController?.basketModel else { return }
+        basketViewController?.basketModel = basketModel
         
         let dataLoader = JsonDataLoader()
         let foodModel = FoodModel(items: dataLoader.loadData(), titles: dataLoader.titles, basketModel: basketModel)
