@@ -35,7 +35,6 @@ class BasketListViewController: UITableViewController {
         let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
         let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
         cell.itemImageView.image = item.isAddedToList ? imageIsAdded : imageIsBought
-        basketModel.updateItem(item)
     }
     
     private func configureTitle(for cell: BasketCell, with item: BasketItem) {
@@ -52,7 +51,6 @@ class BasketListViewController: UITableViewController {
     
     private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
         cell.backgroundColor = item.isAddedToList ? UIColor(.darkGreen) : UIColor(.lightGreen)
-        basketModel.updateItem(item)
     }
 }
 
@@ -64,14 +62,15 @@ extension BasketListViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        basketModel.items.count
+        section == 0 ? basketModel.addedItem.count : basketModel.boughtItem.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as? BasketCell
         else { fatalError() }
         
-        let item = basketModel.items[indexPath.row]
+        let array = indexPath.section == 0 ? basketModel.addedItem : basketModel.boughtItem
+        let item = array[indexPath.row]
         configureImage(for: cell, with: item)
         configureTitle(for: cell, with: item)
         cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -88,11 +87,14 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
         
-        let item = basketModel.items[indexPath.row]
+        let currentItems = indexPath.section == 0 ? basketModel.addedItem : basketModel.boughtItem
+        let item = currentItems[indexPath.row]
         configureImage(for: cell, with: item.updateIsBought())
         configureTitle(for: cell, with: item)
         configureBackgroundColor(for: cell, with: item.updateIsBought())
+        basketModel.updateItem(item.updateIsBought())
         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
