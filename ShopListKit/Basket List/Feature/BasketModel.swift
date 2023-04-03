@@ -6,12 +6,13 @@ import Foundation
 
 class BasketModel {
     
-    var items: [BasketItem] {
+    private var items: [BasketItem] {
         didSet {
             updateAddedItem()
             updateBoughtItem()
         }
     }
+    
     var addedItem: [BasketItem]
     var boughtItem: [BasketItem]
     
