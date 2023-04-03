@@ -23,7 +23,7 @@ class BasketModel {
     
     func updateItem(_ item: BasketItem) {
         guard let index = items.firstIndex(where: { $0.name == item.name &&
-            $0.isAddedToList == item.isAddedToList })
+                                                    $0.isAddedToList == item.isAddedToList })
         else { return updateAddedBoughtItem(item) }
         items[index] = item
     }

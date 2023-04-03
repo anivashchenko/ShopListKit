@@ -6,7 +6,7 @@ import UIKit
 import SwiftUI
 
 class BasketListViewController: UITableViewController {
-
+    
     var basketModel: BasketModel!
     
     override func viewDidLoad() {
@@ -16,11 +16,11 @@ class BasketListViewController: UITableViewController {
         let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash.circle"), style: .plain, target: self, action: #selector(deleteAllItems))
         let topicButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(selectTopic))
         navigationItem.rightBarButtonItems = [topicButton, trashButton]
-                
+        
         let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -64,7 +64,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         section == 0 ? basketModel.addedItem.count : basketModel.boughtItem.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as? BasketCell
         else { fatalError() }
@@ -100,7 +100,7 @@ extension BasketListViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
