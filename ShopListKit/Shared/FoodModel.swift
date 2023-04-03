@@ -18,6 +18,7 @@ final class FoodModel {
         self.currentItems = []
         self.basketModel = basketModel
         
+        basketModel.onDelete = resetItem
         basketModel.onDeleteAllItems = resetAllAddedItems
     }
     
@@ -56,5 +57,15 @@ final class FoodModel {
         }
         
         typesFood.forEach { filterCurrentItems(of: $0.rawValue) {} }
+    }
+    
+    private func resetItem(with name: String, from typeFood: Item.TypeFood) {
+        resetToDefaultItem(with: name, from: typeFood)
+        filterCurrentItems(of: typeFood.rawValue) {}
+    }
+    
+    private func resetToDefaultItem(with name: String, from typeFood: Item.TypeFood) {
+        guard let index = items.firstIndex(where: { $0.name == name }) else { return }
+        items[index] = Item.resetToDefaultItem(name: name, typeFood: typeFood)
     }
 }
