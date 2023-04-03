@@ -42,6 +42,10 @@ class BasketModel {
         items.remove(at: indexForRemoving)
     }
     
+    func removeAllItems() {
+        items.removeAll()
+    }
+    
     private func appendNewItem(_ item: BasketItem) {
         items.append(item)
     }

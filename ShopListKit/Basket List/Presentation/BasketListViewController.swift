@@ -27,7 +27,13 @@ class BasketListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    @objc func deleteAllItems() {}
+    @objc func deleteAllItems() {
+        showAlertBeforeDeleting() { [weak self] _ in
+            self?.basketModel.removeAllItems()
+            self?.tableView.reloadData()
+        }
+    }
+    
     @objc func selectTopic() {}
     
     private func configureImage(for cell: BasketCell, with item: BasketItem) {
@@ -51,6 +57,18 @@ class BasketListViewController: UITableViewController {
     
     private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
         cell.backgroundColor = item.isAddedToList ? UIColor(.darkGreen) : UIColor(.lightGreen)
+    }
+    
+    private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
+        let title = "Do you want to remove the whole list?"
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        let delete = UIAlertAction(title: "Delete", style: .destructive, handler: handler)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
 }
 
