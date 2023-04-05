@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let basketNavController = tabBarController!.viewControllers![1] as? UINavigationController
         let basketViewController = basketNavController?.viewControllers[0] as? BasketListViewController
         basketViewController?.basketModel = basketModel
+        drawBasketIcon(in: basketNavController)
         
         let dataLoader = JsonDataLoader()
         let foodModel = FoodModel(items: dataLoader.loadData(), titles: dataLoader.titles, basketModel: basketModel)
@@ -29,5 +30,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = tabBarController!.viewControllers![0] as? UINavigationController
         let controller = navigationController?.viewControllers[0] as? FoodListViewController
         controller?.foodModel = foodModel
+    }
+    
+    private func drawBasketIcon(in navigationController: UINavigationController?) {
+        let basketImage = UIImage.imageFromBezierPath(
+            .basketBezierPath(height: 30),
+            size: CGSize(width: 30, height: 30),
+            color: UIColor.gray.cgColor)
+        navigationController?.tabBarItem = UITabBarItem(title: "Basket", image: basketImage, tag: 2)
     }
 }
