@@ -24,13 +24,12 @@ final class FoodModel {
     
     func addToBasket(item: Item, count: Int) {
         let newItem = item.addNewItem(with: count)
-        if let index = items.firstIndex(where: { $0.name == newItem.name }) {
-            items[index] = newItem
-            filterCurrentItems(of: item.typeFood.rawValue) {}
-            
-            let basketItem = BasketItem(name: newItem.name, countValue: newItem.countValue, isAddedToList: true, isBought: false, isFavorite: false, typeFood: newItem.typeFood)
-            basketModel.addNewItem(basketItem)
-        }
+        guard let index = items.firstIndex(where: { $0.name == newItem.name }) else { return }
+        items[index] = newItem
+        filterCurrentItems(of: item.typeFood.rawValue) {}
+        
+        let basketItem = BasketItem(name: newItem.name, countValue: newItem.countValue, typeFood: newItem.typeFood)
+        basketModel.addNewItem(basketItem)
     }
     
     func loadTabTitles() -> [String] {
