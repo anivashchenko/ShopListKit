@@ -8,6 +8,7 @@ import SwiftUI
 class BasketListViewController: UITableViewController {
     
     var basketModel: BasketModel!
+    let emptyView = EmptyBasketView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class BasketListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureEmptyView()
         tableView.reloadData()
     }
     
@@ -57,6 +59,13 @@ class BasketListViewController: UITableViewController {
     
     private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
         cell.backgroundColor = item.isAddedToList ? UIColor(.darkGreen) : UIColor(.lightGreen)
+    }
+    
+    private func configureEmptyView() {
+        emptyView.frame = view.frame
+        let basketIsEmpty = basketModel.addedItem.isEmpty && basketModel.boughtItem.isEmpty
+        basketIsEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
+        navigationController?.navigationBar.isHidden = basketIsEmpty
     }
     
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
