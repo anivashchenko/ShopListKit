@@ -49,12 +49,11 @@ final class FoodModel {
     private func resetAllAddedItems() {
         var typesFood: [Item.TypeFood] = []
         
-        for item in items where item.isSet == true {
-            guard let index = items.firstIndex(where: { $0.name == item.name }) else { return }
-            items[index] = Item.resetToDefaultItem(name: item.name, typeFood: item.typeFood)
-
-            !typesFood.contains(item.typeFood) ? typesFood.append(item.typeFood) : nil
-        }
+        items.filter { $0.isSet == true }
+             .forEach {
+                resetToDefaultItem(with: $0.name, from: $0.typeFood)
+                !typesFood.contains($0.typeFood) ? typesFood.append($0.typeFood) : nil
+             }
         
         typesFood.forEach { filterCurrentItems(of: $0.rawValue) {} }
     }
