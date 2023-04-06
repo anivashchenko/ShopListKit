@@ -113,6 +113,15 @@ extension BasketListViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        basketModel.moveRow(from: sourceIndexPath, to: destinationIndexPath)
+        tableView.reloadData()
+    }
+    
     private func configureCell(_ cell: BasketCell, item: BasketItem) {
         configureImage(for: cell, with: item)
         configureTitle(for: cell, with: item)

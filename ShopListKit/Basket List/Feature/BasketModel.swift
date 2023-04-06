@@ -57,6 +57,18 @@ class BasketModel {
         titles[section + (!addedItem.isEmpty ? 0 : 1)]
     }
     
+    func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
+        guard startRow.section == endRow.section else { return }
+
+        let selectedItem = currentItem(at: startRow)
+        guard
+            let item = items.first(where: { $0.name == selectedItem.name }),
+            let index = items.firstIndex(where: { $0.name == selectedItem.name })
+        else { return }
+        items.remove(at: index)
+        items.insert(item, at: endRow.row)
+    }
+    
     func removeAllItems() {
         items.removeAll()
         onDeleteAllItems?()
