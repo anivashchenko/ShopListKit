@@ -105,6 +105,14 @@ extension BasketListViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            basketModel.removeItem(at: indexPath)
+            configureEmptyView()
+            tableView.reloadData()
+        }
+    }
+    
     private func configureCell(_ cell: BasketCell, item: BasketItem) {
         configureImage(for: cell, with: item)
         configureTitle(for: cell, with: item)
@@ -139,13 +147,5 @@ extension BasketListViewController {
         label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
         
         return label
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            basketModel.removeItem(at: indexPath)
-            configureEmptyView()
-            tableView.reloadData()
-        }
     }
 }
