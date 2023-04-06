@@ -32,6 +32,7 @@ class BasketListViewController: UITableViewController {
     @objc func deleteAllItems() {
         showAlertBeforeDeleting() { [weak self] _ in
             self?.basketModel.removeAllItems()
+            self?.configureEmptyView()
             self?.tableView.reloadData()
         }
     }
@@ -66,6 +67,8 @@ class BasketListViewController: UITableViewController {
         let basketIsEmpty = basketModel.addedItem.isEmpty && basketModel.boughtItem.isEmpty
         basketIsEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
         navigationController?.navigationBar.isHidden = basketIsEmpty
+        tableView.contentInsetAdjustmentBehavior = basketIsEmpty ? .never : .automatic
+        tableView.isScrollEnabled = !basketIsEmpty
     }
     
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
@@ -141,6 +144,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             basketModel.removeItem(at: indexPath)
+            configureEmptyView()
             tableView.reloadData()
         }
     }
