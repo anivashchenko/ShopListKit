@@ -155,7 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */,
+				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
 				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
+				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,8 +234,6 @@
 		5D92F45029C8A17A00BC218A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
-				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
 				5D82859D29CA0D350026DE86 /* UIView+blurBackgroundImage.swift */,
 				5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */,
 			);
