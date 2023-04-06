@@ -85,19 +85,18 @@ class BasketListViewController: UITableViewController {
 extension BasketListViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        basketModel.sections.reduce(0) { $0 + (!$1.isEmpty ? 1 : 0) }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? basketModel.addedItem.count : basketModel.boughtItem.count
+        basketModel.sections[basketModel.addedItem.isEmpty ? section + 1 : section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as? BasketCell
         else { fatalError() }
         
-        let array = indexPath.section == 0 ? basketModel.addedItem : basketModel.boughtItem
-        let item = array[indexPath.row]
+        let item = basketModel.currentItem(at: indexPath)
         configureCell(cell, item: item)
         
         return cell
@@ -118,8 +117,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
         
-        let currentItems = indexPath.section == 0 ? basketModel.addedItem : basketModel.boughtItem
-        let item = currentItems[indexPath.row]
+        let item = basketModel.currentItem(at: indexPath)
         configureImage(for: cell, with: item.updateIsBought())
         configureTitle(for: cell, with: item)
         configureBackgroundColor(for: cell, with: item.updateIsBought())
@@ -134,14 +132,7 @@ extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        
-        var title: String = ""
-        switch section {
-        case 0: title = "WANT TO BUY:"
-        case 1: title = "BOUGHT:"
-        default: break
-        }
-        
+        let title = basketModel.currentTitle(from: ["WANT TO BUY:", "BOUGHT:"], at: section)
         label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
         
         return label

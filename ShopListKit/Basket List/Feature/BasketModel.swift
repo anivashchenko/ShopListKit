@@ -10,11 +10,13 @@ class BasketModel {
         didSet {
             updateAddedItem()
             updateBoughtItem()
+            sections = [addedItem, boughtItem]
         }
     }
     
     var addedItem: [BasketItem]
     var boughtItem: [BasketItem]
+    var sections: [[BasketItem]]
     
     var onDelete: ((String, Item.TypeFood) -> Void)?
     var onDeleteAllItems: (() -> Void)?
@@ -23,6 +25,7 @@ class BasketModel {
         self.items = []
         self.addedItem = []
         self.boughtItem = []
+        self.sections = []
     }
     
     func addNewItem(_ item: BasketItem) {
@@ -43,6 +46,15 @@ class BasketModel {
         let count = items[indexForRemoving].countValue
         items[indexForChanging] = item.updateCount(with: count)
         items.remove(at: indexForRemoving)
+    }
+    
+    func currentItem(at indexPath: IndexPath) -> BasketItem {
+        let array = sections[indexPath.section + (!addedItem.isEmpty ? 0 : 1)]
+        return array[indexPath.row]
+    }
+    
+    func currentTitle(from titles: [String], at section: Int) -> String {
+        titles[section + (!addedItem.isEmpty ? 0 : 1)]
     }
     
     func removeAllItems() {
