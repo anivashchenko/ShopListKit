@@ -48,9 +48,11 @@ class BasketModel {
         items.remove(at: indexForRemoving)
     }
     
-    func currentItem(at indexPath: IndexPath) -> BasketItem {
+    func currentItem(at indexPath: IndexPath, updateIsBought: Bool = false) -> BasketCellViewModel {
         let array = sections[indexPath.section + (!addedItem.isEmpty ? 0 : 1)]
-        return array[indexPath.row]
+        let item = updateIsBought ? array[indexPath.row].updateIsBought() : array[indexPath.row]
+        updateIsBought ? updateItem(item) : nil
+        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite)
     }
     
     func currentTitle(from titles: [String], at section: Int) -> String {

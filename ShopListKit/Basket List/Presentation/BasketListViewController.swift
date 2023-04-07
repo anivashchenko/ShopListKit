@@ -39,29 +39,6 @@ class BasketListViewController: UITableViewController {
     
     @objc func selectTopic() {}
     
-    private func configureImage(for cell: BasketCell, with item: BasketItem) {
-        let imageIsAdded = UIImage(named: item.name)
-        let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
-        let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
-        cell.itemImageView.image = item.isAddedToList ? imageIsAdded : imageIsBought
-    }
-    
-    private func configureTitle(for cell: BasketCell, with item: BasketItem) {
-        if item.isAddedToList {
-            cell.titleLabel.attributedText = customTitleWithCount(
-                title: item.name, count: item.countValue, size: 18,
-                primaryColor: .white, secondaryColor: .lightGray)
-        } else if item.isBought {
-            cell.titleLabel.attributedText = customTitleWithCount(
-                title: item.name, count: item.countValue, size: 18,
-                primaryColor: .darkGray, secondaryColor: .gray)
-        }
-    }
-    
-    private func configureBackgroundColor(for cell: BasketCell, with item: BasketItem) {
-        cell.backgroundColor = item.isAddedToList ? UIColor(.darkGreen) : UIColor(.lightGreen)
-    }
-    
     private func configureEmptyView() {
         emptyView.frame = view.frame
         let basketIsEmpty = basketModel.addedItem.isEmpty && basketModel.boughtItem.isEmpty
@@ -96,11 +73,8 @@ extension BasketListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as? BasketCell
-        else { fatalError() }
-        
-        let item = basketModel.currentItem(at: indexPath)
-        configureCell(cell, item: item)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as! BasketCell
+        cell.viewModel = basketModel.currentItem(at: indexPath)
         
         return cell
     }
@@ -121,14 +95,6 @@ extension BasketListViewController {
         basketModel.moveRow(from: sourceIndexPath, to: destinationIndexPath)
         tableView.reloadData()
     }
-    
-    private func configureCell(_ cell: BasketCell, item: BasketItem) {
-        configureImage(for: cell, with: item)
-        configureTitle(for: cell, with: item)
-        cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        cell.starButton.tintColor = UIColor.systemYellow
-        configureBackgroundColor(for: cell, with: item)
-    }
 }
 
 // MARK: - UITableViewDelegate
@@ -137,11 +103,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
         
-        let item = basketModel.currentItem(at: indexPath)
-        configureImage(for: cell, with: item.updateIsBought())
-        configureTitle(for: cell, with: item)
-        configureBackgroundColor(for: cell, with: item.updateIsBought())
-        basketModel.updateItem(item.updateIsBought())
+        cell.viewModel = basketModel.currentItem(at: indexPath, updateIsBought: true)
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
     }

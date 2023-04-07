@@ -11,4 +11,14 @@ class BasketCell: UITableViewCell {
     @IBOutlet var starButton: UIButton!
     
     static let reuseIdentifier = String(describing: BasketCell.self)
+    
+    var viewModel: BasketCellViewModel! {
+        didSet {
+            itemImageView.image = viewModel.image
+            titleLabel.attributedText = viewModel.attributedTitle
+            starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            starButton.tintColor = viewModel.starImageColor
+            contentView.backgroundColor = viewModel.backgroundColor
+        }
+    }
 }
