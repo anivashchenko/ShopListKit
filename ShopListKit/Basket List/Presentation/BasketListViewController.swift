@@ -14,9 +14,10 @@ class BasketListViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = self.editButtonItem
-        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash.circle"), style: .plain, target: self, action: #selector(deleteAllItems))
-        let topicButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(selectTopic))
-        navigationItem.rightBarButtonItems = [topicButton, trashButton]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash.circle"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(deleteAllItems))
         
         let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
@@ -36,8 +37,6 @@ class BasketListViewController: UITableViewController {
             self?.tableView.reloadData()
         }
     }
-    
-    @objc func selectTopic() {}
     
     private func configureEmptyView() {
         emptyView.frame = view.frame
