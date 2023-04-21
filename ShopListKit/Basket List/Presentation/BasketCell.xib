@@ -36,6 +36,9 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="didPressStarButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tVP-dq-hoy"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

@@ -21,4 +21,9 @@ class BasketCell: UITableViewCell {
             contentView.backgroundColor = viewModel.backgroundColor
         }
     }
+    
+    @IBAction private func didPressStarButton() {
+        viewModel.isFavorite.toggle()
+        starButton.tintColor = viewModel.starImageColor
+    }
 }
