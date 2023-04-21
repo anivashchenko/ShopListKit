@@ -6,9 +6,9 @@ import UIKit
 
 class BasketCell: UITableViewCell {
     
-    @IBOutlet var itemImageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var starButton: UIButton!
+    @IBOutlet private var itemImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var starButton: UIButton!
     
     static let reuseIdentifier = String(describing: BasketCell.self)
     
