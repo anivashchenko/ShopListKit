@@ -56,7 +56,11 @@ class BasketModel {
             updateItem(item)
         }
         
-        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite)
+        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
+            guard let self else { return }
+            guard let index = items.firstIndex(where: { $0.name == name && $0.isAddedToList == isAdded }) else { return }
+            items[index].updateIsFavorite()
+        }
     }
     
     func currentTitle(from titles: [String], at section: Int) -> String {

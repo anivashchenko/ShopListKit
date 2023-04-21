@@ -9,7 +9,10 @@ struct BasketCellViewModel {
     let name: String
     let count: Int
     let isAdded: Bool
-    let isFavorite: Bool
+    var isFavorite: Bool {
+        didSet { onFavoriteChanged(name, isAdded) }
+    }
+    let onFavoriteChanged: (String, Bool) -> Void
     
     var image: UIImage? {
         let imageIsAdded = UIImage(named: name)

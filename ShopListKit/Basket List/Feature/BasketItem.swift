@@ -23,4 +23,8 @@ struct BasketItem: Identifiable {
         isAddedToList.toggle()
         isBought.toggle()
     }
+    
+    mutating func updateIsFavorite() {
+        isFavorite.toggle()
+    }
 }
