@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,6 +36,9 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="didPressStarButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tVP-dq-hoy"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -52,9 +55,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="itemImageView" destination="3c0-Gh-mm2" id="pAr-ec-RVw"/>
-                <outlet property="starButton" destination="5DE-NI-eB7" id="TLv-V9-rO5"/>
-                <outlet property="titleLabel" destination="OD4-ZV-SZn" id="R0y-no-qHg"/>
+                <outlet property="itemImageView" destination="3c0-Gh-mm2" id="cri-bT-xlk"/>
+                <outlet property="starButton" destination="5DE-NI-eB7" id="RmE-QY-geu"/>
+                <outlet property="titleLabel" destination="OD4-ZV-SZn" id="hHF-xK-aca"/>
             </connections>
             <point key="canvasLocation" x="68.702290076335871" y="20.422535211267608"/>
         </tableViewCell>

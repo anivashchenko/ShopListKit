@@ -152,13 +152,11 @@
             </objects>
             <point key="canvasLocation" x="1224" y="-226"/>
         </scene>
-        <!--Basket-->
+        <!--Navigation Controller-->
         <scene sceneID="DfX-LB-joS">
             <objects>
                 <navigationController id="7Mi-C7-aWT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Basket" id="bYw-ZO-cNN">
-                        <imageReference key="image" image="basket.fill" catalog="system" renderingMode="template"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" id="bYw-ZO-cNN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="No4-lv-u8o">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -193,7 +191,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basket.fill" catalog="system" width="128" height="108"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,7 +11,9 @@
 		5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */; };
 		5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */; };
 		5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */; };
+		5D4B9CD929D71A390077E44B /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B9CD829D71A390077E44B /* BasketModel.swift */; };
 		5D7A455B29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */; };
+		5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */; };
 		5D7D25E229C0D7080013D3D5 /* AttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */; };
 		5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F702529BF6BAF00CCD609 /* CountStepper.swift */; };
 		5D7F702829BF6BBA00CCD609 /* CountStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F702729BF6BBA00CCD609 /* CountStepper.xib */; };
@@ -31,6 +33,8 @@
 		5D8F389D29D2F092003AA506 /* BerriesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F389A29D2F092003AA506 /* BerriesData.json */; };
 		5D8F38A029D3111E003AA506 /* JsonDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F389F29D3111E003AA506 /* JsonDataLoader.swift */; };
 		5D8F38A329D33E02003AA506 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F38A229D33E02003AA506 /* DataLoader.swift */; };
+		5D8F7D3929DD89EC00E77370 /* EmptyBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F7D3829DD89EC00E77370 /* EmptyBasketView.swift */; };
+		5D8F7D3B29DDA98600E77370 /* EmptyBasketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F7D3A29DDA98500E77370 /* EmptyBasketView.xib */; };
 		5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */; };
 		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
 		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
@@ -49,7 +53,9 @@
 		5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		5D39BDB129BA4E0200BC4C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D4B9CD829D71A390077E44B /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+basketBezierPath.swift"; sourceTree = "<group>"; };
+		5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCellViewModel.swift; sourceTree = "<group>"; };
 		5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStrings.swift; sourceTree = "<group>"; };
 		5D7F702529BF6BAF00CCD609 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
 		5D7F702729BF6BBA00CCD609 /* CountStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountStepper.xib; sourceTree = "<group>"; };
@@ -69,6 +75,8 @@
 		5D8F389A29D2F092003AA506 /* BerriesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BerriesData.json; sourceTree = "<group>"; };
 		5D8F389F29D3111E003AA506 /* JsonDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataLoader.swift; sourceTree = "<group>"; };
 		5D8F38A229D33E02003AA506 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		5D8F7D3829DD89EC00E77370 /* EmptyBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBasketView.swift; sourceTree = "<group>"; };
+		5D8F7D3A29DDA98500E77370 /* EmptyBasketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyBasketView.xib; sourceTree = "<group>"; };
 		5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromBezierPath.swift"; sourceTree = "<group>"; };
 		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
 		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
@@ -149,7 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */,
+				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
 				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
+				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -166,7 +176,11 @@
 		5D8F2D9C29BDE0120008AC15 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */,
+				5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */,
+				5D8F7D3829DD89EC00E77370 /* EmptyBasketView.swift */,
 				5D8F2D9E29BE1E030008AC15 /* BasketCell.xib */,
+				5D8F7D3A29DDA98500E77370 /* EmptyBasketView.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -222,8 +236,6 @@
 		5D92F45029C8A17A00BC218A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
-				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
 				5D82859D29CA0D350026DE86 /* UIView+blurBackgroundImage.swift */,
 				5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */,
 			);
@@ -245,9 +257,9 @@
 		5D9D543029C0AC7800B4B2BD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				5D8F2D9D29BE1E030008AC15 /* BasketCell.swift */,
 				5D84953D29BD20AF00D2B683 /* BasketItem.swift */,
-				5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */,
+				5D4B9CD829D71A390077E44B /* BasketModel.swift */,
+				5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -327,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8F7D3B29DDA98600E77370 /* EmptyBasketView.xib in Resources */,
 				5D8F389D29D2F092003AA506 /* BerriesData.json in Resources */,
 				5D8F389C29D2F092003AA506 /* VegetablesData.json in Resources */,
 				5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */,
@@ -352,10 +365,12 @@
 				5D84954029BD20FD00D2B683 /* Item.swift in Sources */,
 				5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */,
 				5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */,
+				5D8F7D3929DD89EC00E77370 /* EmptyBasketView.swift in Sources */,
 				5DB1E9C729BB7E7A00585348 /* Color.swift in Sources */,
 				5D82859E29CA0D350026DE86 /* UIView+blurBackgroundImage.swift in Sources */,
 				5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */,
 				5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */,
+				5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */,
 				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
 				5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */,
 				5D0CFC5B29CDE936006F71DE /* FoodModel.swift in Sources */,
@@ -366,6 +381,7 @@
 				5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */,
 				5D8F38A029D3111E003AA506 /* JsonDataLoader.swift in Sources */,
 				5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */,
+				5D4B9CD929D71A390077E44B /* BasketModel.swift in Sources */,
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
 				5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */,
