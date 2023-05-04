@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct BasketItem: Identifiable {
+struct BasketItem: Identifiable, Equatable {
     
     var name: String
     var countValue: Int
