@@ -124,17 +124,18 @@ final class BasketModelTests: XCTestCase {
         XCTAssertTrue(sut.sections.isEmpty)
     }
     
-    func test_removeItem_removesAnyItem() {
+    func test_removeItem_removesBoughtAnyItem() {
         let sut = makeSUT()
-        let anyItem = addedItem(name: "any name")
-        let anotherItem = addedItem(name: "another name")
-        let indexPathOfAnyItem = IndexPath(row: 0, section: 0)
+        let addedAnyItem = addedItem(name: "any name")
+        let indexPathOfAddedAnyItem = IndexPath(row: 0, section: 0)
+        let indexPathOfBoughtAnyItem = IndexPath(row: 0, section: 1)
         
-        sut.addNewItem(anyItem)
-        sut.addNewItem(anotherItem)
-        sut.removeItem(at: indexPathOfAnyItem)
+        sut.addNewItem(addedAnyItem)
+        sut.updateExistedItem(at: indexPathOfAddedAnyItem)
+        sut.addNewItem(addedAnyItem)
+        sut.removeItem(at: indexPathOfBoughtAnyItem)
         
-        XCTAssertEqual(sut.sections, [[anotherItem]])
+        XCTAssertEqual(sut.sections, [[addedAnyItem]])
     }
     
     // MARK: - Helpers

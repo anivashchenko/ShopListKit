@@ -76,7 +76,7 @@ class BasketModel {
     
     func removeItem(at indexPath: IndexPath) {
         let item = item(at: indexPath)
-        items.removeAll(where: { $0.name == item.name })
+        items.removeAll(where: { $0.id == item.id })
         updateSections()
         onDelete?(item.name, item.typeFood)
     }
