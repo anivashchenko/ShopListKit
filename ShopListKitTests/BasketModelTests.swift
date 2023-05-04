@@ -97,16 +97,19 @@ final class BasketModelTests: XCTestCase {
     
     func test_moveRow_moveFirstItemToTheEnd() {
         let sut = makeSUT()
-        let anyItem = addedItem(name: "any name")
-        let anotherItem = addedItem(name: "another name")
+        let addedAnyItem = addedItem(name: "any name")
+        let boughtAnyItem = boughtItem(name: "any name")
+        let addedAnotherItem = addedItem(name: "another name")
         let indexPathOfAnyItemAtFirst = IndexPath(row: 0, section: 0)
         let indexPathOfAnyItemAtTheEnd = IndexPath(row: 1, section: 0)
         
-        sut.addNewItem(anyItem)
-        sut.addNewItem(anotherItem)
+        sut.addNewItem(addedAnyItem)
+        sut.updateExistedItem(at: indexPathOfAnyItemAtFirst)
+        sut.addNewItem(addedAnyItem)
+        sut.addNewItem(addedAnotherItem)
         sut.moveRow(from: indexPathOfAnyItemAtFirst, to: indexPathOfAnyItemAtTheEnd)
         
-        XCTAssertEqual(sut.sections, [[anotherItem, anyItem]])
+        XCTAssertEqual(sut.sections, [[addedAnotherItem, addedAnyItem], [boughtAnyItem]])
     }
     
     func test_removeAllItems() {

@@ -57,14 +57,15 @@ class BasketModel {
     func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
         guard startRow.section == endRow.section else { return }
 
-        let selectedItem = viewModelForItem(at: startRow)
-        guard
-            let item = items.first(where: { $0.name == selectedItem.name }),
-            let index = items.firstIndex(where: { $0.name == selectedItem.name })
-        else { return }
-        items.remove(at: index)
-        items.insert(item, at: endRow.row)
-        updateSections()
+        let itemStart = item(at: startRow)
+        let itemEnd = item(at: endRow)
+        if let indexStart = items.firstIndex(where: { $0.id == itemStart.id }),
+           let indexEnd = items.firstIndex(where: { $0.id == itemEnd.id }) {
+            let item = items[indexStart]
+            items.remove(at: indexStart)
+            items.insert(item, at: indexEnd)
+            updateSections()
+        }
     }
     
     func removeAllItems() {
