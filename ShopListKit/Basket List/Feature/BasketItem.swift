@@ -17,7 +17,7 @@ struct BasketItem: Identifiable {
         get { name + "\(isAddedToList)" }
     }
     
-    mutating func updateIsBought() {
+    mutating func updateIsAddedAndIsBought() {
         isAddedToList.toggle()
         isBought.toggle()
     }
