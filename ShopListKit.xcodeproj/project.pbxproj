@@ -38,6 +38,7 @@
 		5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */; };
 		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
 		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
+		5D9D99EE2A03C4D5009BEB4C /* BasketModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D99ED2A03C4D5009BEB4C /* BasketModelTests.swift */; };
 		5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19EE29C203730046919F /* Launch Screen.storyboard */; };
 		5D9F19F129C20FC00046919F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F029C20FC00046919F /* Main.storyboard */; };
 		5D9F19F329C210D90046919F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F229C210D90046919F /* Assets.xcassets */; };
@@ -45,6 +46,16 @@
 		5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTab.swift */; };
 		5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTab.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D9D99E82A03C478009BEB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D39BD9829BA4DFF00BC4C19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D39BD9F29BA4DFF00BC4C19;
+			remoteInfo = ShopListKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D0CFC5A29CDE936006F71DE /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
@@ -80,6 +91,8 @@
 		5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromBezierPath.swift"; sourceTree = "<group>"; };
 		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
 		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
+		5D9D99E42A03C478009BEB4C /* ShopListKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopListKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9D99ED2A03C4D5009BEB4C /* BasketModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketModelTests.swift; sourceTree = "<group>"; };
 		5D9F19EE29C203730046919F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5D9F19F029C20FC00046919F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5D9F19F229C210D90046919F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +109,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5D9D99E12A03C478009BEB4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,6 +124,7 @@
 			children = (
 				5D39BDA129BA4DFF00BC4C19 /* Products */,
 				5D39BDA229BA4DFF00BC4C19 /* ShopListKit */,
+				5D9D99E52A03C478009BEB4C /* ShopListKitTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */,
+				5D9D99E42A03C478009BEB4C /* ShopListKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +286,14 @@
 			path = Feature;
 			sourceTree = "<group>";
 		};
+		5D9D99E52A03C478009BEB4C /* ShopListKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D9D99ED2A03C4D5009BEB4C /* BasketModelTests.swift */,
+			);
+			path = ShopListKitTests;
+			sourceTree = "<group>";
+		};
 		5D9F19EB29C1FE040046919F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +330,24 @@
 			productReference = 5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5D9D99E32A03C478009BEB4C /* ShopListKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D9D99EC2A03C478009BEB4C /* Build configuration list for PBXNativeTarget "ShopListKitTests" */;
+			buildPhases = (
+				5D9D99E02A03C478009BEB4C /* Sources */,
+				5D9D99E12A03C478009BEB4C /* Frameworks */,
+				5D9D99E22A03C478009BEB4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D9D99E92A03C478009BEB4C /* PBXTargetDependency */,
+			);
+			name = ShopListKitTests;
+			productName = ShopListKitTests;
+			productReference = 5D9D99E42A03C478009BEB4C /* ShopListKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,12 +355,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Anastasia Ivashchenko";
 				TargetAttributes = {
 					5D39BD9F29BA4DFF00BC4C19 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					5D9D99E32A03C478009BEB4C = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5D39BD9F29BA4DFF00BC4C19;
 					};
 				};
 			};
@@ -330,6 +382,7 @@
 			projectRoot = "";
 			targets = (
 				5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */,
+				5D9D99E32A03C478009BEB4C /* ShopListKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +404,13 @@
 				5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */,
 				5D9F19F329C210D90046919F /* Assets.xcassets in Resources */,
 				5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D9D99E22A03C478009BEB4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +449,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5D9D99E02A03C478009BEB4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D9D99EE2A03C4D5009BEB4C /* BasketModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D9D99E92A03C478009BEB4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */;
+			targetProxy = 5D9D99E82A03C478009BEB4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5D39BDB229BA4E0200BC4C19 /* Debug */ = {
@@ -568,6 +644,44 @@
 			};
 			name = Release;
 		};
+		5D9D99EA2A03C478009BEB4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCD7NJ92C7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aivashchenko.ShopListKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShopListKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShopListKit";
+			};
+			name = Debug;
+		};
+		5D9D99EB2A03C478009BEB4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCD7NJ92C7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aivashchenko.ShopListKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShopListKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShopListKit";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +699,15 @@
 			buildConfigurations = (
 				5D39BDB529BA4E0200BC4C19 /* Debug */,
 				5D39BDB629BA4E0200BC4C19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D9D99EC2A03C478009BEB4C /* Build configuration list for PBXNativeTarget "ShopListKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D9D99EA2A03C478009BEB4C /* Debug */,
+				5D9D99EB2A03C478009BEB4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
