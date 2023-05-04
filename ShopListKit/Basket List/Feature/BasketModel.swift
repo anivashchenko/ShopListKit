@@ -36,30 +36,22 @@ class BasketModel {
         }
     }
     
-    func updateItem(_ item: BasketItem) {
-        guard
-            let indexForRemoving = items.firstIndex(where: { $0.name == item.name &&
-                                                             $0.isAddedToList == item.isAddedToList }),
-            let indexForChanging = items.firstIndex(where: { $0.name == item.name &&
-                                                             $0.isAddedToList == !item.isAddedToList })
-        else { return updateAddedBoughtItem(item) }
+    func updateExistedItem(at indexPath: IndexPath) {
+        var item = item(at: indexPath)
+        item.updateIsAddedAndIsBought()
+        addNewItem(item)
         
-        let count = items[indexForRemoving].countValue
-        items[indexForChanging].countValue += count
-        items.remove(at: indexForRemoving)
+        if let index = items.firstIndex(where: { $0.name == item.name && $0.id != item.id }) {
+            items.remove(at: index)
+        }
     }
     
-    func currentItem(at indexPath: IndexPath, updateIsBought: Bool = false) -> BasketCellViewModel {
-        let array = sections[indexPath.section + (!addedItem.isEmpty ? 0 : 1)]
-        var item = array[indexPath.row]
-        if updateIsBought {
-            item.updateIsAddedAndIsBought()
-            updateItem(item)
-        }
+    func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
+        let item = item(at: indexPath)
         
         return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
             guard let self else { return }
-            guard let index = items.firstIndex(where: { $0.name == name && $0.isAddedToList == isAdded }) else { return }
+            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
             items[index].updateIsFavorite()
         }
     }
@@ -71,7 +63,7 @@ class BasketModel {
     func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
         guard startRow.section == endRow.section else { return }
 
-        let selectedItem = currentItem(at: startRow)
+        let selectedItem = viewModelForItem(at: startRow)
         guard
             let item = items.first(where: { $0.name == selectedItem.name }),
             let index = items.firstIndex(where: { $0.name == selectedItem.name })
@@ -92,10 +84,6 @@ class BasketModel {
         onDelete?(item.name, item.typeFood)
     }
     
-    private func appendNewItem(_ item: BasketItem) {
-        items.append(item)
-    }
-    
     private func updateAddedItem() {
         addedItem = items.filter { $0.isAddedToList }
     }
@@ -104,11 +92,8 @@ class BasketModel {
         boughtItem = items.filter { $0.isBought }
     }
     
-    private func updateAddedBoughtItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name })
-        else { return appendNewItem(item) }
-        
-        items.remove(at: index)
-        items.append(item)
+    private func item(at indexPath: IndexPath) -> BasketItem {
+        let array = sections[indexPath.section + (!addedItem.isEmpty ? 0 : 1)]
+        return array[indexPath.row]
     }
 }

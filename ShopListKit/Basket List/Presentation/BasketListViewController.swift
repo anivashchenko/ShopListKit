@@ -73,7 +73,7 @@ extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as! BasketCell
-        cell.viewModel = basketModel.currentItem(at: indexPath)
+        cell.viewModel = basketModel.viewModelForItem(at: indexPath)
         
         return cell
     }
@@ -102,7 +102,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
         
-        cell.viewModel = basketModel.currentItem(at: indexPath, updateIsBought: true)
+        basketModel.updateExistedItem(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
     }
