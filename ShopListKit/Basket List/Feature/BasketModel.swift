@@ -44,7 +44,7 @@ class BasketModel {
         else { return updateAddedBoughtItem(item) }
         
         let count = items[indexForRemoving].countValue
-        items[indexForChanging].updateCount(with: count)
+        items[indexForChanging].countValue += count
         items.remove(at: indexForRemoving)
     }
     

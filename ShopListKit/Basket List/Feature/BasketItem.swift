@@ -17,11 +17,6 @@ struct BasketItem: Identifiable {
         get { name + "\(isAddedToList)" }
     }
     
-    mutating func updateCount(with oldCount: Int) {
-        countValue += oldCount
-        updateIsBought()
-    }
-    
     mutating func updateIsBought() {
         isAddedToList.toggle()
         isBought.toggle()
