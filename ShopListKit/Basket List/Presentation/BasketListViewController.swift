@@ -40,7 +40,9 @@ class BasketListViewController: UITableViewController {
     
     private func configureEmptyView() {
         emptyView.frame = view.frame
-        let basketIsEmpty = basketModel.addedItem.isEmpty && basketModel.boughtItem.isEmpty
+        let isEmptyFirstSection = basketModel.sections.first?.isEmpty ?? true
+        let isEmptySecondSection = basketModel.sections.last?.isEmpty ?? true
+        let basketIsEmpty = isEmptyFirstSection && isEmptySecondSection
         basketIsEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
         navigationController?.navigationBar.isHidden = basketIsEmpty
         tableView.contentInsetAdjustmentBehavior = basketIsEmpty ? .never : .automatic
@@ -64,11 +66,11 @@ class BasketListViewController: UITableViewController {
 extension BasketListViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        basketModel.sections.reduce(0) { $0 + (!$1.isEmpty ? 1 : 0) }
+        basketModel.sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        basketModel.sections[basketModel.addedItem.isEmpty ? section + 1 : section].count
+        basketModel.sections[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,8 +102,6 @@ extension BasketListViewController {
 extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? BasketCell else { return }
-        
         basketModel.updateExistedItem(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
@@ -113,7 +113,7 @@ extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        let title = basketModel.currentTitle(from: ["WANT TO BUY:", "BOUGHT:"], at: section)
+        let title = basketModel.titleForHeader(in: section)
         label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
         
         return label
