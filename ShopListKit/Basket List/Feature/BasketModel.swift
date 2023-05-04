@@ -29,10 +29,11 @@ class BasketModel {
     }
     
     func addNewItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name && $0.isAddedToList })
-        else { return appendNewItem(item) }
-        
-        items[index] = item
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].countValue += item.countValue
+        } else {
+            items.append(item)
+        }
     }
     
     func updateItem(_ item: BasketItem) {
