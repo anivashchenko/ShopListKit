@@ -4,9 +4,8 @@
 
 import Foundation
 
-struct BasketItem: Identifiable {
+struct BasketItem: Identifiable, Equatable {
     
-    var id = UUID().uuidString
     var name: String
     var countValue: Int
     var typeFood: Item.TypeFood
@@ -14,12 +13,11 @@ struct BasketItem: Identifiable {
     var isBought: Bool = false
     var isFavorite: Bool = false
     
-    mutating func updateCount(with oldCount: Int) {
-        countValue += oldCount
-        updateIsBought()
+    var id: String {
+        get { name + "\(isAddedToList)" }
     }
     
-    mutating func updateIsBought() {
+    mutating func updateIsAddedAndIsBought() {
         isAddedToList.toggle()
         isBought.toggle()
     }
