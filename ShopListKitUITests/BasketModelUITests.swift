@@ -45,6 +45,19 @@ final class BasketModelUITests: XCTestCase {
         XCTAssertTrue(emptyView.exists)
     }
     
+    func test_removeAllItems_showEmptyBasketView() {
+        addAnyItem()
+
+        let trashBarButton = app.buttons["TrashBarButton"]
+        trashBarButton.tap()
+        let alert = app.alerts.firstMatch
+        let alertDeleteButton = alert.buttons["Delete"]
+        alertDeleteButton.tap()
+        
+        let emptyView = app.tables.images["EmptyBasketView"]
+        XCTAssertTrue(emptyView.exists)
+    }
+    
     // MARK: - Helpers
     private func addAnyItem() {
         let cell = app.collectionViews.cells.firstMatch

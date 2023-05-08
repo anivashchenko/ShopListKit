@@ -18,6 +18,7 @@ class BasketListViewController: UITableViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(deleteAllItems))
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
         
         let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
