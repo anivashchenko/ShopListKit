@@ -83,10 +83,7 @@ class FoodAddRect: UIView {
             self.addedToListView.isHidden = false
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            guard let count = self.stepper.count.text,
-                  let countInt = Int(count)
-            else { return }
+        if let count = self.stepper.count.text, let countInt = Int(count) {
             self.onPressAddButton?(countInt)
         }
     }
