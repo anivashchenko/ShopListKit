@@ -54,6 +54,7 @@ class FoodAddRect: UIView {
                 color: UIColor.white.cgColor
             ), for: .normal
         )
+        addButton.accessibilityIdentifier = "AddToBasket"
         
         addedToListLabel.attributedText = customAttributedTitle("Succesfully added to the basket!", size: 18, color: .white)
         addedToListLabel.textAlignment = .center
