@@ -39,6 +39,17 @@
                ReferencedContainer = "container:ShopListKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5D0C8BCD2A091308005B65A6"
+               BuildableName = "ShopListKitUITests.xctest"
+               BlueprintName = "ShopListKitUITests"
+               ReferencedContainer = "container:ShopListKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

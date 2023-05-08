@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0C8BD12A091308005B65A6 /* BasketModelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C8BD02A091308005B65A6 /* BasketModelUITests.swift */; };
 		5D0CFC5B29CDE936006F71DE /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFC5A29CDE936006F71DE /* FoodModel.swift */; };
 		5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */; };
 		5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */; };
@@ -48,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5D0C8BD42A091308005B65A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D39BD9829BA4DFF00BC4C19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D39BD9F29BA4DFF00BC4C19;
+			remoteInfo = ShopListKit;
+		};
 		5D9D99E82A03C478009BEB4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5D39BD9829BA4DFF00BC4C19 /* Project object */;
@@ -58,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0C8BCE2A091308005B65A6 /* ShopListKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopListKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D0C8BD02A091308005B65A6 /* BasketModelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModelUITests.swift; sourceTree = "<group>"; };
 		5D0CFC5A29CDE936006F71DE /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopListKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +112,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D0C8BCB2A091308005B65A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D39BD9D29BA4DFF00BC4C19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,12 +136,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0C8BCF2A091308005B65A6 /* ShopListKitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5D0C8BD02A091308005B65A6 /* BasketModelUITests.swift */,
+			);
+			path = ShopListKitUITests;
+			sourceTree = "<group>";
+		};
 		5D39BD9729BA4DFF00BC4C19 = {
 			isa = PBXGroup;
 			children = (
 				5D39BDA129BA4DFF00BC4C19 /* Products */,
 				5D39BDA229BA4DFF00BC4C19 /* ShopListKit */,
 				5D9D99E52A03C478009BEB4C /* ShopListKitTests */,
+				5D0C8BCF2A091308005B65A6 /* ShopListKitUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +159,7 @@
 			children = (
 				5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */,
 				5D9D99E42A03C478009BEB4C /* ShopListKitTests.xctest */,
+				5D0C8BCE2A091308005B65A6 /* ShopListKitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,6 +340,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5D0C8BCD2A091308005B65A6 /* ShopListKitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D0C8BD82A091309005B65A6 /* Build configuration list for PBXNativeTarget "ShopListKitUITests" */;
+			buildPhases = (
+				5D0C8BCA2A091308005B65A6 /* Sources */,
+				5D0C8BCB2A091308005B65A6 /* Frameworks */,
+				5D0C8BCC2A091308005B65A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D0C8BD52A091308005B65A6 /* PBXTargetDependency */,
+			);
+			name = ShopListKitUITests;
+			productName = ShopListKitUITests;
+			productReference = 5D0C8BCE2A091308005B65A6 /* ShopListKitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D39BDB429BA4E0200BC4C19 /* Build configuration list for PBXNativeTarget "ShopListKit" */;
@@ -359,6 +404,10 @@
 				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Anastasia Ivashchenko";
 				TargetAttributes = {
+					5D0C8BCD2A091308005B65A6 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5D39BD9F29BA4DFF00BC4C19;
+					};
 					5D39BD9F29BA4DFF00BC4C19 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -383,11 +432,19 @@
 			targets = (
 				5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */,
 				5D9D99E32A03C478009BEB4C /* ShopListKitTests */,
+				5D0C8BCD2A091308005B65A6 /* ShopListKitUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D0C8BCC2A091308005B65A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D39BD9E29BA4DFF00BC4C19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,6 +474,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D0C8BCA2A091308005B65A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D0C8BD12A091308005B65A6 /* BasketModelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D39BD9C29BA4DFF00BC4C19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,6 +525,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5D0C8BD52A091308005B65A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */;
+			targetProxy = 5D0C8BD42A091308005B65A6 /* PBXContainerItemProxy */;
+		};
 		5D9D99E92A03C478009BEB4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5D39BD9F29BA4DFF00BC4C19 /* ShopListKit */;
@@ -468,6 +538,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5D0C8BD62A091309005B65A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCD7NJ92C7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aivashchenko.ShopListKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShopListKit;
+			};
+			name = Debug;
+		};
+		5D0C8BD72A091309005B65A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCD7NJ92C7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aivashchenko.ShopListKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShopListKit;
+			};
+			name = Release;
+		};
 		5D39BDB229BA4E0200BC4C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -685,6 +791,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D0C8BD82A091309005B65A6 /* Build configuration list for PBXNativeTarget "ShopListKitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D0C8BD62A091309005B65A6 /* Debug */,
+				5D0C8BD72A091309005B65A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5D39BD9B29BA4DFF00BC4C19 /* Build configuration list for PBXProject "ShopListKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
