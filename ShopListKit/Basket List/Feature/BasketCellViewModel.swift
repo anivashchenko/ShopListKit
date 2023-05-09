@@ -22,7 +22,7 @@ struct BasketCellViewModel {
     }
     
     var attributedTitle: NSAttributedString {
-        customTitleWithCount(
+        .customTitleWithCount(
             title: name,
             count: count,
             size: 18,
@@ -37,22 +37,5 @@ struct BasketCellViewModel {
     
     var backgroundColor: UIColor {
         isAdded ? UIColor(.darkGreen) : UIColor(.lightGreen)
-    }
-    
-    private func customTitleWithCount(title: String, count: Int, size: CGFloat, primaryColor: UIColor, secondaryColor: UIColor) -> NSMutableAttributedString {
-        let attrTitle = customAttributedTitle(title, size: size, color: primaryColor)
-        let attrCount = customAttributedTitle(" x\(count)", size: size, color: secondaryColor)
-        attrTitle.append(attrCount)
-        
-        return attrTitle
-    }
-    
-    private func customAttributedTitle(_ title: String, size: CGFloat, color: UIColor) -> NSMutableAttributedString {
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: color,
-            .font: UIFont.systemFont(ofSize: size, weight: .semibold)
-        ]
-        
-        return NSMutableAttributedString(string: title, attributes: attributes)
     }
 }
