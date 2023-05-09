@@ -40,7 +40,7 @@ class BasketModel {
     
     func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
         guard startRow.section == endRow.section else { return }
-
+        
         let itemStart = item(at: startRow)
         let itemEnd = item(at: endRow)
         if let indexStart = items.firstIndex(where: { $0.id == itemStart.id }),

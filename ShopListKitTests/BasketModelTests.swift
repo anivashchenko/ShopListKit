@@ -6,7 +6,7 @@ import XCTest
 @testable import ShopListKit
 
 final class BasketModelTests: XCTestCase {
-            
+    
     func test_init_arraysAreEmpty() {
         let sut = makeSUT()
         
@@ -29,7 +29,7 @@ final class BasketModelTests: XCTestCase {
         
         sut.addNewItem(addedAnyItem)
         sut.addNewItem(addedAnyItem)
-
+        
         XCTAssertEqual(sut.sections, [[doubleAddedAnyItem]])
     }
     
@@ -46,7 +46,7 @@ final class BasketModelTests: XCTestCase {
         
         XCTAssertEqual(sut.sections, [[addedAnotherItem], [boughtAnyItem]])
     }
-
+    
     func test_updateExistedItem_updatesExistedBoughtItem() {
         let sut = makeSUT()
         let addedAnyItem = addedItem(name: "any name")
@@ -74,7 +74,7 @@ final class BasketModelTests: XCTestCase {
         sut.updateExistedItem(at: indexPathOfAddedAnyItem)
         sut.addNewItem(addedAnyItem)
         sut.updateExistedItem(at: indexPathOfAddedAnyItem)
-
+        
         XCTAssertEqual(sut.sections, [[addedAnotherItem], [doubleBoughtAnyItem]])
     }
     

@@ -36,7 +36,7 @@ final class BasketModelUITests: XCTestCase {
     
     func test_removeAllItems_showEmptyBasketView() {
         addAnyItem()
-
+        
         removeAllItems()
         
         let emptyView = app.tables.images["EmptyBasketView"]
@@ -46,9 +46,9 @@ final class BasketModelUITests: XCTestCase {
     func test_removeItem_showEmptyBasketView() {
         let tables = app.tables
         addAnyItem()
-
+        
         removeAnyItem(from: tables)
-
+        
         let emptyView = tables.images["EmptyBasketView"]
         XCTAssertTrue(emptyView.exists)
     }
