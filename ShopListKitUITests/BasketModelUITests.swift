@@ -14,43 +14,6 @@ final class BasketModelUITests: XCTestCase {
         app.launch()
     }
     
-    func test_titleForHeader_wantToBuy() {
-        addAnyItem()
-        
-        let wantToBuyTitle = app.tables.staticTexts["WANT TO BUY:"]
-        XCTAssertTrue(wantToBuyTitle.exists)
-    }
-    
-    func test_titleForHeader_bought() {
-        let tables = app.tables
-        addAnyItem()
-        
-        let firstCell = tables.cells.element(boundBy: 0)
-        firstCell.tap()
-        
-        let boughtTitle = tables.staticTexts["BOUGHT:"]
-        XCTAssertTrue(boughtTitle.exists)
-    }
-    
-    func test_removeItem_showEmptyBasketView() {
-        let tables = app.tables
-        addAnyItem()
-
-        removeAnyItem(from: tables)
-
-        let emptyView = tables.images["EmptyBasketView"]
-        XCTAssertTrue(emptyView.exists)
-    }
-    
-    func test_removeAllItems_showEmptyBasketView() {
-        addAnyItem()
-
-        removeAllItems()
-        
-        let emptyView = app.tables.images["EmptyBasketView"]
-        XCTAssertTrue(emptyView.exists)
-    }
-    
     func test_onDelete_setsToInitialValues() {
         addAnyItem()
         removeAnyItem(from: app.tables)
@@ -69,6 +32,43 @@ final class BasketModelUITests: XCTestCase {
         
         let countIsZero = app.staticTexts["0"]
         XCTAssertTrue(countIsZero.exists)
+    }
+    
+    func test_removeAllItems_showEmptyBasketView() {
+        addAnyItem()
+
+        removeAllItems()
+        
+        let emptyView = app.tables.images["EmptyBasketView"]
+        XCTAssertTrue(emptyView.exists)
+    }
+    
+    func test_removeItem_showEmptyBasketView() {
+        let tables = app.tables
+        addAnyItem()
+
+        removeAnyItem(from: tables)
+
+        let emptyView = tables.images["EmptyBasketView"]
+        XCTAssertTrue(emptyView.exists)
+    }
+    
+    func test_titleForHeader_wantToBuy() {
+        addAnyItem()
+        
+        let wantToBuyTitle = app.tables.staticTexts["WANT TO BUY:"]
+        XCTAssertTrue(wantToBuyTitle.exists)
+    }
+    
+    func test_titleForHeader_bought() {
+        let tables = app.tables
+        addAnyItem()
+        
+        let firstCell = tables.cells.element(boundBy: 0)
+        firstCell.tap()
+        
+        let boughtTitle = tables.staticTexts["BOUGHT:"]
+        XCTAssertTrue(boughtTitle.exists)
     }
     
     // MARK: - Helpers

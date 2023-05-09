@@ -38,22 +38,6 @@ class BasketModel {
         updateSections()
     }
     
-    func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
-        let item = item(at: indexPath)
-        
-        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
-            guard let self else { return }
-            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
-            items[index].updateIsFavorite()
-        }
-    }
-    
-    func titleForHeader(in section: Int) -> String {
-        let titles = ["WANT TO BUY:", "BOUGHT:"]
-        let isAddedItemExist = items.first { $0.isAddedToList } != nil
-        return titles[section + (isAddedItemExist ? 0 : 1)]
-    }
-    
     func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
         guard startRow.section == endRow.section else { return }
 
@@ -79,6 +63,22 @@ class BasketModel {
         items.removeAll(where: { $0.id == item.id })
         updateSections()
         onDelete?(item.name, item.typeFood)
+    }
+    
+    func titleForHeader(in section: Int) -> String {
+        let titles = ["WANT TO BUY:", "BOUGHT:"]
+        let isAddedItemExist = items.first { $0.isAddedToList } != nil
+        return titles[section + (isAddedItemExist ? 0 : 1)]
+    }
+    
+    func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
+        let item = item(at: indexPath)
+        
+        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
+            guard let self else { return }
+            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
+            items[index].updateIsFavorite()
+        }
     }
     
     private func item(at indexPath: IndexPath) -> BasketItem {
