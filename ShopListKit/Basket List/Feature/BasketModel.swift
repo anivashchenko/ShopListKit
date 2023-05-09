@@ -6,108 +6,89 @@ import Foundation
 
 class BasketModel {
     
-    private var items: [BasketItem] {
-        didSet {
-            updateAddedItem()
-            updateBoughtItem()
-            sections = [addedItem, boughtItem]
-        }
-    }
-    
-    var addedItem: [BasketItem]
-    var boughtItem: [BasketItem]
-    var sections: [[BasketItem]]
+    private var items: [BasketItem]
+    private(set) var sections: [[BasketItem]]
     
     var onDelete: ((String, Item.TypeFood) -> Void)?
     var onDeleteAllItems: (() -> Void)?
     
     init() {
         self.items = []
-        self.addedItem = []
-        self.boughtItem = []
         self.sections = []
     }
     
-    func addNewItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name && $0.isAddedToList })
-        else { return appendNewItem(item) }
-        
-        items[index] = item
-    }
-    
-    func updateItem(_ item: BasketItem) {
-        guard
-            let indexForRemoving = items.firstIndex(where: { $0.name == item.name &&
-                                                             $0.isAddedToList == item.isAddedToList }),
-            let indexForChanging = items.firstIndex(where: { $0.name == item.name &&
-                                                             $0.isAddedToList == !item.isAddedToList })
-        else { return updateAddedBoughtItem(item) }
-        
-        let count = items[indexForRemoving].countValue
-        items[indexForChanging].countValue += count
-        items.remove(at: indexForRemoving)
-    }
-    
-    func currentItem(at indexPath: IndexPath, updateIsBought: Bool = false) -> BasketCellViewModel {
-        let array = sections[indexPath.section + (!addedItem.isEmpty ? 0 : 1)]
-        var item = array[indexPath.row]
-        if updateIsBought {
-            item.updateIsAddedAndIsBought()
-            updateItem(item)
+    func addNewItem(_ item: BasketItem, isUpdateSections: Bool = true) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].countValue += item.countValue
+        } else {
+            items.append(item)
         }
         
-        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
-            guard let self else { return }
-            guard let index = items.firstIndex(where: { $0.name == name && $0.isAddedToList == isAdded }) else { return }
-            items[index].updateIsFavorite()
-        }
+        isUpdateSections ? updateSections() : nil
     }
     
-    func currentTitle(from titles: [String], at section: Int) -> String {
-        titles[section + (!addedItem.isEmpty ? 0 : 1)]
+    func updateExistedItem(at indexPath: IndexPath) {
+        var item = item(at: indexPath)
+        item.updateIsAddedAndIsBought()
+        addNewItem(item, isUpdateSections: false)
+        
+        if let index = items.firstIndex(where: { $0.name == item.name && $0.id != item.id }) {
+            items.remove(at: index)
+        }
+        updateSections()
     }
     
     func moveRow(from startRow: IndexPath, to endRow: IndexPath) {
         guard startRow.section == endRow.section else { return }
-
-        let selectedItem = currentItem(at: startRow)
-        guard
-            let item = items.first(where: { $0.name == selectedItem.name }),
-            let index = items.firstIndex(where: { $0.name == selectedItem.name })
-        else { return }
-        items.remove(at: index)
-        items.insert(item, at: endRow.row)
+        
+        let itemStart = item(at: startRow)
+        let itemEnd = item(at: endRow)
+        if let indexStart = items.firstIndex(where: { $0.id == itemStart.id }),
+           let indexEnd = items.firstIndex(where: { $0.id == itemEnd.id }) {
+            let item = items[indexStart]
+            items.remove(at: indexStart)
+            items.insert(item, at: indexEnd)
+            updateSections()
+        }
     }
     
     func removeAllItems() {
         items.removeAll()
+        updateSections()
         onDeleteAllItems?()
     }
     
     func removeItem(at indexPath: IndexPath) {
-        let array = items.filter { indexPath.section == 0 ? $0.isAddedToList : $0.isBought }
-        let item = array[indexPath.row]
-        items.removeAll(where: { $0.name == item.name })
+        let item = item(at: indexPath)
+        items.removeAll(where: { $0.id == item.id })
+        updateSections()
         onDelete?(item.name, item.typeFood)
     }
     
-    private func appendNewItem(_ item: BasketItem) {
-        items.append(item)
+    func titleForHeader(in section: Int) -> String {
+        let titles = ["WANT TO BUY:", "BOUGHT:"]
+        let isAddedItemExist = items.first { $0.isAddedToList } != nil
+        return titles[section + (isAddedItemExist ? 0 : 1)]
     }
     
-    private func updateAddedItem() {
-        addedItem = items.filter { $0.isAddedToList }
-    }
-    
-    private func updateBoughtItem() {
-        boughtItem = items.filter { $0.isBought }
-    }
-    
-    private func updateAddedBoughtItem(_ item: BasketItem) {
-        guard let index = items.firstIndex(where: { $0.name == item.name })
-        else { return appendNewItem(item) }
+    func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
+        let item = item(at: indexPath)
         
-        items.remove(at: index)
-        items.append(item)
+        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
+            guard let self else { return }
+            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
+            items[index].updateIsFavorite()
+        }
+    }
+    
+    private func item(at indexPath: IndexPath) -> BasketItem {
+        sections[indexPath.section][indexPath.row]
+    }
+    
+    private func updateSections() {
+        let addedItem = items.filter { $0.isAddedToList }
+        let boughtItem = items.filter { $0.isBought }
+        sections = [addedItem, boughtItem]
+        sections.removeAll(where: { $0.isEmpty })
     }
 }

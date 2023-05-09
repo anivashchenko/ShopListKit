@@ -49,7 +49,10 @@ class FoodAddViewController: UIViewController {
             guard let self = self else { return }
             
             self.foodModel.addToBasket(item: self.item!, count: count)
-            self.navigationController?.popViewController(animated: true)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

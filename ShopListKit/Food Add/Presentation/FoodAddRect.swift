@@ -54,6 +54,7 @@ class FoodAddRect: UIView {
                 color: UIColor.white.cgColor
             ), for: .normal
         )
+        addButton.accessibilityIdentifier = "AddToBasket"
         
         addedToListLabel.attributedText = customAttributedTitle("Succesfully added to the basket!", size: 18, color: .white)
         addedToListLabel.textAlignment = .center
@@ -83,10 +84,7 @@ class FoodAddRect: UIView {
             self.addedToListView.isHidden = false
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            guard let count = self.stepper.count.text,
-                  let countInt = Int(count)
-            else { return }
+        if let count = self.stepper.count.text, let countInt = Int(count) {
             self.onPressAddButton?(countInt)
         }
     }
