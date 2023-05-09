@@ -16,8 +16,7 @@ struct BasketCellViewModel {
     
     var image: UIImage? {
         let imageIsAdded = UIImage(named: name)
-        let configIcon = UIImage.SymbolConfiguration(paletteColors: [UIColor(.customOrange)])
-        let imageIsBought = UIImage(systemName: "checkmark.circle.fill", withConfiguration: configIcon)
+        let imageIsBought = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(UIColor(.customOrange))
         
         return isAdded ? imageIsAdded : imageIsBought
     }
