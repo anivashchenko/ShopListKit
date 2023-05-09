@@ -138,13 +138,53 @@ final class BasketModelTests: XCTestCase {
         XCTAssertEqual(sut.sections, [[addedAnyItem]])
     }
     
+    func test_viewModelForItem_drawsAddedItem() {
+        let sut = makeSUT()
+        let addedAnyItem = addedItem(name: "Apple", count: 1)
+        let indexPathOfAddedAnyItem = IndexPath(row: 0, section: 0)
+        
+        sut.addNewItem(addedAnyItem)
+        let vm = sut.viewModelForItem(at: indexPathOfAddedAnyItem)
+        
+        XCTAssertEqual(vm.image, UIImage(named: "Apple"))
+        XCTAssertEqual(vm.attributedTitle.string, "Apple x1")
+        XCTAssertEqual(vm.starImageColor, UIColor(.lightGray))
+        XCTAssertEqual(vm.backgroundColor, UIColor(.darkGreen))
+    }
+    
+    func test_viewModelForItem_drawsBoughtItem() {
+        let sut = makeSUT()
+        let boughtAnyItem = boughtItem(name: "any name", count: 1)
+        let indexPathOfBoughtAnyItem = IndexPath(row: 0, section: 0)
+        
+        sut.addNewItem(boughtAnyItem)
+        let vm = sut.viewModelForItem(at: indexPathOfBoughtAnyItem)
+        
+        let orangeCheckmark = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(UIColor(.customOrange))
+        XCTAssertEqual(vm.image, orangeCheckmark)
+        XCTAssertEqual(vm.attributedTitle.string, "any name x1")
+        XCTAssertEqual(vm.starImageColor, UIColor(.lightGray))
+        XCTAssertEqual(vm.backgroundColor, UIColor(.lightGreen))
+    }
+    
+    func test_viewModelForItem_drawsYellowStar() {
+        let sut = makeSUT()
+        let addedAnyItem = addedItem(name: "any name", isFavorite: true)
+        let indexPathOfAddedAnyItem = IndexPath(row: 0, section: 0)
+        
+        sut.addNewItem(addedAnyItem)
+        let vm = sut.viewModelForItem(at: indexPathOfAddedAnyItem)
+        
+        XCTAssertEqual(vm.starImageColor, .systemYellow)
+    }
+    
     // MARK: - Helpers
     private func makeSUT() -> BasketModel {
         BasketModel()
     }
     
-    private func addedItem(name: String, count: Int = 1) -> BasketItem {
-        .init(name: name, countValue: count, typeFood: .berries)
+    private func addedItem(name: String, count: Int = 1, isFavorite: Bool = false) -> BasketItem {
+        .init(name: name, countValue: count, typeFood: .berries, isFavorite: isFavorite)
     }
     
     private func boughtItem(name: String, count: Int = 1) -> BasketItem {
