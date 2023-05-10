@@ -115,7 +115,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         let title = basketModel.titleForHeader(in: section)
-        label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
+        label.attributedText = .customBasketListHeader(title: title, size: 20, color: .darkGreen)
         
         return label
     }

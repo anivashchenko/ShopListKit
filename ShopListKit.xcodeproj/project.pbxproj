@@ -15,7 +15,6 @@
 		5D4B9CD929D71A390077E44B /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B9CD829D71A390077E44B /* BasketModel.swift */; };
 		5D7A455B29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */; };
 		5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */; };
-		5D7D25E229C0D7080013D3D5 /* AttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */; };
 		5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F702529BF6BAF00CCD609 /* CountStepper.swift */; };
 		5D7F702829BF6BBA00CCD609 /* CountStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F702729BF6BBA00CCD609 /* CountStepper.xib */; };
 		5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */; };
@@ -46,7 +45,7 @@
 		5DB1E9C729BB7E7A00585348 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C629BB7E7A00585348 /* Color.swift */; };
 		5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTab.swift */; };
 		5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTab.xib */; };
-		5DDCCBB92A0A8AC10002DC12 /* NSAttributedString+customTitleWithCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCCBB82A0A8AC10002DC12 /* NSAttributedString+customTitleWithCount.swift */; };
+		5DDCCBB92A0A8AC10002DC12 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		5D4B9CD829D71A390077E44B /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+basketBezierPath.swift"; sourceTree = "<group>"; };
 		5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCellViewModel.swift; sourceTree = "<group>"; };
-		5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStrings.swift; sourceTree = "<group>"; };
 		5D7F702529BF6BAF00CCD609 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
 		5D7F702729BF6BBA00CCD609 /* CountStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountStepper.xib; sourceTree = "<group>"; };
 		5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadNibNamed.swift"; sourceTree = "<group>"; };
@@ -110,7 +108,7 @@
 		5DB1E9C629BB7E7A00585348 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5DB1E9C829BB8F1E00585348 /* GroupTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTab.swift; sourceTree = "<group>"; };
 		5DB1E9CC29BB91B400585348 /* GroupTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTab.xib; sourceTree = "<group>"; };
-		5DDCCBB82A0A8AC10002DC12 /* NSAttributedString+customTitleWithCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+customTitleWithCount.swift"; sourceTree = "<group>"; };
+		5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +205,6 @@
 		5D84953729BD1A0800D2B683 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5D7D25E129C0D7080013D3D5 /* AttributedStrings.swift */,
 				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
 				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
 				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
@@ -219,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				5D9D543029C0AC7800B4B2BD /* Feature */,
-				5DDCCBB72A0A8A8D0002DC12 /* Helpers */,
 				5D8F2D9C29BDE0120008AC15 /* Presentation */,
 			);
 			path = "Basket List";
@@ -336,16 +332,9 @@
 			isa = PBXGroup;
 			children = (
 				5DB1E9C629BB7E7A00585348 /* Color.swift */,
+				5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		5DDCCBB72A0A8A8D0002DC12 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				5DDCCBB82A0A8AC10002DC12 /* NSAttributedString+customTitleWithCount.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,7 +494,7 @@
 				5DB1E9C729BB7E7A00585348 /* Color.swift in Sources */,
 				5D82859E29CA0D350026DE86 /* UIView+blurBackgroundImage.swift in Sources */,
 				5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */,
-				5DDCCBB92A0A8AC10002DC12 /* NSAttributedString+customTitleWithCount.swift in Sources */,
+				5DDCCBB92A0A8AC10002DC12 /* NSAttributedString.swift in Sources */,
 				5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */,
 				5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */,
 				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
@@ -522,7 +511,6 @@
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
 				5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */,
-				5D7D25E229C0D7080013D3D5 /* AttributedStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

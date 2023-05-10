@@ -118,7 +118,7 @@ extension FoodListViewController: UICollectionViewDataSource {
         
         let item = foodModel.currentItems[indexPath.row]
         cell.imageView.image = UIImage(named: item.name)
-        cell.label.attributedText = customCellTitle(title: item.name, count: item.countValue)
+        cell.label.attributedText = .customFoodListTitle(title: item.name, count: item.countValue)
         configureSystemCell(for: cell, item: item)
         cell.layer.backgroundColor = UIColor(item.countValue == 0 ? .secondary : .veryLightGreen).cgColor
         cell.layer.cornerRadius = 20

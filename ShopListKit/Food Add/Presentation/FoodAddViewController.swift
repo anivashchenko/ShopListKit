@@ -26,7 +26,7 @@ class FoodAddViewController: UIViewController {
     private func loadFoodAddRectView() -> UIView? {
         guard let view = foodAddView as? FoodAddRect else { return nil }
         
-        view.titleLabel.attributedText = customAttributedTitle(item.name, size: 30, color: .darkGreen)
+        view.titleLabel.attributedText = .customAttributedTitle(item.name, size: 30, color: UIColor(.darkGreen))
         view.imageView?.image = UIImage(named: item.name)
         loadCountStepperView(from: view)
         didPressAddButton(from: view)

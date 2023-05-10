@@ -33,9 +33,9 @@ class CountStepper: UIView {
         let view = loadNibNamed()
         view.layer.cornerRadius = 15
         
-        plusButton.setAttributedTitle(customAttributedTitle("+", size: 35, color: .white), for: .normal)
-        count.attributedText = customAttributedTitle("0", size: 35, color: .white)
-        minusButton.setAttributedTitle(customAttributedTitle("-", size: 35, color: .white), for: .normal)
+        plusButton.setAttributedTitle(.customAttributedTitle("+", size: 35, color: .white), for: .normal)
+        count.attributedText = .customAttributedTitle("0", size: 35, color: .white)
+        minusButton.setAttributedTitle(.customAttributedTitle("-", size: 35, color: .white), for: .normal)
     }
     
     @IBAction func didPressMinus(_ sender: UIButton) {
