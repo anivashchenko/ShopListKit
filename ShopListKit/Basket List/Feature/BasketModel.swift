@@ -9,6 +9,7 @@ class BasketModel {
     private var items: [BasketItem]
     private(set) var sections: [[BasketItem]]
     
+    var onAppearEmptyView: ((Bool) -> Void)?
     var onDelete: ((String, Item.TypeFood) -> Void)?
     var onDeleteAllItems: (() -> Void)?
     
@@ -52,6 +53,10 @@ class BasketModel {
         }
     }
     
+    func checkBasketIsEmpty() {
+        onAppearEmptyView?(sections.isEmpty)
+    }
+    
     func removeAllItems() {
         items.removeAll()
         updateSections()
@@ -90,5 +95,6 @@ class BasketModel {
         let boughtItem = items.filter { $0.isBought }
         sections = [addedItem, boughtItem]
         sections.removeAll(where: { $0.isEmpty })
+        checkBasketIsEmpty()
     }
 }

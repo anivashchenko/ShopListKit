@@ -23,32 +23,31 @@ class BasketListViewController: UITableViewController {
         
         let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
+        
+        basketModel.onAppearEmptyView = { [weak self] isEmpty in
+            self?.configureEmptyView(isEmpty)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureEmptyView()
-        tableView.reloadData()
+        basketModel.checkBasketIsEmpty()
     }
     
     @objc func deleteAllItems() {
         showAlertBeforeDeleting() { [weak self] _ in
             self?.basketModel.removeAllItems()
-            self?.configureEmptyView()
-            self?.tableView.reloadData()
         }
     }
     
-    private func configureEmptyView() {
+    private func configureEmptyView(_ isEmpty: Bool) {
         emptyView.frame = view.frame
-        let isEmptyFirstSection = basketModel.sections.first?.isEmpty ?? true
-        let isEmptySecondSection = basketModel.sections.last?.isEmpty ?? true
-        let basketIsEmpty = isEmptyFirstSection && isEmptySecondSection
-        basketIsEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
-        navigationController?.navigationBar.isHidden = basketIsEmpty
-        tableView.contentInsetAdjustmentBehavior = basketIsEmpty ? .never : .automatic
-        tableView.isScrollEnabled = !basketIsEmpty
+        isEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
+        navigationController?.navigationBar.isHidden = isEmpty
+        tableView.contentInsetAdjustmentBehavior = isEmpty ? .never : .automatic
+        tableView.isScrollEnabled = !isEmpty
+        tableView.reloadData()
     }
     
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
@@ -83,8 +82,6 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             basketModel.removeItem(at: indexPath)
-            configureEmptyView()
-            tableView.reloadData()
         }
     }
     
@@ -94,7 +91,6 @@ extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         basketModel.moveRow(from: sourceIndexPath, to: destinationIndexPath)
-        tableView.reloadData()
     }
 }
 
@@ -104,7 +100,6 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         basketModel.updateExistedItem(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
