@@ -15,8 +15,8 @@ extension NSAttributedString {
         return NSMutableAttributedString(string: title, attributes: attributes)
     }
     
-    static func customBasketListHeader(title: String, size: CGFloat, color: Color) -> NSMutableAttributedString {
-        let header = NSAttributedString.customAttributedTitle(title, size: size, color: UIColor(color))
+    static func customBasketListHeader(title: String, size: CGFloat, color: UIColor) -> NSMutableAttributedString {
+        let header = NSAttributedString.customAttributedTitle(title, size: size, color: color)
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = size

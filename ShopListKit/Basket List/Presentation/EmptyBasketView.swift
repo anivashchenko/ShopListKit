@@ -27,7 +27,7 @@ class EmptyBasketView: UIView {
         basketImageView.image = UIImage.imageFromBezierPath(
             .basketBezierPath(height: height),
             size: CGSize(width: height, height: height),
-            color: UIColor(.darkGreen).cgColor)
+            color: UIColor.accentColor.cgColor)
         basketImageView.accessibilityIdentifier = "EmptyBasketView"
     }
 }

@@ -26,7 +26,7 @@ class FoodAddViewController: UIViewController {
     private func loadFoodAddRectView() -> UIView? {
         guard let view = foodAddView as? FoodAddRect else { return nil }
         
-        view.titleLabel.attributedText = .customAttributedTitle(item.name, size: 30, color: UIColor(.darkGreen))
+        view.titleLabel.attributedText = .customAttributedTitle(item.name, size: 30, color: .accentColor)
         view.imageView?.image = UIImage(named: item.name)
         loadCountStepperView(from: view)
         didPressAddButton(from: view)
@@ -62,7 +62,7 @@ extension FoodAddViewController: CountStepperDelegate {
     
     func changeBackgroundColor(_ view: UIView, count: Int) {
         if let view = foodAddView as? FoodAddRect, let button = view.addButton {
-            button.backgroundColor = count > 0 ? UIColor(.darkGreen) : .lightGray
+            button.backgroundColor = count > 0 ? .accentColor : .lightGray
         }
     }
 }

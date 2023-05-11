@@ -148,8 +148,8 @@ final class BasketModelTests: XCTestCase {
         
         XCTAssertEqual(vm.image, UIImage(named: "Apple"))
         XCTAssertEqual(vm.attributedTitle.string, "Apple x1")
-        XCTAssertEqual(vm.starImageColor, UIColor(.lightGray))
-        XCTAssertEqual(vm.backgroundColor, UIColor(.darkGreen))
+        XCTAssertEqual(vm.starImageColor, .lightGray)
+        XCTAssertEqual(vm.backgroundColor, .accentColor)
     }
     
     func test_viewModelForItem_drawsBoughtItem() {
@@ -160,11 +160,11 @@ final class BasketModelTests: XCTestCase {
         sut.addNewItem(boughtAnyItem)
         let vm = sut.viewModelForItem(at: indexPathOfBoughtAnyItem)
         
-        let orangeCheckmark = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(UIColor(.customOrange))
+        let orangeCheckmark = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.customOrange)
         XCTAssertEqual(vm.image, orangeCheckmark)
         XCTAssertEqual(vm.attributedTitle.string, "any name x1")
-        XCTAssertEqual(vm.starImageColor, UIColor(.lightGray))
-        XCTAssertEqual(vm.backgroundColor, UIColor(.lightGreen))
+        XCTAssertEqual(vm.starImageColor, .lightGray)
+        XCTAssertEqual(vm.backgroundColor, .lightGreen)
     }
     
     func test_viewModelForItem_drawsYellowStar() {

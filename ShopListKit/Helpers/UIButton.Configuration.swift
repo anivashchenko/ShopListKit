@@ -9,8 +9,8 @@ extension UIButton.Configuration {
     
     static func customGroupButton(text: String, font: UIFont.TextStyle) -> UIButton.Configuration {
         var configuration = UIButton.Configuration.filled()
-        configuration.background.backgroundColor = UIColor(Color.lightGreen)
-        configuration.baseForegroundColor = UIColor(Color.darkGreen)
+        configuration.background.backgroundColor = .lightGreen
+        configuration.baseForegroundColor = .accentColor
         configuration.cornerStyle = .large
         
         var attributedString = AttributedString(text)
@@ -22,7 +22,7 @@ extension UIButton.Configuration {
     
     static func customGroupSelectedButton(text: String, font: UIFont.TextStyle) -> UIButton.Configuration {
         var configuration = customGroupButton(text: text, font: font)
-        configuration.background.backgroundColor = UIColor(Color.darkGreen)
+        configuration.background.backgroundColor = .accentColor
         configuration.baseForegroundColor = .white
         return configuration
     }

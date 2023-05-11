@@ -120,14 +120,14 @@ extension FoodListViewController: UICollectionViewDataSource {
         cell.imageView.image = UIImage(named: item.name)
         cell.label.attributedText = .customFoodListTitle(title: item.name, count: item.countValue)
         configureSystemCell(for: cell, item: item)
-        cell.layer.backgroundColor = UIColor(item.countValue == 0 ? .secondary : .veryLightGreen).cgColor
+        cell.layer.backgroundColor = item.countValue == 0 ? .secondary : .veryLightGreen
         cell.layer.cornerRadius = 20
         
         return cell
     }
     
     private func configureSystemCell(for cell: ItemCollectionCell, item: Item) {
-        let configPlusIcon = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(.darkGreen))
+        let configPlusIcon = UIImage.SymbolConfiguration(hierarchicalColor: .accentColor)
         let config = item.countValue == 0 ? configPlusIcon : nil
         let imageSystemName = item.countValue == 0 ? "plus.circle.fill" : "checkmark.circle.fill"
         cell.systemIcon.image = UIImage(systemName: imageSystemName, withConfiguration: config)
