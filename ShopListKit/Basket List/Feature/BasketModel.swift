@@ -73,6 +73,7 @@ class BasketModel {
     func titleForHeader(in section: Int) -> String {
         let titles = ["WANT TO BUY:", "BOUGHT:"]
         let isAddedItemExist = items.first { $0.isAddedToList } != nil
+        
         return titles[section + (isAddedItemExist ? 0 : 1)]
     }
     

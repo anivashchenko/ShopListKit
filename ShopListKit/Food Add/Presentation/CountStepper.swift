@@ -48,6 +48,7 @@ class CountStepper: UIView {
     
     private func incrementor(number: Int) {
         guard let countFromLabel = Int(count.text!) else { return }
+        
         countInt = countFromLabel + number
         if onEnabled() {
             count.text = "\(countInt)"
