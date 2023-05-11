@@ -55,12 +55,10 @@ class BasketListViewController: UITableViewController {
         let title = "Do you want to remove the whole list?"
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
-        let delete = UIAlertAction(title: "Delete", style: .destructive, handler: handler)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: handler))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        alert.addAction(delete)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
 }
 
