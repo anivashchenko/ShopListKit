@@ -5,7 +5,7 @@
 import UIKit
 
 protocol CountStepperDelegate: AnyObject {
-    func changeBackgroundColor(_ view: UIView, count: Int)
+    func configureAddToBasketButton(_ view: UIView, count: Int)
 }
 
 class CountStepper: UIView {
@@ -54,7 +54,7 @@ class CountStepper: UIView {
             count.text = "\(countInt)"
         }
         
-        delegate?.changeBackgroundColor(self, count: countInt)
+        delegate?.configureAddToBasketButton(self, count: countInt)
     }
     
     private func onEnabled() -> Bool {

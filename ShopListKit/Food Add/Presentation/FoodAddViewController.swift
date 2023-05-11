@@ -40,7 +40,7 @@ class FoodAddViewController: UIViewController {
         if let item = foodModel.currentItems.first(where: { $0.name == item.name }) {
             let countValue = item.countValue
             view.stepper.count.text = "\(countValue)"
-            changeBackgroundColor(view, count: countValue)
+            configureAddToBasketButton(view, count: countValue)
         }
     }
     
@@ -60,7 +60,7 @@ class FoodAddViewController: UIViewController {
 // Count Stepper Delegate
 extension FoodAddViewController: CountStepperDelegate {
     
-    func changeBackgroundColor(_ view: UIView, count: Int) {
+    func configureAddToBasketButton(_ view: UIView, count: Int) {
         if let view = foodAddView as? FoodAddRect, let button = view.addButton {
             button.backgroundColor = count > 0 ? .accentColor : .lightGray
             button.isEnabled = count > 0
