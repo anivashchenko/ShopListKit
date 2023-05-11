@@ -63,6 +63,7 @@ extension FoodAddViewController: CountStepperDelegate {
     func changeBackgroundColor(_ view: UIView, count: Int) {
         if let view = foodAddView as? FoodAddRect, let button = view.addButton {
             button.backgroundColor = count > 0 ? .accentColor : .lightGray
+            button.isEnabled = count > 0
         }
     }
 }
