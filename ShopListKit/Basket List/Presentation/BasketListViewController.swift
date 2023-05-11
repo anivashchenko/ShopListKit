@@ -14,10 +14,11 @@ class BasketListViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = self.editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash.circle"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(deleteAllItems))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "trash.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(deleteAllItems))
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
         
         let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
