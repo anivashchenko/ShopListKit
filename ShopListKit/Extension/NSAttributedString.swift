@@ -6,7 +6,7 @@ import SwiftUI
 
 extension NSAttributedString {
     
-    static func customAttributedTitle(_ title: String, size: CGFloat = 18, color: UIColor) -> NSMutableAttributedString {
+    static func customAttributedTitle(_ title: String, size: CGFloat, color: UIColor = .white) -> NSMutableAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: color,
             .font: UIFont.systemFont(ofSize: size, weight: .semibold)
