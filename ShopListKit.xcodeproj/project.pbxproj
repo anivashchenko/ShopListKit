@@ -18,7 +18,7 @@
 		5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F702529BF6BAF00CCD609 /* CountStepper.swift */; };
 		5D7F702829BF6BBA00CCD609 /* CountStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F702729BF6BBA00CCD609 /* CountStepper.xib */; };
 		5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */; };
-		5D82859E29CA0D350026DE86 /* UIView+blurBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82859D29CA0D350026DE86 /* UIView+blurBackgroundImage.swift */; };
+		5D82859E29CA0D350026DE86 /* UIViewController+blurBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82859D29CA0D350026DE86 /* UIViewController+blurBackgroundImage.swift */; };
 		5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */; };
 		5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */; };
 		5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84953D29BD20AF00D2B683 /* BasketItem.swift */; };
@@ -81,7 +81,7 @@
 		5D7F702529BF6BAF00CCD609 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
 		5D7F702729BF6BBA00CCD609 /* CountStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountStepper.xib; sourceTree = "<group>"; };
 		5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadNibNamed.swift"; sourceTree = "<group>"; };
-		5D82859D29CA0D350026DE86 /* UIView+blurBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+blurBackgroundImage.swift"; sourceTree = "<group>"; };
+		5D82859D29CA0D350026DE86 /* UIViewController+blurBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+blurBackgroundImage.swift"; sourceTree = "<group>"; };
 		5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.Configuration.swift; sourceTree = "<group>"; };
 		5D84953B29BD1D9000D2B683 /* BasketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListViewController.swift; sourceTree = "<group>"; };
 		5D84953D29BD20AF00D2B683 /* BasketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItem.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		5D92F45029C8A17A00BC218A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5D82859D29CA0D350026DE86 /* UIView+blurBackgroundImage.swift */,
+				5D82859D29CA0D350026DE86 /* UIViewController+blurBackgroundImage.swift */,
 				5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */,
 			);
 			path = Helpers;
@@ -495,7 +495,7 @@
 				5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */,
 				5D8F7D3929DD89EC00E77370 /* EmptyBasketView.swift in Sources */,
 				5DB1E9C729BB7E7A00585348 /* UIColor.swift in Sources */,
-				5D82859E29CA0D350026DE86 /* UIView+blurBackgroundImage.swift in Sources */,
+				5D82859E29CA0D350026DE86 /* UIViewController+blurBackgroundImage.swift in Sources */,
 				5D8F2DA429BE56F40008AC15 /* FoodAddRect.swift in Sources */,
 				5DDCCBB92A0A8AC10002DC12 /* NSAttributedString.swift in Sources */,
 				5D8F2DA829BE58E80008AC15 /* FoodAddViewController.swift in Sources */,
