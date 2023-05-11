@@ -9,22 +9,22 @@ class FoodAddRect: UIView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var stepper: CountStepper!
-    @IBOutlet var addButton: UIButton!
+    @IBOutlet var addToBasketButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private var titleView: UIView!
     
-    var onPressAddButton: ((Int) -> Void)?
+    var onPressAddToBasketButton: ((Int) -> Void)?
     
     private static let reuseIdentifier = String(describing: FoodAddRect.self)
     
-    private let addedToListView: UIView = {
+    private let addedToBasketView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         return view
     }()
     
-    private let addedToListLabel: UILabel = {
+    private let addedToBasketLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,31 +45,31 @@ class FoodAddRect: UIView {
         
         titleView.layer.cornerRadius = 10
         
-        addButton.layer.cornerRadius = 10
-        let height = addButton.bounds.height * 0.8
-        addButton.setImage(
+        addToBasketButton.layer.cornerRadius = 10
+        let height = addToBasketButton.bounds.height * 0.8
+        addToBasketButton.setImage(
             .imageFromBezierPath(
                 .basketBezierPath(height: height),
                 size: .init(width: height, height: height),
                 color: UIColor.white.cgColor
             ), for: .normal
         )
-        addButton.accessibilityIdentifier = "AddToBasket"
+        addToBasketButton.accessibilityIdentifier = "AddToBasket"
         
-        addedToListLabel.attributedText = .customAttributedTitle("Succesfully added to the basket!", size: 18)
-        addedToListLabel.textAlignment = .center
-        addedToListView.layer.cornerRadius = 10
-        addedToListView.backgroundColor = .accentColor
+        addedToBasketLabel.attributedText = .customAttributedTitle("Succesfully added to the basket!", size: 18)
+        addedToBasketLabel.textAlignment = .center
+        addedToBasketView.layer.cornerRadius = 10
+        addedToBasketView.backgroundColor = .accentColor
         
-        stackView.addArrangedSubview(addedToListView)
-        addedToListView.addSubview(addedToListLabel)
+        stackView.addArrangedSubview(addedToBasketView)
+        addedToBasketView.addSubview(addedToBasketLabel)
         
         NSLayoutConstraint.activate([
-            addedToListLabel.leadingAnchor.constraint(equalTo: addedToListView.leadingAnchor),
-            addedToListLabel.trailingAnchor.constraint(equalTo: addedToListView.trailingAnchor),
-            addedToListLabel.bottomAnchor.constraint(equalTo: addedToListView.bottomAnchor),
-            addedToListLabel.topAnchor.constraint(equalTo: addedToListView.topAnchor),
-            addedToListView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
+            addedToBasketLabel.leadingAnchor.constraint(equalTo: addedToBasketView.leadingAnchor),
+            addedToBasketLabel.trailingAnchor.constraint(equalTo: addedToBasketView.trailingAnchor),
+            addedToBasketLabel.bottomAnchor.constraint(equalTo: addedToBasketView.bottomAnchor),
+            addedToBasketLabel.topAnchor.constraint(equalTo: addedToBasketView.topAnchor),
+            addedToBasketView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
         ])
         
         layer.cornerRadius = 15
@@ -78,14 +78,14 @@ class FoodAddRect: UIView {
     
     @IBAction func didPressAddToBasket(_ sender: UIButton) {
         self.stepper.isHidden = true
-        self.addButton.isHidden = true
+        self.addToBasketButton.isHidden = true
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
-            self.addedToListView.isHidden = false
+            self.addedToBasketView.isHidden = false
         }
         
         if let count = self.stepper.count.text, let countInt = Int(count) {
-            self.onPressAddButton?(countInt)
+            self.onPressAddToBasketButton?(countInt)
         }
     }
 }

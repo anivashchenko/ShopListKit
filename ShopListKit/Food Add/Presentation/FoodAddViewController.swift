@@ -45,7 +45,7 @@ class FoodAddViewController: UIViewController {
     }
     
     private func didPressAddButton(from view: FoodAddRect) {
-        view.onPressAddButton = { [weak self] count in
+        view.onPressAddToBasketButton = { [weak self] count in
             guard let self = self else { return }
             
             self.foodModel.addToBasket(item: self.item!, count: count)
@@ -61,7 +61,7 @@ class FoodAddViewController: UIViewController {
 extension FoodAddViewController: CountStepperDelegate {
     
     func configureAddToBasketButton(_ view: UIView, count: Int) {
-        if let view = foodAddView as? FoodAddRect, let button = view.addButton {
+        if let view = foodAddView as? FoodAddRect, let button = view.addToBasketButton {
             button.backgroundColor = count > 0 ? .accentColor : .lightGray
             button.isEnabled = count > 0
         }
