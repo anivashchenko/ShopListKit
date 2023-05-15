@@ -6,10 +6,10 @@ import UIKit
 
 class FoodAddRect: UIView {
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var stepper: CountStepper!
-    @IBOutlet var addToBasketButton: UIButton!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var stepper: CountStepper!
+    @IBOutlet private var addToBasketButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private var titleView: UIView!
     
@@ -38,6 +38,14 @@ class FoodAddRect: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
+    }
+    
+    func configureView(name: String, count: Int) {
+        titleLabel.attributedText = .customAttributedTitle(name, size: 30, color: .accentColor)
+        imageView.image = UIImage(named: name)
+        stepper.delegate = self
+        stepper.configureStepperView(count: count)
+        configureAddToBasketButton(self, count: count)
     }
     
     private func commonInit() {
@@ -87,5 +95,14 @@ class FoodAddRect: UIView {
         if let count = self.stepper.count.text, let countInt = Int(count) {
             self.onPressAddToBasketButton?(countInt)
         }
+    }
+}
+
+// Count Stepper Delegate
+extension FoodAddRect: CountStepperDelegate {
+    
+    func configureAddToBasketButton(_ view: UIView, count: Int) {
+        addToBasketButton.backgroundColor = count > 0 ? .accentColor : .lightGray
+        addToBasketButton.isEnabled = count > 0
     }
 }

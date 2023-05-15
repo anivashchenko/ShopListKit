@@ -26,22 +26,10 @@ class FoodAddViewController: UIViewController {
     private func loadFoodAddRectView() -> UIView? {
         guard let view = foodAddView as? FoodAddRect else { return nil }
         
-        view.titleLabel.attributedText = .customAttributedTitle(item.name, size: 30, color: .accentColor)
-        view.imageView?.image = UIImage(named: item.name)
-        loadCountStepperView(from: view)
+        view.configureView(name: item.name, count: item.countValue)
         didPressAddButton(from: view)
         
         return view
-    }
-    
-    private func loadCountStepperView(from view: FoodAddRect) {
-        view.stepper.delegate = self
-        
-        if let item = foodModel.currentItems.first(where: { $0.name == item.name }) {
-            let countValue = item.countValue
-            view.stepper.count.text = "\(countValue)"
-            configureAddToBasketButton(view, count: countValue)
-        }
     }
     
     private func didPressAddButton(from view: FoodAddRect) {
@@ -53,17 +41,6 @@ class FoodAddViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.navigationController?.popViewController(animated: true)
             }
-        }
-    }
-}
-
-// Count Stepper Delegate
-extension FoodAddViewController: CountStepperDelegate {
-    
-    func configureAddToBasketButton(_ view: UIView, count: Int) {
-        if let view = foodAddView as? FoodAddRect, let button = view.addToBasketButton {
-            button.backgroundColor = count > 0 ? .accentColor : .lightGray
-            button.isEnabled = count > 0
         }
     }
 }

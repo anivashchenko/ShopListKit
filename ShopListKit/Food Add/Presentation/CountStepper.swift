@@ -10,7 +10,7 @@ protocol CountStepperDelegate: AnyObject {
 
 class CountStepper: UIView {
     
-    @IBOutlet var count: UILabel!
+    @IBOutlet private(set) var count: UILabel!
     @IBOutlet private var minusButton: UIButton!
     @IBOutlet private var plusButton: UIButton!
     
@@ -27,6 +27,10 @@ class CountStepper: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
+    }
+    
+    func configureStepperView(count: Int) {
+        self.count.text = String(count)
     }
     
     private func commonInit() {
