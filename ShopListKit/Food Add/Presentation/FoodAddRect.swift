@@ -45,7 +45,7 @@ class FoodAddRect: UIView {
     private func commonInit() {
         let _ = loadNibNamed()
         
-        titleView.layer.cornerRadius = 10
+        titleView.layer.cornerRadius = 15
         configureAddToBasketButton()
         configureAddedToBasketSubview()
         layer.cornerRadius = 15
@@ -71,7 +71,7 @@ class FoodAddRect: UIView {
         addedToBasketLabel.attributedText = .customAttributedTitle("Succesfully added to the basket!", size: 18)
         addedToBasketLabel.textAlignment = .center
         
-        addedToBasketView.layer.cornerRadius = 10
+        addedToBasketView.layer.cornerRadius = 15
         addedToBasketView.backgroundColor = .accentColor
         
         stackView.addArrangedSubview(addedToBasketView)
@@ -85,7 +85,7 @@ class FoodAddRect: UIView {
     }
     
     private func configureAddToBasketButton() {
-        addToBasketButton.layer.cornerRadius = 10
+        addToBasketButton.layer.cornerRadius = 15
         
         let height = addToBasketButton.bounds.height * 0.8
         addToBasketButton.setImage(

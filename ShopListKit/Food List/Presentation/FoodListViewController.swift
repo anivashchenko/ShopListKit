@@ -121,7 +121,7 @@ extension FoodListViewController: UICollectionViewDataSource {
         cell.label.attributedText = .customFoodListTitle(title: item.name, count: item.countValue)
         configureSystemCell(for: cell, item: item)
         cell.layer.backgroundColor = item.countValue == 0 ? .secondary : .veryLightGreen
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 15
         
         return cell
     }
