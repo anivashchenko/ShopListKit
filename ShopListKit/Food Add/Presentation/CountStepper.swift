@@ -17,7 +17,6 @@ class CountStepper: UIView {
     weak var delegate: CountStepperDelegate?
     
     private static let reuseIdentifier = String(describing: CountStepper.self)
-    private var countInt = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,20 +50,14 @@ class CountStepper: UIView {
     }
     
     private func incrementor(number: Int) {
-        guard let countFromLabel = Int(count.text!) else { return }
+        guard let oldCount = Int(count.text!) else { return }
         
-        countInt = countFromLabel + number
-        if onEnabled() {
-            count.text = "\(countInt)"
+        let newCount = oldCount + number
+        let isEnabled = !(newCount == -1)
+        if isEnabled {
+            count.text = "\(newCount)"
+            delegate?.configureAddToBasketButton(self, count: newCount)
         }
-        
-        delegate?.configureAddToBasketButton(self, count: countInt)
-    }
-    
-    private func onEnabled() -> Bool {
-        let isEnabled = !(countInt == -1)
         minusButton.isEnabled = isEnabled
-        
-        return isEnabled
     }
 }
