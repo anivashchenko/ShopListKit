@@ -46,20 +46,8 @@ class FoodAddRect: UIView {
         let _ = loadNibNamed()
         
         titleView.layer.cornerRadius = 10
-        
-        addToBasketButton.layer.cornerRadius = 10
-        let height = addToBasketButton.bounds.height * 0.8
-        addToBasketButton.setImage(
-            .imageFromBezierPath(
-                .basketBezierPath(height: height),
-                size: .init(width: height, height: height),
-                color: UIColor.white.cgColor
-            ), for: .normal
-        )
-        addToBasketButton.accessibilityIdentifier = "AddToBasket"
-        
+        configureAddToBasketButton()
         configureAddedToBasketSubview()
-        
         layer.cornerRadius = 15
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
     }
@@ -94,6 +82,21 @@ class FoodAddRect: UIView {
             addedToBasketLabel.heightAnchor.constraint(equalTo: addedToBasketView.heightAnchor),
             addedToBasketView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
         ])
+    }
+    
+    private func configureAddToBasketButton() {
+        addToBasketButton.layer.cornerRadius = 10
+        
+        let height = addToBasketButton.bounds.height * 0.8
+        addToBasketButton.setImage(
+            .imageFromBezierPath(
+                .basketBezierPath(height: height),
+                size: .init(width: height, height: height),
+                color: UIColor.white.cgColor
+            ), for: .normal
+        )
+        
+        addToBasketButton.accessibilityIdentifier = "AddToBasket"
     }
 }
 
