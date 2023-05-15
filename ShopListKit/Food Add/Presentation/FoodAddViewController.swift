@@ -46,7 +46,7 @@ class FoodAddViewController: UIViewController {
     
     private func didPressAddButton(from view: FoodAddRect) {
         view.onPressAddToBasketButton = { [weak self] count in
-            guard let self = self else { return }
+            guard let self else { return }
             
             self.foodModel.addToBasket(item: self.item!, count: count)
             
