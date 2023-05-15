@@ -81,9 +81,9 @@ class BasketModel {
         let item = item(at: indexPath)
         
         return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
-            guard let self else { return }
-            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
-            items[index].updateIsFavorite()
+            if let self, let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) {
+                items[index].updateIsFavorite()
+            }
         }
     }
     
