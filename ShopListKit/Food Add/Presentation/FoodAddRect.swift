@@ -24,12 +24,6 @@ class FoodAddRect: UIView {
         return view
     }()
     
-    private let addedToBasketLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -64,21 +58,7 @@ class FoodAddRect: UIView {
         )
         addToBasketButton.accessibilityIdentifier = "AddToBasket"
         
-        addedToBasketLabel.attributedText = .customAttributedTitle("Succesfully added to the basket!", size: 18)
-        addedToBasketLabel.textAlignment = .center
-        addedToBasketView.layer.cornerRadius = 10
-        addedToBasketView.backgroundColor = .accentColor
-        
-        stackView.addArrangedSubview(addedToBasketView)
-        addedToBasketView.addSubview(addedToBasketLabel)
-        
-        NSLayoutConstraint.activate([
-            addedToBasketLabel.leadingAnchor.constraint(equalTo: addedToBasketView.leadingAnchor),
-            addedToBasketLabel.trailingAnchor.constraint(equalTo: addedToBasketView.trailingAnchor),
-            addedToBasketLabel.bottomAnchor.constraint(equalTo: addedToBasketView.bottomAnchor),
-            addedToBasketLabel.topAnchor.constraint(equalTo: addedToBasketView.topAnchor),
-            addedToBasketView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
-        ])
+        configureAddedToBasketSubview()
         
         layer.cornerRadius = 15
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
@@ -95,6 +75,25 @@ class FoodAddRect: UIView {
         if let count = self.stepper.count.text, let countInt = Int(count) {
             self.onPressAddToBasketButton?(countInt)
         }
+    }
+    
+    private func configureAddedToBasketSubview() {
+        let addedToBasketLabel = UILabel()
+        addedToBasketLabel.translatesAutoresizingMaskIntoConstraints = false
+        addedToBasketLabel.attributedText = .customAttributedTitle("Succesfully added to the basket!", size: 18)
+        addedToBasketLabel.textAlignment = .center
+        
+        addedToBasketView.layer.cornerRadius = 10
+        addedToBasketView.backgroundColor = .accentColor
+        
+        stackView.addArrangedSubview(addedToBasketView)
+        addedToBasketView.addSubview(addedToBasketLabel)
+        
+        NSLayoutConstraint.activate([
+            addedToBasketLabel.widthAnchor.constraint(equalTo: addedToBasketView.widthAnchor),
+            addedToBasketLabel.heightAnchor.constraint(equalTo: addedToBasketView.heightAnchor),
+            addedToBasketView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
+        ])
     }
 }
 
