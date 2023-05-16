@@ -38,8 +38,8 @@
 		5D8F7D3929DD89EC00E77370 /* EmptyBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F7D3829DD89EC00E77370 /* EmptyBasketView.swift */; };
 		5D8F7D3B29DDA98600E77370 /* EmptyBasketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F7D3A29DDA98500E77370 /* EmptyBasketView.xib */; };
 		5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */; };
-		5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */; };
-		5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */; };
+		5D96426F29BCB83E008BAE3A /* FoodListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D96426D29BCB83E008BAE3A /* FoodListViewCell.swift */; };
+		5D96427029BCB83E008BAE3A /* FoodListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D96426E29BCB83E008BAE3A /* FoodListViewCell.xib */; };
 		5D9D99EE2A03C4D5009BEB4C /* BasketModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D99ED2A03C4D5009BEB4C /* BasketModelTests.swift */; };
 		5D9F19EF29C203730046919F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19EE29C203730046919F /* Launch Screen.storyboard */; };
 		5D9F19F129C20FC00046919F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F029C20FC00046919F /* Main.storyboard */; };
@@ -103,8 +103,8 @@
 		5D8F7D3829DD89EC00E77370 /* EmptyBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBasketView.swift; sourceTree = "<group>"; };
 		5D8F7D3A29DDA98500E77370 /* EmptyBasketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyBasketView.xib; sourceTree = "<group>"; };
 		5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromBezierPath.swift"; sourceTree = "<group>"; };
-		5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
-		5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionCell.xib; sourceTree = "<group>"; };
+		5D96426D29BCB83E008BAE3A /* FoodListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewCell.swift; sourceTree = "<group>"; };
+		5D96426E29BCB83E008BAE3A /* FoodListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodListViewCell.xib; sourceTree = "<group>"; };
 		5D9D99E42A03C478009BEB4C /* ShopListKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopListKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9D99ED2A03C4D5009BEB4C /* BasketModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketModelTests.swift; sourceTree = "<group>"; };
 		5D9F19EE29C203730046919F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -310,9 +310,9 @@
 			children = (
 				5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */,
 				5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */,
-				5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */,
+				5D96426D29BCB83E008BAE3A /* FoodListViewCell.swift */,
 				5DB1E9CC29BB91B400585348 /* GroupTabView.xib */,
-				5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */,
+				5D96426E29BCB83E008BAE3A /* FoodListViewCell.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 				5D8F2DA029BE1E030008AC15 /* BasketCell.xib in Resources */,
 				5D9F19F129C20FC00046919F /* Main.storyboard in Resources */,
 				5DB1E9CD29BB91B400585348 /* GroupTabView.xib in Resources */,
-				5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */,
+				5D96427029BCB83E008BAE3A /* FoodListViewCell.xib in Resources */,
 				5D9F19F329C210D90046919F /* Assets.xcassets in Resources */,
 				5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */,
 			);
@@ -530,7 +530,7 @@
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
 				5D8CB64B2A13D8200084AF37 /* UIButton+configurationHandler.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
-				5D96426F29BCB83E008BAE3A /* ItemCollectionCell.swift in Sources */,
+				5D96426F29BCB83E008BAE3A /* FoodListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

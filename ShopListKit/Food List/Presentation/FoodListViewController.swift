@@ -31,8 +31,8 @@ class FoodListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let nib = UINib(nibName: ItemCollectionCell.identifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: ItemCollectionCell.identifier)
+        let nib = UINib(nibName: FoodListViewCell.identifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: FoodListViewCell.identifier)
         
         collectionView.collectionViewLayout = getCollectionViewCompositionalLayout()
     }
@@ -84,8 +84,8 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reuseId = ItemCollectionCell.identifier
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? ItemCollectionCell
+        let reuseId = FoodListViewCell.identifier
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? FoodListViewCell
         else { fatalError() }
         
         let item = foodModel.currentItems[indexPath.row]
@@ -98,7 +98,7 @@ extension FoodListViewController: UICollectionViewDataSource {
         return cell
     }
     
-    private func configureSystemCell(for cell: ItemCollectionCell, item: Item) {
+    private func configureSystemCell(for cell: FoodListViewCell, item: Item) {
         let configPlusIcon = UIImage.SymbolConfiguration(hierarchicalColor: .accentColor)
         let config = item.countValue == 0 ? configPlusIcon : nil
         let imageSystemName = item.countValue == 0 ? "plus.circle.fill" : "checkmark.circle.fill"
