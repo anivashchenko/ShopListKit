@@ -7,7 +7,7 @@ import UIKit
 
 class FoodListViewController: UIViewController {
     
-    @IBOutlet weak var groupView: GroupTab!
+    @IBOutlet weak var groupTabView: GroupTabView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var foodModel: FoodModel!
@@ -17,7 +17,7 @@ class FoodListViewController: UIViewController {
         
         navigationItem.title = "The shop list"
         foodModel.loadItemsWhenAppear()
-        loadGroupTabView()
+        setUpGroupTabView()
         loadItemCollectionCellView(from: collectionView)
     }
     
@@ -25,15 +25,6 @@ class FoodListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         collectionView.reloadData()
-    }
-    
-    private func loadGroupTabView() {
-        groupView.button1.isSelected = true
-        let buttons = [groupView.button1, groupView.button2, groupView.button3]
-        for button in buttons {
-            button?.configurationUpdateHandler = getConfigurationHandler(for: buttons)
-            button?.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
-        }
     }
     
     private func loadItemCollectionCellView(from collectionView: UICollectionView) {
@@ -54,37 +45,18 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
-    @objc private func didTouchUpInside(sender: UIButton) {
-        let buttons = [groupView.button1, groupView.button2, groupView.button3]
-        buttons.forEach({ $0?.isSelected = ($0 == sender) })
+    private func setUpGroupTabView() {
+        let titles = foodModel.loadTabTitles()
+        groupTabView.configureButtons(with: titles)
         
-        guard let title = sender.titleLabel?.text else { return }
-        
-        foodModel.filterCurrentItems(of: title.lowercased()) {
-            collectionView.reloadData()
+        groupTabView.onDidPressButton = { [weak self] title in
+            self?.foodModel.filterCurrentItems(of: title.lowercased()) {
+                self?.collectionView.reloadData()
+            }
         }
     }
     
     // MARK: - Helpers
-    private func getConfigurationHandler(for buttons: [UIButton?]) -> UIButton.ConfigurationUpdateHandler {
-        let titles = foodModel.loadTabTitles()
-        let handler: UIButton.ConfigurationUpdateHandler = { button in
-            guard titles.count == buttons.count,
-                  let index = buttons.firstIndex(where: { $0 == button })
-            else { return }
-            
-            switch button.state {
-            case .selected, .highlighted:
-                button.configuration = .customGroupButton(text: titles[index], font: .body)
-            default:
-                button.configuration = .customGroupSelectedButton(text: titles[index], font: .body)
-            }
-        }
-        
-        return handler
-    }
-    
     private func getCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(sectionProvider: { sectionId, environment in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),

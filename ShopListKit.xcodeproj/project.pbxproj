@@ -44,8 +44,8 @@
 		5D9F19F129C20FC00046919F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F029C20FC00046919F /* Main.storyboard */; };
 		5D9F19F329C210D90046919F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F19F229C210D90046919F /* Assets.xcassets */; };
 		5DB1E9C729BB7E7A00585348 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C629BB7E7A00585348 /* UIColor.swift */; };
-		5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTab.swift */; };
-		5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTab.xib */; };
+		5DB1E9CA29BB8F1E00585348 /* GroupTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */; };
+		5DB1E9CD29BB91B400585348 /* GroupTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTabView.xib */; };
 		5DCC396B2A0D02BC00A9ADA5 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC396A2A0D02BC00A9ADA5 /* CGColor.swift */; };
 		5DDCCBB92A0A8AC10002DC12 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
@@ -109,8 +109,8 @@
 		5D9F19F029C20FC00046919F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5D9F19F229C210D90046919F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DB1E9C629BB7E7A00585348 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		5DB1E9C829BB8F1E00585348 /* GroupTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTab.swift; sourceTree = "<group>"; };
-		5DB1E9CC29BB91B400585348 /* GroupTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTab.xib; sourceTree = "<group>"; };
+		5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTabView.swift; sourceTree = "<group>"; };
+		5DB1E9CC29BB91B400585348 /* GroupTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTabView.xib; sourceTree = "<group>"; };
 		5DCC396A2A0D02BC00A9ADA5 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,9 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */,
-				5DB1E9C829BB8F1E00585348 /* GroupTab.swift */,
+				5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */,
 				5D96426D29BCB83E008BAE3A /* ItemCollectionCell.swift */,
-				5DB1E9CC29BB91B400585348 /* GroupTab.xib */,
+				5DB1E9CC29BB91B400585348 /* GroupTabView.xib */,
 				5D96426E29BCB83E008BAE3A /* ItemCollectionCell.xib */,
 			);
 			path = Presentation;
@@ -463,7 +463,7 @@
 				5D8F389B29D2F092003AA506 /* FruitsData.json in Resources */,
 				5D8F2DA029BE1E030008AC15 /* BasketCell.xib in Resources */,
 				5D9F19F129C20FC00046919F /* Main.storyboard in Resources */,
-				5DB1E9CD29BB91B400585348 /* GroupTab.xib in Resources */,
+				5DB1E9CD29BB91B400585348 /* GroupTabView.xib in Resources */,
 				5D96427029BCB83E008BAE3A /* ItemCollectionCell.xib in Resources */,
 				5D9F19F329C210D90046919F /* Assets.xcassets in Resources */,
 				5D8F2DA629BE57050008AC15 /* FoodAddRect.xib in Resources */,
@@ -506,7 +506,7 @@
 				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
 				5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */,
 				5D0CFC5B29CDE936006F71DE /* FoodModel.swift in Sources */,
-				5DB1E9CA29BB8F1E00585348 /* GroupTab.swift in Sources */,
+				5DB1E9CA29BB8F1E00585348 /* GroupTabView.swift in Sources */,
 				5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */,
 				5D8CB6482A1391D30084AF37 /* UIView+identifier.swift in Sources */,
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
