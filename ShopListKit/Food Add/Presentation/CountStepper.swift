@@ -14,31 +14,22 @@ class CountStepper: UIView {
     @IBOutlet private var minusButton: UIButton!
     @IBOutlet private var plusButton: UIButton!
     
-    weak var delegate: CountStepperDelegate?
-    
     private static let reuseIdentifier = String(describing: CountStepper.self)
+    
+    weak var delegate: CountStepperDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        configureView()
     }
     
     func configureStepperView(count: Int) {
         self.count.text = String(count)
-    }
-    
-    private func commonInit() {
-        let view = loadNibNamed()
-        view.layer.cornerRadius = 15
-        
-        plusButton.setAttributedTitle(.customAttributedTitle("+", size: 35), for: .normal)
-        count.attributedText = .customAttributedTitle("0", size: 35)
-        minusButton.setAttributedTitle(.customAttributedTitle("-", size: 35), for: .normal)
     }
     
     @IBAction func didPressMinus(_ sender: UIButton) {
@@ -47,6 +38,15 @@ class CountStepper: UIView {
     
     @IBAction func didPressPlus(_ sender: UIButton) {
         incrementor(number: 1)
+    }
+    
+    private func configureView() {
+        let view = loadNibNamed()
+        view.layer.cornerRadius = 15
+        
+        plusButton.setAttributedTitle(.customAttributedTitle("+", size: 35), for: .normal)
+        count.attributedText = .customAttributedTitle("0", size: 35)
+        minusButton.setAttributedTitle(.customAttributedTitle("-", size: 35), for: .normal)
     }
     
     private func incrementor(number: Int) {
