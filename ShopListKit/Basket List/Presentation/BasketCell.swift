@@ -10,8 +10,6 @@ class BasketCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var starButton: UIButton!
     
-    static let reuseIdentifier = String(describing: BasketCell.self)
-    
     var viewModel: BasketCellViewModel! {
         didSet {
             itemImageView.image = viewModel.image

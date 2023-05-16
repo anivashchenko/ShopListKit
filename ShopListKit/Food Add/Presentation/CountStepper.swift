@@ -14,8 +14,6 @@ class CountStepper: UIView {
     @IBOutlet private var minusButton: UIButton!
     @IBOutlet private var plusButton: UIButton!
     
-    private static let reuseIdentifier = String(describing: CountStepper.self)
-    
     weak var delegate: CountStepperDelegate?
     
     override init(frame: CGRect) {

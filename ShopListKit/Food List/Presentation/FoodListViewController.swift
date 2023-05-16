@@ -40,8 +40,8 @@ class FoodListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let nib = UINib(nibName: ItemCollectionCell.reuseIdentifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: ItemCollectionCell.reuseIdentifier)
+        let nib = UINib(nibName: ItemCollectionCell.identifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: ItemCollectionCell.identifier)
         
         collectionView.collectionViewLayout = getCollectionViewCompositionalLayout()
     }
@@ -112,7 +112,7 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reuseId = ItemCollectionCell.reuseIdentifier
+        let reuseId = ItemCollectionCell.identifier
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? ItemCollectionCell
         else { fatalError() }
         

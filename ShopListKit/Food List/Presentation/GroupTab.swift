@@ -11,8 +11,6 @@ class GroupTab: UIView {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
-    private static let reuseIdentifier = "GroupTab"
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
@@ -24,7 +22,7 @@ class GroupTab: UIView {
     }
     
     private func configureView() {
-        Bundle.main.loadNibNamed(GroupTab.reuseIdentifier, owner: self, options: nil)
+        Bundle.main.loadNibNamed(GroupTab.identifier, owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

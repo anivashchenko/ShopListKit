@@ -15,8 +15,6 @@ class FoodAddRect: UIView {
     
     var onPressAddToBasketButton: ((Int) -> Void)?
     
-    private static let reuseIdentifier = String(describing: FoodAddRect.self)
-    
     private let addedToBasketView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

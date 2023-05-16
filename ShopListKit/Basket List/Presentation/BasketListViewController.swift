@@ -21,8 +21,8 @@ class BasketListViewController: UITableViewController {
             action: #selector(deleteAllItems))
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
         
-        let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
+        let nibName = UINib(nibName: BasketCell.identifier, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: BasketCell.identifier)
         
         basketModel.onAppearEmptyView = { [weak self] isEmpty in
             self?.configureEmptyView(isEmpty)
@@ -73,7 +73,7 @@ extension BasketListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as! BasketCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.identifier, for: indexPath) as! BasketCell
         cell.viewModel = basketModel.viewModelForItem(at: indexPath)
         
         return cell

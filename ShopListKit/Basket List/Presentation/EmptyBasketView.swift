@@ -8,8 +8,6 @@ class EmptyBasketView: UIView {
     
     @IBOutlet var basketImageView: UIImageView!
     
-    private static let reuseIdentifier = String(describing: EmptyBasketView.self)
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
