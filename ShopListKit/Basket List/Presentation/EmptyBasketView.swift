@@ -12,15 +12,15 @@ class EmptyBasketView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        configureView()
     }
     
-    private func commonInit() {
+    private func configureView() {
         let _ = loadNibNamed()
         
         let height = basketImageView.frame.height

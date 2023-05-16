@@ -26,12 +26,12 @@ class FoodAddRect: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        configureView()
     }
     
     func configureView(name: String, count: Int) {
@@ -42,7 +42,7 @@ class FoodAddRect: UIView {
         configureAddToBasketButton(self, count: count)
     }
     
-    private func commonInit() {
+    private func configureView() {
         let _ = loadNibNamed()
         
         titleView.layer.cornerRadius = 15
