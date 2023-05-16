@@ -213,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */,
-				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
 				5D92F45129C8A1A200BC218A /* UIImage+imageFromBezierPath.swift */,
 				5D82859B29CA02B70026DE86 /* UIView+loadNibNamed.swift */,
 			);
@@ -232,6 +231,7 @@
 		5D8CB6492A13D7F90084AF37 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
 				5D8CB64A2A13D8200084AF37 /* UIButton+configurationHandler.swift */,
 			);
 			path = Helpers;
