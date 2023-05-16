@@ -26,7 +26,7 @@ class GroupTabView: UIView {
         button1.isSelected = true
         let buttons = [button1, button2, button3]
         for button in buttons {
-            button?.configurationUpdateHandler = getConfigurationHandler(for: buttons)
+            button?.configurationUpdateHandler = UIButton.configurationHandler(for: buttons, titles: titles)
             button?.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
     }
@@ -38,23 +38,5 @@ class GroupTabView: UIView {
         if let title = sender.titleLabel?.text {
             onDidPressButton?(title)
         }
-    }
-    
-    // MARK: - Helpers
-    private func getConfigurationHandler(for buttons: [UIButton?]) -> UIButton.ConfigurationUpdateHandler {
-        let handler: UIButton.ConfigurationUpdateHandler = { button in
-            guard self.titles.count == buttons.count,
-                  let index = buttons.firstIndex(where: { $0 == button })
-            else { return }
-            
-            switch button.state {
-            case .selected, .highlighted:
-                button.configuration = .customGroupButton(text: self.titles[index], font: .body)
-            default:
-                button.configuration = .customGroupSelectedButton(text: self.titles[index], font: .body)
-            }
-        }
-        
-        return handler
     }
 }
