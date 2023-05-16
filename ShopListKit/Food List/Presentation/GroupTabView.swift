@@ -25,9 +25,11 @@ class GroupTabView: UIView {
     func configureButtons(with titles: [String]) {
         button1.isSelected = true
         let buttons = [button1, button2, button3]
-        for button in buttons {
-            button?.configurationUpdateHandler = UIButton.configurationHandler(for: buttons, titles: titles)
-            button?.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
+        guard buttons.count == titles.count else { return }
+        
+        buttons.indices.forEach {
+            buttons[$0]?.configurationUpdateHandler = UIButton.configurationHandler(for: buttons[$0], title: titles[$0])
+            buttons[$0]?.addTarget(self, action: #selector(didTouchUpInside), for: .touchUpInside)
         }
     }
     

@@ -6,17 +6,13 @@ import UIKit
 
 extension UIButton {
     
-    static func configurationHandler(for buttons: [UIButton?], titles: [String]) -> UIButton.ConfigurationUpdateHandler {
+    static func configurationHandler(for button: UIButton?, title: String) -> UIButton.ConfigurationUpdateHandler {
         let handler: UIButton.ConfigurationUpdateHandler = { button in
-            guard titles.count == buttons.count,
-                  let index = buttons.firstIndex(where: { $0 == button })
-            else { return }
-            
             switch button.state {
             case .selected, .highlighted:
-                button.configuration = .customGroupButton(text: titles[index], font: .body)
+                button.configuration = .customGroupButton(text: title, font: .body)
             default:
-                button.configuration = .customGroupSelectedButton(text: titles[index], font: .body)
+                button.configuration = .customGroupSelectedButton(text: title, font: .body)
             }
         }
         
