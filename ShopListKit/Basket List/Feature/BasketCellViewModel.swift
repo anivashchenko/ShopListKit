@@ -27,7 +27,7 @@ struct BasketCellViewModel {
             count: count,
             size: 18,
             primaryColor: isAdded ? .white : .darkGray,
-            secondaryColor: isAdded ? .lightGray : .gray
+            secondaryColor: isAdded ? .systemGray3 : .gray
         )
     }
     
