@@ -7,8 +7,8 @@ import UIKit
 
 class FoodListViewController: UIViewController {
     
-    @IBOutlet weak var groupTabView: GroupTabView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var groupTabView: GroupTabView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var foodModel: FoodListModel!
     

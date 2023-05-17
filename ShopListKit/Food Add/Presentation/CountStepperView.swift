@@ -30,11 +30,11 @@ class CountStepperView: UIView {
         self.count.text = String(count)
     }
     
-    @IBAction func didPressMinus(_ sender: UIButton) {
+    @IBAction private func didPressMinus(_ sender: UIButton) {
         incrementor(number: -1)
     }
     
-    @IBAction func didPressPlus(_ sender: UIButton) {
+    @IBAction private func didPressPlus(_ sender: UIButton) {
         incrementor(number: 1)
     }
     

@@ -50,7 +50,7 @@ class AddItemView: UIView {
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
     }
     
-    @IBAction func didPressAddToBasket(_ sender: UIButton) {
+    @IBAction private func didPressAddToBasket(_ sender: UIButton) {
         self.stepper.isHidden = true
         self.addToBasketButton.isHidden = true
         

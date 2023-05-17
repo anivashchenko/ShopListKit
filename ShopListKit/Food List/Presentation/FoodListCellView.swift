@@ -6,10 +6,10 @@ import UIKit
 
 class FoodListCellView: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var systemIconImageView: UIImageView!
-    @IBOutlet var customContentView: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var systemIconImageView: UIImageView!
+    @IBOutlet private var customContentView: UIView!
     
     var viewModel: FoodListCellViewModel! {
         didSet {

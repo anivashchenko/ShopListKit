@@ -6,9 +6,9 @@ import UIKit
 
 class GroupTabView: UIView {
     
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
+    @IBOutlet private weak var button1: UIButton!
+    @IBOutlet private weak var button2: UIButton!
+    @IBOutlet private weak var button3: UIButton!
     
     var onDidPressButton: ((String) -> Void)?
     
