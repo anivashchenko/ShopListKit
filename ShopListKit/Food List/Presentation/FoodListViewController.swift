@@ -65,13 +65,11 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reuseId = FoodListCellView.identifier
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? FoodListCellView
-        else { fatalError() }
+        let id = FoodListCellView.identifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as? FoodListCellView
+        cell?.viewModel = foodModel.viewModelForItem(at: indexPath.row)
         
-        cell.viewModel = foodModel.viewModelForItem(at: indexPath.row)
-        
-        return cell
+        return cell ?? UICollectionViewCell()
     }
 }
 
