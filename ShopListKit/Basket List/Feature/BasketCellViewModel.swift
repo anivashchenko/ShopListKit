@@ -32,7 +32,7 @@ struct BasketCellViewModel {
     }
     
     var starImageColor: UIColor {
-        isFavorite ? .systemYellow : .lightGray
+        isFavorite ? .systemYellow : .systemGray2
     }
     
     var backgroundColor: UIColor {

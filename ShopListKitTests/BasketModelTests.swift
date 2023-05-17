@@ -148,7 +148,7 @@ final class BasketModelTests: XCTestCase {
         
         XCTAssertEqual(vm.image, UIImage(named: "Apple"))
         XCTAssertEqual(vm.attributedTitle.string, "Apple x1")
-        XCTAssertEqual(vm.starImageColor, .lightGray)
+        XCTAssertEqual(vm.starImageColor, .systemGray2)
         XCTAssertEqual(vm.backgroundColor, .accentColor)
     }
     
@@ -163,7 +163,7 @@ final class BasketModelTests: XCTestCase {
         let orangeCheckmark = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.customOrange)
         XCTAssertEqual(vm.image, orangeCheckmark)
         XCTAssertEqual(vm.attributedTitle.string, "any name x1")
-        XCTAssertEqual(vm.starImageColor, .lightGray)
+        XCTAssertEqual(vm.starImageColor, .systemGray2)
         XCTAssertEqual(vm.backgroundColor, .lightGreen)
     }
     
