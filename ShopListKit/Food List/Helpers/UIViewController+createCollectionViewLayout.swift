@@ -11,7 +11,7 @@ extension UIViewController {
             let halfOfWidth: NSCollectionLayoutDimension = .fractionalWidth(0.5)
             let width: NSCollectionLayoutDimension = .fractionalWidth(1)
             
-            let itemSize = NSCollectionLayoutSize(widthDimension: halfOfWidth, heightDimension: width)
+            let itemSize = NSCollectionLayoutSize(widthDimension: halfOfWidth, heightDimension: halfOfWidth)
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 0)
             
