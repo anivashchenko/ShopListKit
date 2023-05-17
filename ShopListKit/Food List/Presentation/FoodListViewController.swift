@@ -27,16 +27,6 @@ class FoodListViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    private func setUpCollectionView() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        let nib = UINib(nibName: FoodListViewCell.identifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: FoodListViewCell.identifier)
-        
-        collectionView.collectionViewLayout = createCollectionViewLayout()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFoodAdd" {
             guard let controller = segue.destination as? FoodAddViewController else { return }
@@ -54,6 +44,16 @@ class FoodListViewController: UIViewController {
                 self?.collectionView.reloadData()
             }
         }
+    }
+    
+    private func setUpCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        let nib = UINib(nibName: FoodListViewCell.identifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: FoodListViewCell.identifier)
+        
+        collectionView.collectionViewLayout = createCollectionViewLayout()
     }
 }
 
