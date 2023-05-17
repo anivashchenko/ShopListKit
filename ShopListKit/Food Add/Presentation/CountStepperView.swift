@@ -8,7 +8,7 @@ protocol CountStepperDelegate: AnyObject {
     func configureAddToBasketButton(_ view: UIView, count: Int)
 }
 
-class CountStepper: UIView {
+class CountStepperView: UIView {
     
     @IBOutlet private(set) var count: UILabel!
     @IBOutlet private var minusButton: UIButton!

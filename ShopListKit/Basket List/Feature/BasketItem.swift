@@ -8,7 +8,7 @@ struct BasketItem: Identifiable, Equatable {
     
     var name: String
     var countValue: Int
-    var typeFood: Item.TypeFood
+    var typeFood: FoodListItem.TypeFood
     var isAddedToList: Bool = true
     var isBought: Bool = false
     var isFavorite: Bool = false

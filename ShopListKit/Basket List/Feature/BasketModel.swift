@@ -10,7 +10,7 @@ class BasketModel {
     private(set) var sections: [[BasketItem]]
     
     var onAppearEmptyView: ((Bool) -> Void)?
-    var onDelete: ((String, Item.TypeFood) -> Void)?
+    var onDelete: ((String, FoodListItem.TypeFood) -> Void)?
     var onDeleteAllItems: (() -> Void)?
     
     init() {

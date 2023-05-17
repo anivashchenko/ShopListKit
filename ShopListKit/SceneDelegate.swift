@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         drawBasketIcon(in: basketNavController)
         
         let dataLoader = JsonDataLoader()
-        let foodModel = FoodModel(items: dataLoader.loadData(), titles: dataLoader.titles, basketModel: basketModel)
+        let foodModel = FoodListModel(items: dataLoader.loadData(), titles: dataLoader.titles, basketModel: basketModel)
         
         let navigationController = tabBarController!.viewControllers![0] as? UINavigationController
         let controller = navigationController?.viewControllers[0] as? FoodListViewController

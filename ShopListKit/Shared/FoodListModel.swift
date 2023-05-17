@@ -4,15 +4,15 @@
 
 import UIKit
 
-final class FoodModel {
+final class FoodListModel {
     
-    private(set) var currentItems: [Item]
-    private var items: [Item]
+    private(set) var currentItems: [FoodListItem]
+    private var items: [FoodListItem]
     private var titles: [String]
     
     var basketModel: BasketModel
     
-    init(items: [Item], titles: [String], basketModel: BasketModel) {
+    init(items: [FoodListItem], titles: [String], basketModel: BasketModel) {
         self.items = items
         self.titles = titles
         self.currentItems = []
@@ -22,7 +22,7 @@ final class FoodModel {
         basketModel.onDeleteAllItems = resetAllAddedItems
     }
     
-    func addToBasket(item: Item, count: Int) {
+    func addToBasket(item: FoodListItem, count: Int) {
         let newItem = item.addNewItem(with: count)
         guard let index = items.firstIndex(where: { $0.name == newItem.name }) else { return }
         items[index] = newItem
@@ -52,7 +52,7 @@ final class FoodModel {
     }
     
     private func resetAllAddedItems() {
-        var typesFood: [Item.TypeFood] = []
+        var typesFood: [FoodListItem.TypeFood] = []
         
         items.filter { $0.isSet == true }
              .forEach {
@@ -63,13 +63,13 @@ final class FoodModel {
         typesFood.forEach { filterCurrentItems(of: $0.rawValue) {} }
     }
     
-    private func resetItem(with name: String, from typeFood: Item.TypeFood) {
+    private func resetItem(with name: String, from typeFood: FoodListItem.TypeFood) {
         resetToDefaultItem(with: name, from: typeFood)
         filterCurrentItems(of: typeFood.rawValue) {}
     }
     
-    private func resetToDefaultItem(with name: String, from typeFood: Item.TypeFood) {
+    private func resetToDefaultItem(with name: String, from typeFood: FoodListItem.TypeFood) {
         guard let index = items.firstIndex(where: { $0.name == name }) else { return }
-        items[index] = Item.resetToDefaultItem(name: name, typeFood: typeFood)
+        items[index] = FoodListItem.resetToDefaultItem(name: name, typeFood: typeFood)
     }
 }

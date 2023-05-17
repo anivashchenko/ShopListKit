@@ -5,13 +5,13 @@
 import SwiftUI
 import UIKit
 
-class FoodAddViewController: UIViewController {
+class AddItemViewController: UIViewController {
     
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var foodAddView: UIView!
     
-    var foodModel: FoodModel!
-    var item: Item!
+    var foodModel: FoodListModel!
+    var item: FoodListItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class FoodAddViewController: UIViewController {
     }
     
     private func loadFoodAddRectView() -> UIView? {
-        guard let view = foodAddView as? FoodAddRect else { return nil }
+        guard let view = foodAddView as? AddItemView else { return nil }
         
         view.configureView(name: item.name, count: item.countValue)
         didPressAddButton(from: view)
@@ -32,7 +32,7 @@ class FoodAddViewController: UIViewController {
         return view
     }
     
-    private func didPressAddButton(from view: FoodAddRect) {
+    private func didPressAddButton(from view: AddItemView) {
         view.onPressAddToBasketButton = { [weak self] count in
             guard let self else { return }
             

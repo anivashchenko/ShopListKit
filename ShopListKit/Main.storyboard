@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Food Add View Controller-->
+        <!--Add Item View Controller-->
         <scene sceneID="fFl-t3-toB">
             <objects>
-                <viewController id="9Ly-HJ-SIw" customClass="FoodAddViewController" customModule="ShopListKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Ly-HJ-SIw" customClass="AddItemViewController" customModule="ShopListKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3kR-Zb-2cq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E0Q-oR-NOM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwH-Wk-XI4" customClass="FoodAddRect" customModule="ShopListKit" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwH-Wk-XI4" customClass="AddItemView" customModule="ShopListKit" customModuleProvider="target">
                                 <rect key="frame" x="20" y="213" width="353" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -96,7 +96,7 @@
                     <connections>
                         <outlet property="collectionView" destination="HMw-RK-0Bm" id="dAS-Za-oID"/>
                         <outlet property="groupTabView" destination="q1V-Al-otg" id="3Nv-ev-XEm"/>
-                        <segue destination="9Ly-HJ-SIw" kind="show" identifier="ShowFoodAdd" id="SNX-0K-lLH"/>
+                        <segue destination="9Ly-HJ-SIw" kind="show" identifier="ShowAddItem" id="SNX-0K-lLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

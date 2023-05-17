@@ -10,7 +10,7 @@ class FoodListViewController: UIViewController {
     @IBOutlet weak var groupTabView: GroupTabView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var foodModel: FoodModel!
+    var foodModel: FoodListModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,9 @@ class FoodListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowFoodAdd" {
-            guard let controller = segue.destination as? FoodAddViewController else { return }
-            controller.item = sender as? Item
+        if segue.identifier == "ShowAddItem" {
+            guard let controller = segue.destination as? AddItemViewController else { return }
+            controller.item = sender as? FoodListItem
             controller.foodModel = foodModel
         }
     }
@@ -50,8 +50,8 @@ class FoodListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let nib = UINib(nibName: FoodListViewCell.identifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: FoodListViewCell.identifier)
+        let nib = UINib(nibName: FoodListCellView.identifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: FoodListCellView.identifier)
         
         collectionView.collectionViewLayout = createCollectionViewLayout()
     }
@@ -65,8 +65,8 @@ extension FoodListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reuseId = FoodListViewCell.identifier
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? FoodListViewCell
+        let reuseId = FoodListCellView.identifier
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? FoodListCellView
         else { fatalError() }
         
         cell.viewModel = foodModel.viewModelForItem(at: indexPath.row)
@@ -80,6 +80,6 @@ extension FoodListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = foodModel.currentItems[indexPath.row]
-        performSegue(withIdentifier: "ShowFoodAdd", sender: item)
+        performSegue(withIdentifier: "ShowAddItem", sender: item)
     }
 }

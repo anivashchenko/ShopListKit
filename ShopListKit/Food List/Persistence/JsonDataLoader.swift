@@ -8,11 +8,11 @@ class JsonDataLoader: DataLoader {
     
     var titles: [String] = []
     
-    func loadData() -> [Item] {
+    func loadData() -> [FoodListItem] {
         loadNamesOfFiles()
-        var items: [Item] = []
+        var items: [FoodListItem] = []
         titles.forEach {
-            let loadedItems = load("\($0)Data.json") as [Item]
+            let loadedItems = load("\($0)Data.json") as [FoodListItem]
             items.append(contentsOf: loadedItems)
         }
         

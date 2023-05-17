@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Item: Codable, Identifiable {
+struct FoodListItem: Codable, Identifiable {
     
     let id = UUID().uuidString
     let name: String
@@ -21,11 +21,11 @@ struct Item: Codable, Identifiable {
         case name, countValue, isSet, isBought, typeFood
     }
     
-    static func resetToDefaultItem(name: String, typeFood: TypeFood) -> Item {
-        Item(name: name, countValue: 0, isSet: false, isBought: false, typeFood: typeFood)
+    static func resetToDefaultItem(name: String, typeFood: TypeFood) -> FoodListItem {
+        FoodListItem(name: name, countValue: 0, isSet: false, isBought: false, typeFood: typeFood)
     }
     
-    func addNewItem(with count: Int) -> Item {
-        Item(name: name, countValue: count, isSet: true, isBought: false, typeFood: typeFood)
+    func addNewItem(with count: Int) -> FoodListItem {
+        FoodListItem(name: name, countValue: count, isSet: true, isBought: false, typeFood: typeFood)
     }
 }

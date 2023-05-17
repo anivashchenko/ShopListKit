@@ -4,7 +4,7 @@
 
 import UIKit
 
-class BasketCell: UITableViewCell {
+class BasketCellView: UITableViewCell {
     
     @IBOutlet private var itemImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!

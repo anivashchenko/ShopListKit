@@ -4,11 +4,11 @@
 
 import UIKit
 
-class FoodAddRect: UIView {
+class AddItemView: UIView {
     
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var stepper: CountStepper!
+    @IBOutlet private var stepper: CountStepperView!
     @IBOutlet private var addToBasketButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private var titleView: UIView!
@@ -99,7 +99,7 @@ class FoodAddRect: UIView {
 }
 
 // Count Stepper Delegate
-extension FoodAddRect: CountStepperDelegate {
+extension AddItemView: CountStepperDelegate {
     
     func configureAddToBasketButton(_ view: UIView, count: Int) {
         addToBasketButton.backgroundColor = count > 0 ? .accentColor : .lightGray
