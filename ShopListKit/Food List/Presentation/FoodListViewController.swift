@@ -18,7 +18,7 @@ class FoodListViewController: UIViewController {
         navigationItem.title = "The shop list"
         foodModel.loadItemsWhenAppear()
         setUpGroupTabView()
-        loadItemCollectionCellView(from: collectionView)
+        setUpCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +27,7 @@ class FoodListViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    private func loadItemCollectionCellView(from collectionView: UICollectionView) {
+    private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         
