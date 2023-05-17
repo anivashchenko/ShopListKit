@@ -6,9 +6,9 @@ import UIKit
 
 class BasketCellView: UITableViewCell {
     
-    @IBOutlet private var itemImageView: UIImageView!
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var starButton: UIButton!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var starButton: UIButton!
     
     var viewModel: BasketCellViewModel! {
         didSet {

@@ -9,7 +9,7 @@ class FoodListCellView: UICollectionViewCell {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var systemIconImageView: UIImageView!
-    @IBOutlet private var customContentView: UIView!
+    @IBOutlet private weak var customContentView: UIView!
     
     var viewModel: FoodListCellViewModel! {
         didSet {

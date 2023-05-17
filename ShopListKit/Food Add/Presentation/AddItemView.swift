@@ -6,12 +6,12 @@ import UIKit
 
 class AddItemView: UIView {
     
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var stepper: CountStepperView!
-    @IBOutlet private var addToBasketButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var stepper: CountStepperView!
+    @IBOutlet private weak var addToBasketButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private var titleView: UIView!
+    @IBOutlet private weak var titleView: UIView!
     
     var onPressAddToBasketButton: ((Int) -> Void)?
     

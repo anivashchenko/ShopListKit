@@ -10,9 +10,9 @@ protocol CountStepperDelegate: AnyObject {
 
 class CountStepperView: UIView {
     
-    @IBOutlet private(set) var count: UILabel!
-    @IBOutlet private var minusButton: UIButton!
-    @IBOutlet private var plusButton: UIButton!
+    @IBOutlet private(set) weak var count: UILabel!
+    @IBOutlet private weak var minusButton: UIButton!
+    @IBOutlet private weak var plusButton: UIButton!
     
     weak var delegate: CountStepperDelegate?
     
