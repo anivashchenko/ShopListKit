@@ -45,6 +45,12 @@ final class FoodModel {
         filterCurrentItems(of: titles[0].lowercased()) {}
     }
     
+    func viewModelForItem(at row: Int) -> FoodListCellViewModel {
+        let item = currentItems[row]
+        
+        return FoodListCellViewModel(name: item.name, count: item.countValue)
+    }
+    
     private func resetAllAddedItems() {
         var typesFood: [Item.TypeFood] = []
         

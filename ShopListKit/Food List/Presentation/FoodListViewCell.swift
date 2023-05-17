@@ -7,6 +7,17 @@ import UIKit
 class FoodListViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var systemIcon: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var systemIconImageView: UIImageView!
+    @IBOutlet var customContentView: UIView!
+    
+    var viewModel: FoodListCellViewModel! {
+        didSet {
+            imageView.image = viewModel.image
+            titleLabel.attributedText = viewModel.attributedTitle
+            systemIconImageView.image = viewModel.systemIcon
+            customContentView.backgroundColor = viewModel.backgroundColor
+            customContentView.layer.cornerRadius = 15
+        }
+    }
 }

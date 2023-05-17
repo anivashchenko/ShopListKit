@@ -69,22 +69,9 @@ extension FoodListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? FoodListViewCell
         else { fatalError() }
         
-        let item = foodModel.currentItems[indexPath.row]
-        cell.imageView.image = UIImage(named: item.name)
-        cell.label.attributedText = .customFoodListTitle(title: item.name, count: item.countValue)
-        configureSystemCell(for: cell, item: item)
-        cell.layer.backgroundColor = item.countValue == 0 ? .secondary : .veryLightGreen
-        cell.layer.cornerRadius = 15
+        cell.viewModel = foodModel.viewModelForItem(at: indexPath.row)
         
         return cell
-    }
-    
-    private func configureSystemCell(for cell: FoodListViewCell, item: Item) {
-        let configPlusIcon = UIImage.SymbolConfiguration(hierarchicalColor: .accentColor)
-        let config = item.countValue == 0 ? configPlusIcon : nil
-        let imageSystemName = item.countValue == 0 ? "plus.circle.fill" : "checkmark.circle.fill"
-        cell.systemIcon.image = UIImage(systemName: imageSystemName, withConfiguration: config)
-        cell.systemIcon.tintColor = item.countValue == 0 ? nil : UIColor(.yellow)
     }
 }
 

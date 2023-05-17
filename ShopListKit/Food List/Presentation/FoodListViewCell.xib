@@ -50,9 +50,10 @@
             </collectionViewCellContentView>
             <size key="customSize" width="403" height="437"/>
             <connections>
+                <outlet property="customContentView" destination="jZf-7U-xvD" id="sOk-nk-rro"/>
                 <outlet property="imageView" destination="Nor-A2-KbJ" id="4Id-bf-RXG"/>
-                <outlet property="label" destination="uaP-dl-V4o" id="Jaj-MF-ujd"/>
-                <outlet property="systemIcon" destination="Iwi-NO-MhM" id="OJ5-fn-9k3"/>
+                <outlet property="systemIconImageView" destination="Iwi-NO-MhM" id="OJ5-fn-9k3"/>
+                <outlet property="titleLabel" destination="uaP-dl-V4o" id="Jaj-MF-ujd"/>
             </connections>
             <point key="canvasLocation" x="-6.1068702290076331" y="-114.08450704225352"/>
         </collectionViewCell>

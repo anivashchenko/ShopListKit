@@ -14,6 +14,7 @@
 		5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */; };
 		5D4B9CD929D71A390077E44B /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B9CD829D71A390077E44B /* BasketModel.swift */; };
 		5D7450172A14D0B8000F6EB9 /* UIViewController+createCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7450162A14D0B8000F6EB9 /* UIViewController+createCollectionViewLayout.swift */; };
+		5D7450192A14D6B1000F6EB9 /* FoodListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7450182A14D6B1000F6EB9 /* FoodListCellViewModel.swift */; };
 		5D7A455B29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */; };
 		5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */; };
 		5D7F702629BF6BAF00CCD609 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F702529BF6BAF00CCD609 /* CountStepper.swift */; };
@@ -48,7 +49,6 @@
 		5DB1E9C729BB7E7A00585348 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C629BB7E7A00585348 /* UIColor.swift */; };
 		5DB1E9CA29BB8F1E00585348 /* GroupTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */; };
 		5DB1E9CD29BB91B400585348 /* GroupTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E9CC29BB91B400585348 /* GroupTabView.xib */; };
-		5DCC396B2A0D02BC00A9ADA5 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC396A2A0D02BC00A9ADA5 /* CGColor.swift */; };
 		5DDCCBB92A0A8AC10002DC12 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +80,7 @@
 		5D39BDB129BA4E0200BC4C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D4B9CD829D71A390077E44B /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		5D7450162A14D0B8000F6EB9 /* UIViewController+createCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+createCollectionViewLayout.swift"; sourceTree = "<group>"; };
+		5D7450182A14D6B1000F6EB9 /* FoodListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListCellViewModel.swift; sourceTree = "<group>"; };
 		5D7A455A29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+basketBezierPath.swift"; sourceTree = "<group>"; };
 		5D7AFBFC29E05DCD00C05BED /* BasketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCellViewModel.swift; sourceTree = "<group>"; };
 		5D7F702529BF6BAF00CCD609 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		5DB1E9C629BB7E7A00585348 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5DB1E9C829BB8F1E00585348 /* GroupTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTabView.swift; sourceTree = "<group>"; };
 		5DB1E9CC29BB91B400585348 /* GroupTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTabView.xib; sourceTree = "<group>"; };
-		5DCC396A2A0D02BC00A9ADA5 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +206,7 @@
 		5D7D25E429C0DC510013D3D5 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				5D7450182A14D6B1000F6EB9 /* FoodListCellViewModel.swift */,
 				5D84953F29BD20FD00D2B683 /* Item.swift */,
 			);
 			path = Feature;
@@ -349,7 +350,6 @@
 		5DB1E9C529BB7E6C00585348 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5DCC396A2A0D02BC00A9ADA5 /* CGColor.swift */,
 				5DDCCBB82A0A8AC10002DC12 /* NSAttributedString.swift */,
 				5DB1E9C629BB7E7A00585348 /* UIColor.swift */,
 				5D8CB6472A1391D30084AF37 /* UIView+identifier.swift */,
@@ -527,11 +527,11 @@
 				5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */,
 				5D7A455B29D1D3B60080999F /* UIBezierPath+basketBezierPath.swift in Sources */,
 				5D8F2D9F29BE1E030008AC15 /* BasketCell.swift in Sources */,
-				5DCC396B2A0D02BC00A9ADA5 /* CGColor.swift in Sources */,
 				5D8F38A029D3111E003AA506 /* JsonDataLoader.swift in Sources */,
 				5D92F45229C8A1A200BC218A /* UIImage+imageFromBezierPath.swift in Sources */,
 				5D4B9CD929D71A390077E44B /* BasketModel.swift in Sources */,
 				5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */,
+				5D7450192A14D6B1000F6EB9 /* FoodListCellViewModel.swift in Sources */,
 				5D8CB64B2A13D8200084AF37 /* UIButton+configurationHandler.swift in Sources */,
 				5D84953C29BD1D9000D2B683 /* BasketListViewController.swift in Sources */,
 				5D96426F29BCB83E008BAE3A /* FoodListViewCell.swift in Sources */,
