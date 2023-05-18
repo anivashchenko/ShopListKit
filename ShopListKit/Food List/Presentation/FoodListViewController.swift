@@ -40,9 +40,7 @@ class FoodListViewController: UIViewController {
         groupTabView.configureButtons(with: titles)
         
         groupTabView.onDidPressButton = { [weak self] title in
-            self?.foodModel.filterCurrentItems(of: title.lowercased()) {
-                self?.collectionView.reloadData()
-            }
+            self?.foodModel.filterCurrentItems(of: title.lowercased())
         }
     }
     
@@ -54,6 +52,10 @@ class FoodListViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: FoodListCellView.identifier)
         
         collectionView.collectionViewLayout = createCollectionViewLayout()
+        
+        foodModel.onDataChanged = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 
