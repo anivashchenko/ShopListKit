@@ -8,7 +8,7 @@ import UIKit
 class AddItemViewController: UIViewController {
     
     @IBOutlet private weak var backgroundImage: UIImageView!
-    @IBOutlet private weak var foodAddView: AddItemView?
+    @IBOutlet private weak var foodAddView: AddItemView!
     
     var foodModel: FoodListModel!
     var item: FoodListItem!
@@ -16,20 +16,15 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let customView = loadAddItemView() else { return }
-        view.addSubview(customView)
-        
+        loadAddItemView()
         backgroundImage.image = UIImage(named: item.name)
         blurBackgroundImage(for: backgroundImage)
     }
     
-    private func loadAddItemView() -> UIView? {
-        guard let view = foodAddView else { return nil }
-        
-        view.configureView(name: item.name, count: item.countValue)
-        didPressAddButton(from: view)
-        
-        return view
+    private func loadAddItemView() {
+        foodAddView.configureView(name: item.name, count: item.countValue)
+        didPressAddButton(from: foodAddView)
+        view.addSubview(foodAddView)
     }
     
     private func didPressAddButton(from view: AddItemView) {
