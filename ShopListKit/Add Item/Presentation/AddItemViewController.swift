@@ -16,14 +16,14 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let customView = loadFoodAddRectView() else { return }
+        guard let customView = loadAddItemView() else { return }
         view.addSubview(customView)
         
         backgroundImage.image = UIImage(named: item.name)
         blurBackgroundImage(for: backgroundImage)
     }
     
-    private func loadFoodAddRectView() -> UIView? {
+    private func loadAddItemView() -> UIView? {
         guard let view = foodAddView as? AddItemView else { return nil }
         
         view.configureView(name: item.name, count: item.countValue)
