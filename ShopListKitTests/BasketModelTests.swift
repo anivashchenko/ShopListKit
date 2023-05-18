@@ -184,10 +184,10 @@ final class BasketModelTests: XCTestCase {
     }
     
     private func addedItem(name: String, count: Int = 1, isFavorite: Bool = false) -> BasketItem {
-        .init(name: name, countValue: count, typeFood: .berries, isFavorite: isFavorite)
+        .init(name: name, typeFood: .berries, count: count, isFavorite: isFavorite)
     }
     
     private func boughtItem(name: String, count: Int = 1) -> BasketItem {
-        .init(name: name, countValue: count, typeFood: .berries, isAddedToList: false, isBought: true)
+        .init(name: name, typeFood: .berries, count: count, isAddedToBasket: false, isBought: true)
     }
 }
