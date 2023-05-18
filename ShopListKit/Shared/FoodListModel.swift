@@ -23,12 +23,11 @@ final class FoodListModel {
     }
     
     func addToBasket(item: FoodListItem, count: Int) {
-        let newItem = item.addNewItem(with: count)
-        guard let index = items.firstIndex(where: { $0.name == newItem.name }) else { return }
-        items[index] = newItem
+        guard let index = items.firstIndex(where: { $0.name == item.name }) else { return }
+        items[index] = item.addToBasket(with: count)
         filterCurrentItems(of: item.typeFood.rawValue) {}
         
-        let basketItem = BasketItem(name: newItem.name, countValue: newItem.countValue, typeFood: newItem.typeFood)
+        let basketItem = BasketItem(name: item.name, countValue: item.count + count, typeFood: item.typeFood)
         basketModel.addNewItem(basketItem)
     }
     
@@ -48,12 +47,11 @@ final class FoodListModel {
     func viewModelForItem(at row: Int) -> FoodListCellViewModel {
         let item = currentItems[row]
         
-        return FoodListCellViewModel(name: item.name, count: item.countValue)
+        return FoodListCellViewModel(name: item.name, count: item.count)
     }
     
     private func resetAllAddedItems() {
         var typesFood: [FoodListItem.TypeFood] = []
-        
         items.filter { $0.isSet == true }
              .forEach {
                 resetToDefaultItem(with: $0.name, from: $0.typeFood)
@@ -70,6 +68,6 @@ final class FoodListModel {
     
     private func resetToDefaultItem(with name: String, from typeFood: FoodListItem.TypeFood) {
         guard let index = items.firstIndex(where: { $0.name == name }) else { return }
-        items[index] = FoodListItem.resetToDefaultItem(name: name, typeFood: typeFood)
+        items[index] = FoodListItem(name: name, typeFood: typeFood)
     }
 }

@@ -6,12 +6,12 @@ import Foundation
 
 struct FoodListItem: Codable, Identifiable {
     
-    let id = UUID().uuidString
     let name: String
-    var countValue = 0
-    var isSet = false
-    var isBought = false
     let typeFood: TypeFood
+    var count = 0
+    var isSet = false
+    
+    var id: String { name }
     
     enum TypeFood: String, Codable {
         case vegetables, fruits, berries
@@ -21,11 +21,7 @@ struct FoodListItem: Codable, Identifiable {
         case name, typeFood
     }
     
-    static func resetToDefaultItem(name: String, typeFood: TypeFood) -> FoodListItem {
-        FoodListItem(name: name, countValue: 0, isSet: false, isBought: false, typeFood: typeFood)
-    }
-    
-    func addNewItem(with count: Int) -> FoodListItem {
-        FoodListItem(name: name, countValue: count, isSet: true, isBought: false, typeFood: typeFood)
+    func addToBasket(with count: Int) -> FoodListItem {
+        FoodListItem(name: name, typeFood: typeFood, count: count, isSet: true)
     }
 }

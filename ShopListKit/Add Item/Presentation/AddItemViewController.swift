@@ -22,7 +22,7 @@ class AddItemViewController: UIViewController {
     }
     
     private func loadAddItemView() {
-        foodAddView.configureView(name: item.name, count: item.countValue)
+        foodAddView.configureView(name: item.name, count: item.count)
         didPressAddButton(from: foodAddView)
         view.addSubview(foodAddView)
     }
