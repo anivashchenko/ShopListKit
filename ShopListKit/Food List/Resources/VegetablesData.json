@@ -1,86 +1,50 @@
 [
     {
         "name": "Potato",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Tomato",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Carrot",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Cucumber",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Zucchini",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Onion",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Garlic",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Pepper",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Cabbage",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Cauliflower",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Broccoli",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     },
     {
         "name": "Mushroom",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "vegetables"
     }
 ]

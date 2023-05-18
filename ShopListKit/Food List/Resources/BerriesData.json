@@ -1,23 +1,14 @@
 [
     {
         "name": "Raspberry",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "berries"
     },
     {
         "name": "Blueberry",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "berries"
     },
     {
         "name": "Blackberry",
-        "countValue": 0,
-        "isSet": false,
-        "isBought": false,
         "typeFood": "berries"
     }
 ]

@@ -8,17 +8,17 @@ struct FoodListItem: Codable, Identifiable {
     
     let id = UUID().uuidString
     let name: String
-    var countValue: Int
-    var isSet: Bool
-    var isBought: Bool
+    var countValue = 0
+    var isSet = false
+    var isBought = false
     let typeFood: TypeFood
-
+    
     enum TypeFood: String, Codable {
         case vegetables, fruits, berries
     }
     
     private enum CodingKeys: CodingKey {
-        case name, countValue, isSet, isBought, typeFood
+        case name, typeFood
     }
     
     static func resetToDefaultItem(name: String, typeFood: TypeFood) -> FoodListItem {
