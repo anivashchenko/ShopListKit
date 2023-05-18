@@ -52,14 +52,10 @@ final class FoodListModel {
     }
     
     private func resetAllAddedItems() {
-        var typesFood: [FoodListItem.TypeFood] = []
         items.filter { $0.isSet == true }
-             .forEach {
-                resetToDefaultItem(with: $0.name, from: $0.typeFood)
-                !typesFood.contains($0.typeFood) ? typesFood.append($0.typeFood) : nil
-             }
+             .forEach { resetToDefaultItem(with: $0.name, from: $0.typeFood) }
         
-        typesFood.forEach { filterCurrentItems(of: $0.rawValue) }
+        FoodListItem.TypeFood.allCases.forEach { filterCurrentItems(of: $0.rawValue) }
     }
     
     private func resetItem(with name: String, from typeFood: FoodListItem.TypeFood) {

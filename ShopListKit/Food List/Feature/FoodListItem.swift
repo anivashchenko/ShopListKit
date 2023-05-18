@@ -13,7 +13,7 @@ struct FoodListItem: Codable, Identifiable {
     
     var id: String { name }
     
-    enum TypeFood: String, Codable {
+    enum TypeFood: String, CaseIterable, Codable {
         case vegetables, fruits, berries
     }
     
