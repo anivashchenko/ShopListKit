@@ -8,7 +8,7 @@ import UIKit
 class AddItemViewController: UIViewController {
     
     @IBOutlet private weak var backgroundImage: UIImageView!
-    @IBOutlet private weak var foodAddView: UIView!
+    @IBOutlet private weak var foodAddView: AddItemView?
     
     var foodModel: FoodListModel!
     var item: FoodListItem!
@@ -24,7 +24,7 @@ class AddItemViewController: UIViewController {
     }
     
     private func loadAddItemView() -> UIView? {
-        guard let view = foodAddView as? AddItemView else { return nil }
+        guard let view = foodAddView else { return nil }
         
         view.configureView(name: item.name, count: item.countValue)
         didPressAddButton(from: view)
@@ -34,9 +34,9 @@ class AddItemViewController: UIViewController {
     
     private func didPressAddButton(from view: AddItemView) {
         view.onPressAddToBasketButton = { [weak self] count in
-            guard let self else { return }
+            guard let self, let item = self.item else { return }
             
-            self.foodModel.addToBasket(item: self.item!, count: count)
+            self.foodModel.addToBasket(item: item, count: count)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.navigationController?.popViewController(animated: true)
