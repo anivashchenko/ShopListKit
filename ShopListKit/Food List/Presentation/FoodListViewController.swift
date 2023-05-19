@@ -48,8 +48,7 @@ class FoodListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let nib = UINib(nibName: FoodListCellView.identifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: FoodListCellView.identifier)
+        collectionView.register(FoodListCellView.nib, forCellWithReuseIdentifier: FoodListCellView.identifier)
         
         collectionView.collectionViewLayout = createCollectionViewLayout()
         

@@ -15,8 +15,7 @@ class BasketListViewController: UITableViewController {
         
         configureBarButtonItems()
         
-        let nibName = UINib(nibName: BasketCellView.identifier, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: BasketCellView.identifier)
+        tableView.register(BasketCellView.nib, forCellReuseIdentifier: BasketCellView.identifier)
         
         basketModel.onAppearEmptyView = { [weak self] isEmpty in
             self?.configureEmptyView(isEmpty)
