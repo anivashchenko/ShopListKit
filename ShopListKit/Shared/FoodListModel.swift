@@ -53,17 +53,17 @@ final class FoodListModel {
     
     private func resetAllAddedItems() {
         items.filter { $0.isSet == true }
-             .forEach { resetToDefaultItem(with: $0.name, from: $0.typeFood) }
+             .forEach { resetItemToDefaultValues(with: $0.name, from: $0.typeFood) }
         
         FoodListItem.TypeFood.allCases.forEach { filterCurrentItems(of: $0.rawValue) }
     }
     
     private func resetItem(with name: String, from typeFood: FoodListItem.TypeFood) {
-        resetToDefaultItem(with: name, from: typeFood)
+        resetItemToDefaultValues(with: name, from: typeFood)
         filterCurrentItems(of: typeFood.rawValue)
     }
     
-    private func resetToDefaultItem(with name: String, from typeFood: FoodListItem.TypeFood) {
+    private func resetItemToDefaultValues(with name: String, from typeFood: FoodListItem.TypeFood) {
         guard let index = items.firstIndex(where: { $0.name == name }) else { return }
         items[index] = FoodListItem(name: name, typeFood: typeFood)
     }
