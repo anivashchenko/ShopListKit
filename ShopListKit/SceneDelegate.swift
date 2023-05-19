@@ -33,10 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func drawBasketIcon(in navigationController: UINavigationController?) {
-        let basketImage = UIImage.imageFromBezierPath(
-            .basketBezierPath(height: 30),
-            size: CGSize(width: 30, height: 30),
-            color: UIColor.gray.cgColor)
+        let basketImage = UIImage.basketIconImage(height: 30, color: .gray)
         navigationController?.tabBarItem = UITabBarItem(title: "Basket", image: basketImage, tag: 2)
     }
 }

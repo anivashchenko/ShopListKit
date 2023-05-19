@@ -22,10 +22,7 @@ class EmptyBasketView: UIView {
         let _ = loadNibNamed()
         
         let height = basketImageView.frame.height
-        basketImageView.image = UIImage.imageFromBezierPath(
-            .basketBezierPath(height: height),
-            size: CGSize(width: height, height: height),
-            color: UIColor.accentColor.cgColor)
+        basketImageView.image = UIImage.basketIconImage(height: height, color: .accentColor)
         basketImageView.accessibilityIdentifier = "EmptyBasketView"
     }
 }

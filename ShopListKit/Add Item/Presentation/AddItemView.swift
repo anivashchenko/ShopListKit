@@ -86,13 +86,7 @@ class AddItemView: UIView {
         addToBasketButton.layer.cornerRadius = 15
         
         let height = addToBasketButton.bounds.height * 0.8
-        addToBasketButton.setImage(
-            .imageFromBezierPath(
-                .basketBezierPath(height: height),
-                size: .init(width: height, height: height),
-                color: UIColor.white.cgColor
-            ), for: .normal
-        )
+        addToBasketButton.setImage(UIImage.basketIconImage(height: height, color: .white), for: .normal)
         
         addToBasketButton.accessibilityIdentifier = "AddToBasket"
     }
