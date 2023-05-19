@@ -13,13 +13,7 @@ class BasketListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = self.editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "trash.circle"),
-            style: .plain,
-            target: self,
-            action: #selector(deleteAllItems))
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
+        configureBarButtonItems()
         
         let nibName = UINib(nibName: BasketCellView.identifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BasketCellView.identifier)
@@ -41,6 +35,17 @@ class BasketListViewController: UITableViewController {
         }
     }
     
+    private func configureBarButtonItems() {
+        navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "trash.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(deleteAllItems))
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
+    }
+    
     private func configureEmptyView(_ isEmpty: Bool) {
         emptyView.frame = view.frame
         isEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
@@ -49,6 +54,7 @@ class BasketListViewController: UITableViewController {
         tableView.isScrollEnabled = !isEmpty
         tableView.reloadData()
     }
+    
     
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
         let title = "Do you want to remove the whole list?"
