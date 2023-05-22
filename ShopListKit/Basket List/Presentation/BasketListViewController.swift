@@ -55,7 +55,6 @@ class BasketListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
         let title = "Do you want to remove the whole list?"
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
