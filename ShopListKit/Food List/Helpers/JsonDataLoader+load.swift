@@ -4,7 +4,7 @@
 
 import Foundation
 
-extension JsonDataLoader {
+extension JSONDataLoader {
     
     func load<T: Decodable>(_ filename: String) -> T {
         let data: Data

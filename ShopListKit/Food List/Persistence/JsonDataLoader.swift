@@ -4,7 +4,7 @@
 
 import Foundation
 
-class JsonDataLoader: DataLoader {
+class JSONDataLoader: DataLoader {
     
     var titles: [String] = []
     

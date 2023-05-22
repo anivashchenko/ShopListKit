@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func instantiateFoodListViewController(basketModel: BasketModel) {
-        let dataLoader = JsonDataLoader()
+        let dataLoader = JSONDataLoader()
         let foodModel = FoodListModel(items: dataLoader.loadData(), titles: dataLoader.titles, basketModel: basketModel)
         let foodlistVC = instantiateViewController(indexOfVCInTheTabBar: 0) as? FoodListViewController
         foodlistVC?.foodModel = foodModel
