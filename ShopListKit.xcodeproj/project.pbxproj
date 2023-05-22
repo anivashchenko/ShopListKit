@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D0C8BD12A091308005B65A6 /* BasketModelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C8BD02A091308005B65A6 /* BasketModelUITests.swift */; };
 		5D0CFC5B29CDE936006F71DE /* FoodListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFC5A29CDE936006F71DE /* FoodListModel.swift */; };
+		5D2EA5612A1B8B02007836EB /* JsonDataLoader+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EA5602A1B8B02007836EB /* JsonDataLoader+load.swift */; };
 		5D39BDA429BA4DFF00BC4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */; };
 		5D39BDA629BA4DFF00BC4C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */; };
 		5D39BDA829BA4DFF00BC4C19 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D39BDA729BA4DFF00BC4C19 /* FoodListViewController.swift */; };
@@ -73,6 +74,7 @@
 		5D0C8BCE2A091308005B65A6 /* ShopListKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopListKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0C8BD02A091308005B65A6 /* BasketModelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModelUITests.swift; sourceTree = "<group>"; };
 		5D0CFC5A29CDE936006F71DE /* FoodListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListModel.swift; sourceTree = "<group>"; };
+		5D2EA5602A1B8B02007836EB /* JsonDataLoader+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonDataLoader+load.swift"; sourceTree = "<group>"; };
 		5D39BDA029BA4DFF00BC4C19 /* ShopListKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopListKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D39BDA329BA4DFF00BC4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D39BDA529BA4DFF00BC4C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		5D8CB6492A13D7F90084AF37 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5D2EA5602A1B8B02007836EB /* JsonDataLoader+load.swift */,
 				5D84953829BD1A1F00D2B683 /* UIButton.Configuration.swift */,
 				5D8CB64A2A13D8200084AF37 /* UIButton+configurationHandler.swift */,
 				5D7450162A14D0B8000F6EB9 /* UIViewController+createCollectionViewLayout.swift */,
@@ -520,6 +523,7 @@
 				5D7AFBFD29E05DCD00C05BED /* BasketCellViewModel.swift in Sources */,
 				5D84953E29BD20AF00D2B683 /* BasketItem.swift in Sources */,
 				5D82859C29CA02B70026DE86 /* UIView+loadNibNamed.swift in Sources */,
+				5D2EA5612A1B8B02007836EB /* JsonDataLoader+load.swift in Sources */,
 				5D0CFC5B29CDE936006F71DE /* FoodListModel.swift in Sources */,
 				5DB1E9CA29BB8F1E00585348 /* GroupTabView.swift in Sources */,
 				5D84953929BD1A1F00D2B683 /* UIButton.Configuration.swift in Sources */,
