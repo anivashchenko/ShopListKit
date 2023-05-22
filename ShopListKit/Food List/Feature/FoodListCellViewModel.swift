@@ -5,6 +5,7 @@
 import SwiftUI
 
 struct FoodListCellViewModel {
+    
     let name: String
     let count: Int
     

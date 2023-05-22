@@ -24,6 +24,7 @@ extension UIButton.Configuration {
         var configuration = customGroupButton(text: text, font: font)
         configuration.background.backgroundColor = .accentColor
         configuration.baseForegroundColor = .white
+        
         return configuration
     }
 }
