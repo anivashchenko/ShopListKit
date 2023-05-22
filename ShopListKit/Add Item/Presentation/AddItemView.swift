@@ -7,11 +7,11 @@ import UIKit
 class AddItemView: UIView {
     
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var stepper: CountStepperView!
     @IBOutlet private weak var addToBasketButton: UIButton!
-    @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var titleView: UIView!
     
     var onPressAddToBasketButton: ((Int) -> Void)?
     
@@ -50,19 +50,6 @@ class AddItemView: UIView {
         backgroundColor = UIColor(white: 0.5, alpha: 0.3)
     }
     
-    @IBAction private func didPressAddToBasket(_ sender: UIButton) {
-        self.stepper.isHidden = true
-        self.addToBasketButton.isHidden = true
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
-            self.addedToBasketView.isHidden = false
-        }
-        
-        if let count = self.stepper.count.text, let countInt = Int(count) {
-            self.onPressAddToBasketButton?(countInt)
-        }
-    }
-    
     private func configureAddedToBasketSubview() {
         let addedToBasketLabel = UILabel()
         addedToBasketLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +76,19 @@ class AddItemView: UIView {
         addToBasketButton.setImage(UIImage.basketIconImage(height: height, color: .white), for: .normal)
         
         addToBasketButton.accessibilityIdentifier = "AddToBasket"
+    }
+    
+    @IBAction private func didPressAddToBasket(_ sender: UIButton) {
+        self.stepper.isHidden = true
+        self.addToBasketButton.isHidden = true
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
+            self.addedToBasketView.isHidden = false
+        }
+        
+        if let count = self.stepper.count.text, let countInt = Int(count) {
+            self.onPressAddToBasketButton?(countInt)
+        }
     }
 }
 
