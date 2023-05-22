@@ -86,7 +86,7 @@ class AddItemView: UIView {
             self.addedToBasketView.isHidden = false
         }
         
-        if let count = self.stepper.count.text, let countInt = Int(count) {
+        if let count = self.stepper.countLabel.text, let countInt = Int(count) {
             self.onPressAddToBasketButton?(countInt)
         }
     }
