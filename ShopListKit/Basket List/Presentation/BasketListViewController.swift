@@ -7,8 +7,9 @@ import SwiftUI
 
 class BasketListViewController: UITableViewController {
     
+    private let emptyView = EmptyBasketView()
+    
     var basketModel: BasketModel!
-    let emptyView = EmptyBasketView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
