@@ -80,11 +80,17 @@ class BasketModel {
     func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
         let item = item(at: indexPath)
         
-        return BasketCellViewModel(name: item.name, count: item.count, isAdded: item.isAddedToBasket, isFavorite: item.isFavorite) { [weak self] name, isAdded in
-            if let self, let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) {
-                items[index].updateIsFavorite()
+        return BasketCellViewModel(
+            name: item.name,
+            count: item.count,
+            isAdded: item.isAddedToBasket,
+            isFavorite: item.isFavorite,
+            onFavoriteChanged: { [weak self] name, isAdded in
+                if let self, let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) {
+                    items[index].updateIsFavorite()
+                }
             }
-        }
+        )
     }
     
     private func item(at indexPath: IndexPath) -> BasketItem {
