@@ -9,8 +9,4 @@ extension UIView {
     static var identifier: String {
         String(describing: Self.self)
     }
-    
-    static var nib: UINib {
-        UINib(nibName: "\(self)", bundle: nil)
-    }
 }
