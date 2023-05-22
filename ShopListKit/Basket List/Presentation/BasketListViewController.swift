@@ -7,59 +7,62 @@ import SwiftUI
 
 class BasketListViewController: UITableViewController {
     
+    private let emptyView = EmptyBasketView()
+    
     var basketModel: BasketModel!
-    let emptyView = EmptyBasketView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = self.editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash.circle"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(deleteAllItems))
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
+        configureBarButtonItems()
         
-        let nibName = UINib(nibName: BasketCell.reuseIdentifier, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: BasketCell.reuseIdentifier)
+        tableView.register(BasketCellView.nib, forCellReuseIdentifier: BasketCellView.identifier)
+        
+        basketModel.onAppearEmptyView = { [weak self] isEmpty in
+            self?.configureEmptyView(isEmpty)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureEmptyView()
-        tableView.reloadData()
+        basketModel.checkBasketIsEmpty()
     }
     
     @objc func deleteAllItems() {
         showAlertBeforeDeleting() { [weak self] _ in
             self?.basketModel.removeAllItems()
-            self?.configureEmptyView()
-            self?.tableView.reloadData()
         }
     }
     
-    private func configureEmptyView() {
+    private func configureBarButtonItems() {
+        navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "trash.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(deleteAllItems))
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "TrashBarButton"
+    }
+    
+    private func configureEmptyView(_ isEmpty: Bool) {
         emptyView.frame = view.frame
-        let isEmptyFirstSection = basketModel.sections.first?.isEmpty ?? true
-        let isEmptySecondSection = basketModel.sections.last?.isEmpty ?? true
-        let basketIsEmpty = isEmptyFirstSection && isEmptySecondSection
-        basketIsEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
-        navigationController?.navigationBar.isHidden = basketIsEmpty
-        tableView.contentInsetAdjustmentBehavior = basketIsEmpty ? .never : .automatic
-        tableView.isScrollEnabled = !basketIsEmpty
+        isEmpty ? view.addSubview(emptyView) : emptyView.removeFromSuperview()
+        navigationController?.navigationBar.isHidden = isEmpty
+        tableView.contentInsetAdjustmentBehavior = isEmpty ? .never : .automatic
+        tableView.isScrollEnabled = !isEmpty
+        tableView.reloadData()
     }
     
     private func showAlertBeforeDeleting(handler: ((UIAlertAction) -> Void)?) {
         let title = "Do you want to remove the whole list?"
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
-        let delete = UIAlertAction(title: "Delete", style: .destructive, handler: handler)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: handler))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        alert.addAction(delete)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
 }
 
@@ -75,7 +78,7 @@ extension BasketListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BasketCell.reuseIdentifier, for: indexPath) as! BasketCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BasketCellView.identifier, for: indexPath) as! BasketCellView
         cell.viewModel = basketModel.viewModelForItem(at: indexPath)
         
         return cell
@@ -84,8 +87,6 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             basketModel.removeItem(at: indexPath)
-            configureEmptyView()
-            tableView.reloadData()
         }
     }
     
@@ -95,7 +96,6 @@ extension BasketListViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         basketModel.moveRow(from: sourceIndexPath, to: destinationIndexPath)
-        tableView.reloadData()
     }
 }
 
@@ -105,7 +105,6 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         basketModel.updateExistedItem(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -115,7 +114,7 @@ extension BasketListViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         let title = basketModel.titleForHeader(in: section)
-        label.attributedText = customHeader(title: title, size: 20, color: .darkGreen)
+        label.attributedText = .customBasketListHeader(title: title, size: 20, color: .accentColor)
         
         return label
     }

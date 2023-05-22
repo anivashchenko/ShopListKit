@@ -7,5 +7,5 @@ import Foundation
 protocol DataLoader {
     var titles: [String] { get }
     
-    func loadData() -> [Item]
+    func loadData() -> [FoodListItem]
 }

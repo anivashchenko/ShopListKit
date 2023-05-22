@@ -4,21 +4,19 @@
 
 import Foundation
 
-struct BasketItem: Identifiable, Equatable {
+struct BasketItem: Equatable, Identifiable {
     
-    var name: String
-    var countValue: Int
-    var typeFood: Item.TypeFood
-    var isAddedToList: Bool = true
-    var isBought: Bool = false
-    var isFavorite: Bool = false
+    let name: String
+    let typeFood: FoodListItem.TypeFood
+    var count: Int
+    var isAddedToBasket = true
+    var isBought = false
+    var isFavorite = false
     
-    var id: String {
-        get { name + "\(isAddedToList)" }
-    }
+    var id: String { name + "\(isAddedToBasket)" }
     
     mutating func updateIsAddedAndIsBought() {
-        isAddedToList.toggle()
+        isAddedToBasket.toggle()
         isBought.toggle()
     }
     

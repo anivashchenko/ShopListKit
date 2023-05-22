@@ -4,13 +4,11 @@
 
 import UIKit
 
-class BasketCell: UITableViewCell {
+class BasketCellView: UITableViewCell {
     
-    @IBOutlet private var itemImageView: UIImageView!
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var starButton: UIButton!
-    
-    static let reuseIdentifier = String(describing: BasketCell.self)
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var starButton: UIButton!
     
     var viewModel: BasketCellViewModel! {
         didSet {

@@ -9,7 +9,8 @@ class BasketModel {
     private var items: [BasketItem]
     private(set) var sections: [[BasketItem]]
     
-    var onDelete: ((String, Item.TypeFood) -> Void)?
+    var onAppearEmptyView: ((Bool) -> Void)?
+    var onDelete: ((String, FoodListItem.TypeFood) -> Void)?
     var onDeleteAllItems: (() -> Void)?
     
     init() {
@@ -19,7 +20,7 @@ class BasketModel {
     
     func addNewItem(_ item: BasketItem, isUpdateSections: Bool = true) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
-            items[index].countValue += item.countValue
+            items[index].count += item.count
         } else {
             items.append(item)
         }
@@ -52,6 +53,10 @@ class BasketModel {
         }
     }
     
+    func checkBasketIsEmpty() {
+        onAppearEmptyView?(sections.isEmpty)
+    }
+    
     func removeAllItems() {
         items.removeAll()
         updateSections()
@@ -67,18 +72,25 @@ class BasketModel {
     
     func titleForHeader(in section: Int) -> String {
         let titles = ["WANT TO BUY:", "BOUGHT:"]
-        let isAddedItemExist = items.first { $0.isAddedToList } != nil
+        let isAddedItemExist = items.first { $0.isAddedToBasket } != nil
+        
         return titles[section + (isAddedItemExist ? 0 : 1)]
     }
     
     func viewModelForItem(at indexPath: IndexPath) -> BasketCellViewModel {
         let item = item(at: indexPath)
         
-        return BasketCellViewModel(name: item.name, count: item.countValue, isAdded: item.isAddedToList, isFavorite: item.isFavorite) { [weak self] name, isAdded in
-            guard let self else { return }
-            guard let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) else { return }
-            items[index].updateIsFavorite()
-        }
+        return BasketCellViewModel(
+            name: item.name,
+            count: item.count,
+            isAdded: item.isAddedToBasket,
+            isFavorite: item.isFavorite,
+            onFavoriteChanged: { [weak self] name, isAdded in
+                if let self, let index = items.firstIndex(where: { $0.id == "\(name)\(isAdded)" }) {
+                    items[index].updateIsFavorite()
+                }
+            }
+        )
     }
     
     private func item(at indexPath: IndexPath) -> BasketItem {
@@ -86,9 +98,10 @@ class BasketModel {
     }
     
     private func updateSections() {
-        let addedItem = items.filter { $0.isAddedToList }
+        let addedItem = items.filter { $0.isAddedToBasket }
         let boughtItem = items.filter { $0.isBought }
         sections = [addedItem, boughtItem]
         sections.removeAll(where: { $0.isEmpty })
+        checkBasketIsEmpty()
     }
 }

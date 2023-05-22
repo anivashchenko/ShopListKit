@@ -16,7 +16,7 @@ struct BasketCellViewModel {
     
     var image: UIImage? {
         let imageIsAdded = UIImage(named: name)
-        let imageIsBought = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(UIColor(.customOrange))
+        let imageIsBought = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.customOrange)
         
         return isAdded ? imageIsAdded : imageIsBought
     }
@@ -27,15 +27,15 @@ struct BasketCellViewModel {
             count: count,
             size: 18,
             primaryColor: isAdded ? .white : .darkGray,
-            secondaryColor: isAdded ? .lightGray : .gray
+            secondaryColor: isAdded ? .systemGray3 : .gray
         )
     }
     
     var starImageColor: UIColor {
-        isFavorite ? .systemYellow : UIColor(.lightGray)
+        isFavorite ? .systemYellow : .systemGray2
     }
     
     var backgroundColor: UIColor {
-        isAdded ? UIColor(.darkGreen) : UIColor(.lightGreen)
+        isAdded ? .accentColor : .lightGreen
     }
 }

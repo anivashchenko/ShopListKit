@@ -8,26 +8,21 @@ class EmptyBasketView: UIView {
     
     @IBOutlet var basketImageView: UIImageView!
     
-    private static let reuseIdentifier = String(describing: EmptyBasketView.self)
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        configureView()
     }
     
-    private func commonInit() {
+    private func configureView() {
         let _ = loadNibNamed()
         
         let height = basketImageView.frame.height
-        basketImageView.image = UIImage.imageFromBezierPath(
-            .basketBezierPath(height: height),
-            size: CGSize(width: height, height: height),
-            color: UIColor(.darkGreen).cgColor)
+        basketImageView.image = UIImage.basketIconImage(height: height, color: .accentColor)
         basketImageView.accessibilityIdentifier = "EmptyBasketView"
     }
 }
