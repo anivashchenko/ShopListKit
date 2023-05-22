@@ -30,14 +30,6 @@ class CountStepperView: UIView {
         self.countLabel.text = String(count)
     }
     
-    @IBAction private func didPressMinus(_ sender: UIButton) {
-        incrementor(number: -1)
-    }
-    
-    @IBAction private func didPressPlus(_ sender: UIButton) {
-        incrementor(number: 1)
-    }
-    
     private func configureView() {
         let view = loadNibNamed()
         view.layer.cornerRadius = 15
@@ -57,5 +49,13 @@ class CountStepperView: UIView {
             delegate?.configureAddToBasketButton(self, count: newCount)
         }
         minusButton.isEnabled = isEnabled
+    }
+    
+    @IBAction private func didPressMinus(_ sender: UIButton) {
+        incrementor(number: -1)
+    }
+    
+    @IBAction private func didPressPlus(_ sender: UIButton) {
+        incrementor(number: 1)
     }
 }
